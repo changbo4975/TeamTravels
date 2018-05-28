@@ -12,6 +12,21 @@ public class Member implements Serializable {
 	private String password;
 	private int restrictionCount;
 	
+	public Member() {
+		
+	}
+	
+	public Member(String email, String nickName, int age, int gender, String representativePhoto, String selfintroduction, String password, int restrictionCount) {
+		this.email = email;
+		this.nickName = nickName;
+		this.age = age;
+		this.gender = gender;
+		this.representativePhoto = representativePhoto;
+		this.selfintroduction = selfintroduction;
+		this.password = password;
+		this.restrictionCount = restrictionCount;
+	}
+	
 	public String getEmail() {
 		return email;
 	}
