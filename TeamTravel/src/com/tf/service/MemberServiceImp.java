@@ -9,7 +9,7 @@ import com.tf.persistence.MemberDAO;
 
 @Service
 public class MemberServiceImp implements MemberService {
-	private MemberDAO memberDAO;
+	//private MemberDAO memberDAO;
 	 
 	@Override
 	public List<Member> list(Member member) throws Exception {
