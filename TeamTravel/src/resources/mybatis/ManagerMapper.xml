@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tf.persistence.ManagerMapper">
+	<resultMap id="managerResultMap" type="com.tf.domain.Manager">
+		<id column="EMAIL" property="email" />
+		<result column="NICKNAME" property="nickname" />
+		<result column="PASSWORD" property="password" />
+	</resultMap>
+
+	<select id="select" parameterType="com.tf.domain.Manager"
+		resultType="com.tf.domain.Manager">
+		SELECT
+		EMAIL as email,
+		NICKNAME as nickname,
+		PASSWORD as password
+		FROM MANAGER
+		<where>
+			<if test="email != null and email != ''">
+				AND EMAIL = #{email}
+			</if>
+			<if test="password != null and password != ''">
+				AND PASSWORD = #{password}
+			</if>
+		</where>
+	</select>
+</mapper>
