@@ -17,10 +17,10 @@ import com.tf.persistence.MemberMapper;
 public class LoginServiceImpl implements LoginService {
 
 	@Resource
-	private MemberMapper MemberMapper;
+	private MemberMapper memberMapper;
 
 	@Resource
-	private ManagerMapper ManagerMapper;
+	private ManagerMapper managerMapper;
 
 	@Override
 	public Object login(String userEmail, String password) {
@@ -40,7 +40,7 @@ public class LoginServiceImpl implements LoginService {
 		manager.setEmail(userEmail);
 		manager.setPassword(password);
 
-		member2 = this.MemberMapper.select(member);
+		member2 = this.memberMapper.select(member);
 		if (member2 != null) {
 			HttpSession httpSession = request.getSession(true);
 			httpSession.setAttribute("email", member.getEmail());
@@ -48,7 +48,7 @@ public class LoginServiceImpl implements LoginService {
 
 			return member2;
 		} else if (member2 == null) {
-			manager2 = this.ManagerMapper.select(manager);
+			manager2 = this.managerMapper.select(manager);
 			
 			if (manager2 != null) {
 				HttpSession httpSession = request.getSession(true);
