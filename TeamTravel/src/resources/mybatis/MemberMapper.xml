@@ -14,7 +14,6 @@
 		<result column="RESTRICTION_COUNT" property="restrictionCount" />
 		<result column="PASSWORD" property="password" />
 	</resultMap>
-	
 
 	<select id="select" parameterType="com.tf.domain.Member"
 		resultType="com.tf.domain.Member">
@@ -37,4 +36,112 @@
 			</if>
 		</where>
 	</select>
+
+	<select id="list" parameterType="com.tf.domain.Member" resultMap="memberResultMap">
+		SELECT 
+			EMAIL, 
+			NICKNAME, 
+			AGE, 
+            GENDER,
+            REPRESENTATIVE_PHOTO,
+			SELFINTRODUCTION,
+			RESTRICTION_COUNT,
+			PASSWORD
+		FROM MEMBER
+		<where>
+			<if test="state != null and state != ''">
+				AND STATE = #{state}
+			</if>
+			<if test="id != null and id != ''">
+				AND UPPER(ID) LIKE '%'||UPPER(#{id})||'%'
+			</if>
+		</where>
+		ORDER BY STATE, ORDER_DATE DESC
+	</select>
+	
+	<select id="select" parameterType="com.tf.domain.Member"
+		resultMap="memberResultMap">
+		SELECT
+			EMAIL,
+			NICKNAME,
+			AGE,
+			GENDER,
+			REPRESENTATIVE_PHOTO,
+			SELFINTRODUCTION,
+			RESTRICTION_COUNT,
+			PASSWORD
+		FROM MEMBER
+		<where>
+			<if test="email != null and email != ''">
+				AND EMAIL = #{email}
+			</if>
+			<if test="password != null and password != ''">
+				AND PASSWORD = #{password}
+			</if>
+		</where>
+	</select>
+	
+	<!-- <select id="select" parameterType="com.tf.domain.Member"
+		resultType="com.tf.domain.Member">
+		SELECT
+		EMAIL as email,
+		NICKNAME as nickname,
+		AGE as age,
+		GENDER as gender,
+		REPRESENTATIVE_PHOTO as representativePhoto,
+		SELFINTRODUCTION as selfintroduction,
+		RESTRICTION_COUNT as restrictionCount,
+		PASSWORD as password
+		FROM MEMBER
+		<where>
+			<if test="email != null and email != ''">
+				AND EMAIL = #{email}
+			</if>
+			<if test="password != null and password != ''">
+				AND PASSWORD = #{password}
+			</if>
+		</where>
+	</select> -->
+	
+	<insert id="insert" parameterType="com.tf.domain.Member">
+		INSERT INTO MEMBER
+			(EMAIL, NICKNAME, AGE, GENDER, REPRESENTATIVE_PHOTO, SELFINTRODUCTION, RESTRICTION_COUNT, PASSWORD)
+		VALUES
+			( #{email}, #{nickname}, #{age}, #{gender}, #{representativePhoto}, #{selfintroduction}, #{restrictionCount}, #{password})
+	</insert>
+	
+	<update id="update" parameterType="com.tf.domain.Member" >
+		UPDATE MEMBER 
+		<set>
+		    <if test="nickname != '' and nickname != null">
+		        NICKNAME = #{nickname},
+		    </if>
+		    <if test="age != '' and age != null">
+		        AGE = #{age},
+		    </if>
+		    <if test="gender != '' and gender != null">
+		        GENDER = #{gender},
+		    </if>
+		    <if test="representativePhoto != '' and representativePhoto != null">
+		        REPRESENTATIVE_PHOTO = #{representativePhoto},
+		    </if>
+		    <if test="selfintroduction != '' and selfintroduction != null">
+		        SELFINTRODUCTION = #{selfintroduction},
+		    </if>
+		    <if test="restrictionCount != '' and restrictionCount != null">
+		        RESTRICTION_COUNT = #{restrictionCount},
+		    </if>
+		     <if test="password != '' and password != null">
+		        PASSWORD = #{password},
+		    </if>
+		</set>
+		WHERE 
+		    EMAIL = #{email}
+	</update>
+	
+	<update id="delete" parameterType="com.tf.domain.Member">
+		DELETE FROM MEMBER
+		WHERE EMAIL = #{email}
+	</update>
+	
 </mapper>
