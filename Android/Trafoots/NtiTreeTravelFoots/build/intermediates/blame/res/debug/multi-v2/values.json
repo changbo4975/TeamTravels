@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\GAK\\Desktop\\Trafoots\\NtiTreeTravelFoots\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\GAK\\Desktop\\TT\\Trafoots\\NtiTreeTravelFoots\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\GAK\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\4877f69d607e05aa3a6e900c0fb42ca4\\res\\values\\values.xml",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\GAK\\Desktop\\Trafoots\\NtiTreeTravelFoots\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\GAK\\Desktop\\TT\\Trafoots\\NtiTreeTravelFoots\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "3,15,10,17,27,19",
                         "startColumns": "4,4,4,4,4,4",
@@ -37,6 +37,23 @@
                         "endLines": "847,848,852,853,1928,1935",
                         "endColumns": "12,89,12,79,12,12",
                         "endOffsets": "70020,70110,70260,70340,139087,139523"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\GAK\\Desktop\\TT\\Trafoots\\NtiTreeTravelFoots\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "6,4,2,3",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "206,157,57,105",
+                        "endColumns": "49,45,46,50",
+                        "endOffsets": "251,198,99,151"
+                    },
+                    "to": {
+                        "startLines": "145,154,155,156",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "7151,7842,7888,7935",
+                        "endColumns": "49,45,46,50",
+                        "endOffsets": "7196,7883,7930,7981"
                     }
                 },
                 {
@@ -57,24 +74,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\GAK\\Desktop\\Trafoots\\NtiTreeTravelFoots\\src\\main\\res\\values\\dimens.xml",
-                    "from": {
-                        "startLines": "2,3,6,5,4",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "90,149,316,265,206",
-                        "endColumns": "57,55,41,49,57",
-                        "endOffsets": "143,200,353,310,259"
-                    },
-                    "to": {
-                        "startLines": "656,657,703,717,718",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "57193,57251,60203,61242,61292",
-                        "endColumns": "57,55,41,49,57",
-                        "endOffsets": "57246,57302,60240,61287,61345"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\GAK\\Desktop\\Trafoots\\NtiTreeTravelFoots\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\GAK\\Desktop\\TT\\Trafoots\\NtiTreeTravelFoots\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "7,8,1,11,12,6,5,4,3,2,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -165,20 +165,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\GAK\\Desktop\\Trafoots\\NtiTreeTravelFoots\\src\\main\\res\\values\\colors.xml",
+                    "source": "C:\\Users\\GAK\\Desktop\\TT\\Trafoots\\NtiTreeTravelFoots\\src\\main\\res\\values\\dimens.xml",
                     "from": {
-                        "startLines": "6,4,2,3",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "206,157,57,105",
-                        "endColumns": "49,45,46,50",
-                        "endOffsets": "251,198,99,151"
+                        "startLines": "2,3,6,5,4",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "90,149,316,265,206",
+                        "endColumns": "57,55,41,49,57",
+                        "endOffsets": "143,200,353,310,259"
                     },
                     "to": {
-                        "startLines": "145,154,155,156",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "7151,7842,7888,7935",
-                        "endColumns": "49,45,46,50",
-                        "endOffsets": "7196,7883,7930,7981"
+                        "startLines": "656,657,703,717,718",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "57193,57251,60203,61242,61292",
+                        "endColumns": "57,55,41,49,57",
+                        "endOffsets": "57246,57302,60240,61287,61345"
                     }
                 },
                 {
