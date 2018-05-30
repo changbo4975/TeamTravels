@@ -13,7 +13,6 @@ public class Member implements Serializable {
 	private int restrictionCount;
 	
 	public Member() {
-		
 	}
 	
 	public Member(String email, String nickname, int age, int gender, String representativePhoto, String selfintroduction, String password, int restrictionCount) {
