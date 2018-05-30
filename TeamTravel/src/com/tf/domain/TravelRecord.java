@@ -10,6 +10,7 @@ public class TravelRecord implements Serializable {
 	private String startDate;
 	private String endDate;
 	private int state;
+	private String title;
 	
 	public int getNo() {
 		return no;
@@ -52,5 +53,11 @@ public class TravelRecord implements Serializable {
 	}
 	public void setState(int state) {
 		this.state = state;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }
