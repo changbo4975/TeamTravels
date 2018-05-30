@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Member implements Serializable {
 	private String email;
-	private String nickName;
+	private String nickname;
 	private int age;
 	private int gender;
 	private String representativePhoto;
@@ -16,9 +16,9 @@ public class Member implements Serializable {
 		
 	}
 	
-	public Member(String email, String nickName, int age, int gender, String representativePhoto, String selfintroduction, String password, int restrictionCount) {
+	public Member(String email, String nickname, int age, int gender, String representativePhoto, String selfintroduction, String password, int restrictionCount) {
 		this.email = email;
-		this.nickName = nickName;
+		this.nickname = nickname;
 		this.age = age;
 		this.gender = gender;
 		this.representativePhoto = representativePhoto;
@@ -33,11 +33,11 @@ public class Member implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getNickName() {
-		return nickName;
+	public String getNickname() {
+		return nickname;
 	}
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public int getAge() {
 		return age;

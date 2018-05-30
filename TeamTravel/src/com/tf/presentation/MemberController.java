@@ -1,11 +1,9 @@
 package com.tf.presentation;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,54 +18,70 @@ public class MemberController {
 	private MemberService memberService;
 	
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public ModelAndView addGet(Member member) throws Exception {
-		System.out.println("ee");
+	public ModelAndView addGet() throws Exception {
 		
-		return new ModelAndView("/member/memberAdd");
+		return new ModelAndView("/member/add");
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public ModelAndView addPost(Member member) throws Exception {
-		if(member.getEmail() != null || member.getNickName() != null || member.getPassword() != null)
+		if(member.getEmail() != null || member.getNickname() != null || member.getPassword() != null) {
+			member.setRepresentativePhoto("»çÁø");
 			memberService.add(member);
+		}
 	
-		return new ModelAndView("/member/memberAdd");
+		return new ModelAndView("/member/add");
 	}
 	
 	@RequestMapping(value = "/addApp", method = RequestMethod.POST)
 	public void addPostApp(Member member) throws Exception {
-//		System.out.println(req.getParameter("email"));
-//		System.out.println(req.getParameter("nickname"));
-//		System.out.println(req.getParameter("password"));
-		
-		System.out.println(member.getEmail());
-		System.out.println(member.getNickName());
-		System.out.println(member.getPassword());
-		System.out.println(member.getAge());
-		System.out.println(member.getGender());
-		System.out.println(member.getIntroduction());
 
 	
-		//return new ModelAndView("/member/memberAdd");
 	}
 	
-	public ModelAndView editGet(Member member) throws Exception {
-		return null;
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	public ModelAndView editGet() throws Exception {
+		
+		Member member = new Member();
+		member.setEmail("test@email.com");
+		member = memberService.view(member);
+		
+		ModelAndView modelAndView = new ModelAndView("/member/edit");
+		modelAndView.addObject("member", member);
+		
+		return modelAndView;
 	}
 	
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	public ModelAndView editPost(Member member) throws Exception {
-		return null;
+		memberService.edit(member);
+		
+		return new ModelAndView("/member/view/" + member.getEmail());
 	}
 	
 	public ModelAndView list(Member member) throws Exception {
 		return null;
 	}
 	
-	public ModelAndView view(Member member) throws Exception {
-		return null;
+	@RequestMapping(value = "/view/{email:.+}", method = RequestMethod.GET)
+	public ModelAndView view(@PathVariable("email") String email) throws Exception {
+		ModelAndView modelAndView = new ModelAndView("/member/view");
+		Member member = new Member();
+		member.setEmail(email);
+		member = memberService.view(member);
+		modelAndView.addObject("member", member);
+		
+		return modelAndView;
 	}
 	
-	public ModelAndView remove(Member member) throws Exception {
-		return null;
+	@RequestMapping(value = "/remove/{email:.+}", method = RequestMethod.GET)
+	public ModelAndView remove(@PathVariable("email") String email) throws Exception {
+		ModelAndView modelAndView = new ModelAndView("/member/view");
+		Member member = new Member();
+		member.setEmail(email);
+		memberService.remove(member);
+		modelAndView.addObject("member", member);
+		
+		return modelAndView;
 	}
 }

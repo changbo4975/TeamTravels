@@ -9,5 +9,5 @@ public interface MemberService {
 	public Member view(Member member) throws Exception;
 	public boolean add(Member member) throws Exception;
 	public boolean edit(Member member) throws Exception;
-	public boolean delete(Member member) throws Exception;
+	public int remove(Member member) throws Exception;
 }
