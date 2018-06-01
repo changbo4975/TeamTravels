@@ -11,4 +11,8 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="access_token">pk.eyJ1IjoibGVlaG9qdW4iLCJhIjoiY2poZGV6eGEyMG16ajMwcW92ZGZpZmVnMyJ9.W5-HU5UKTRGGnwpomZJuiw</string>
 </resources>
+
+

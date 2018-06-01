@@ -1,4 +1,4 @@
-#Tue May 29 23:56:49 KST 2018
-base.0=C\:\\Users\\GAK\\Desktop\\Trafoots\\NtiTreeTravelFoots\\build\\intermediates\\transforms\\dexMerger\\debug\\41
+#Fri Jun 01 02:28:46 KST 2018
+base.0=C\:\\Users\\leehojun\\git\\TeamTravels\\Android\\Trafoots\\NtiTreeTravelFoots\\build\\intermediates\\transforms\\dexMerger\\debug\\6
 path.0=classes.dex
 renamed.0=classes.dex

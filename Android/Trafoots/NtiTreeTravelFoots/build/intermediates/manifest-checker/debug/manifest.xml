@@ -12,6 +12,17 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -53,6 +64,8 @@
         <activity android:name="com.travelfoots.ntitreetravelfoots.MyTravelHisroryDetailActivity" />
         <activity android:name="com.travelfoots.ntitreetravelfoots.PinpointDetailActivity" />
         <activity android:name="com.travelfoots.ntitreetravelfoots.SplashActivity" />
+
+        <service android:name="com.mapbox.android.telemetry.TelemetryService" />
 
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"

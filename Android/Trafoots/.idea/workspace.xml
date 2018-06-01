@@ -1,174 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c699837-8852-43a3-851a-c9ab6780d63a" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/caches/build_file_checksums.ser" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/codeStyles/Project.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/gradle.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__android_arch_core_common_1_1_0_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__android_arch_core_runtime_1_1_0.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__android_arch_lifecycle_common_1_1_0_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_0.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_0.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_0.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_adobe_xmp_xmpcore_5_1_3_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_27_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_appcompat_v7_27_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_0.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_solver_1_1_0_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_design_27_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_recyclerview_v7_27_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_support_annotations_27_1_1_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_support_compat_27_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_support_core_ui_27_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_support_core_utils_27_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_support_fragment_27_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_support_media_compat_27_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_support_v4_27_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_support_vector_drawable_27_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_test_monitor_1_0_2.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_test_runner_1_0_2.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_android_support_transition_27_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_drewnoakes_metadata_extractor_2_11_0_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_2_0_1_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__junit_junit_4_12_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__net_sf_kxml_kxml2_2_3_0_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/misc.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/modules.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/runConfigurations.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/vcs.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/workspace.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/build.gradle" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/proguard-rules.pro" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/androidTest/java/com/travelfoots/ntitreetravelfoots/ExampleInstrumentedTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/androidTest/java/com/travelfoots/trafoots/ExampleInstrumentedTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/AndroidManifest.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/EditPersonalInformationActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/LeaveMemberActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/MainActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/MemberShipManagement.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/MetaData.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/MyPinPointDetailActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/MyPinpointActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/MyPinpointListActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/MyTravelHisroryDetailActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/MyTravelHistoryActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/MyTravelHistoryListActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/MypageActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/PinpointActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/PinpointDetailActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/PinpointListActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/Pinpoint_AutoGeneration.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/SettingActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/SplashActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/TravelHistory.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/TravelHistoryActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/TravelHistoryDetailActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/TravelHistoryListActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/TravelHistorySharing.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/UploadActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/drawable/ic_launcher_background.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/drawable/ic_menu_camera.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/drawable/ic_menu_gallery.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/drawable/ic_menu_manage.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/drawable/ic_menu_send.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/drawable/ic_menu_share.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/drawable/ic_menu_slideshow.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/drawable/side_nav_bar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_edit_personal_information.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_leave_member.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_main.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_my_pinpoint.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_my_pinpoint_detail.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_my_pinpoint_list.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_my_travel_hisrory_detail.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_my_travel_history.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_my_travel_history_list.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_mypage.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_pinpoint.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_pinpoint_detail.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_pinpoint_list.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_setting.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_splash.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_travel_history.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_travel_history_detail.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_travel_history_list.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/activity_upload.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_editpersonalinformation.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_leavemember.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_main.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_maplist.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_mypage.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_mypinpoint.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_mypinpointdetail.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_mypinpointlist.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_mytravelhistory.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_mytravelhistorydetail.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_mytravelhistorylist.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_pinpoint.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_pinpointdetail.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_pinpointlist.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_setting.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_travelhistory.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_travelhistorydetail.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_travelhistorylist.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/app_bar_upload.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_editpersonalinformation.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_leavemember.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_main.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_maplist.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_mypage.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_mypinpoint.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_mypinpointdetail.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_mypinpointlist.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_mytravelhisrotylist.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_mytravelhistory.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_mytravelhistorydetail.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_pinpoint.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_pinpointdetail.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_pinpointlist.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_setting.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_travelhistory.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_travelhistorydetail.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_travelhistorylist.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/content_upload.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/layout/nav_header_main.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/menu/activity_main_drawer.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/menu/main.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/values-v21/styles.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/values/attrs.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/values/colors.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/values/dimens.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/values/strings.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/main/res/values/styles.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/test/java/com/travelfoots/ntitreetravelfoots/ExampleUnitTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Android/NtiTreeTravelFoots/src/test/java/com/travelfoots/trafoots/ExampleUnitTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Trafoots.iml" afterPath="$PROJECT_DIR$/Trafoots.iml" />
-    </list>
+    <list default="true" id="71415f08-cfd0-43e3-bd8f-ce6952444772" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -181,13 +22,109 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="content_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NtiTreeTravelFoots/src/main/res/layout/content_main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="90" column="19" lean-forward="false" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+              <folding>
+                <element signature="e#414#454#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="672">
+              <caret line="188" column="0" lean-forward="true" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5896#5927#0" expanded="true" />
+                <element signature="e#5929#5961#0" expanded="true" />
+                <element signature="e#6232#6264#0" expanded="true" />
+                <element signature="e#6576#6617#0" expanded="true" />
+                <element signature="e#8479#8480#0" expanded="true" />
+                <element signature="e#8521#8522#0" expanded="true" />
+                <element signature="e#8542#8583#0" expanded="true" />
+                <element signature="e#9925#9966#0" expanded="true" />
+                <element signature="e#9997#9998#0" expanded="true" />
+                <element signature="e#10052#10053#0" expanded="true" />
+                <element signature="e#13719#13720#0" expanded="true" />
+                <element signature="e#13770#13771#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
+        <entry file="file://C:/android studio/sources/android-27/android/view/View.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="24959" column="13" lean-forward="false" selection-start-line="24959" selection-start-column="13" selection-end-line="24959" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ButterKnife.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/8.8.1/1de300f9b877d30cea69c2ba84a450549f023ab8/butterknife-8.8.1-sources.jar!/butterknife/ButterKnife.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/NtiTreeTravelFoots/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="770">
+              <caret line="40" column="30" lean-forward="false" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_bar_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NtiTreeTravelFoots/src/main/res/layout/app_bar_main.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="696">
+              <caret line="29" column="49" lean-forward="false" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>map_view</find>
+      <find>mapView</find>
+    </findStrings>
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\GAK\.gradle\wrapper\dists\gradle-4.4-all\9br9xq1tocpiv8o6njlyu5op1\gradle-4.4" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\leehojun\.gradle\wrapper\dists\gradle-4.4-all\9br9xq1tocpiv8o6njlyu5op1\gradle-4.4" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -224,6 +161,10 @@
         <entry key="$PROJECT_DIR$">
           <value>
             <list>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="transformClassesWithStackFramesFixerForDebug" />
+              </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the sub-projects of root project 'Trafoots'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -327,10 +268,6 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="processDebugResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="transformNativeLibsWithStripDebugSymbolForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs lint on all variants." />
@@ -635,6 +572,10 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="transformClassesWithDesugarForDebugAndroidTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="preparePUBLISHED_DEXDebugForPublishing" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
@@ -681,6 +622,10 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="mergeReleaseShaders" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="transformClassesWithStackFramesFixerForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the Android dependencies of the project." />
@@ -747,10 +692,6 @@
                 <option name="description" value="Run unit tests for all variants." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="test" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="transformNativeLibsWithStripDebugSymbolForDebug" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -867,6 +808,10 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="transformClassesWithStackFramesFixerForDebugAndroidTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="bundleDebugResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
@@ -884,6 +829,10 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="preparePUBLISHED_NATIVE_LIBSDebugAndroidTestForPublishing" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="transformClassesWithDesugarForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -937,6 +886,10 @@
                 <option name="name" value="transformDexArchiveWithExternalLibsDexMergerForDebug" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="transformClassesWithDesugarForDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="build" />
@@ -985,6 +938,10 @@
         <entry key="$PROJECT_DIR$/NtiTreeTravelFoots">
           <value>
             <list>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
+                <option name="name" value="transformClassesWithStackFramesFixerForDebug" />
+              </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the sub-projects of project ':NtiTreeTravelFoots'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
@@ -1083,10 +1040,6 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
                 <option name="name" value="processDebugResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
-                <option name="name" value="transformNativeLibsWithStripDebugSymbolForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs lint on all variants." />
@@ -1391,6 +1344,10 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
+                <option name="name" value="transformClassesWithDesugarForDebugAndroidTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
                 <option name="name" value="preparePUBLISHED_DEXDebugForPublishing" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
@@ -1432,6 +1389,10 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
                 <option name="name" value="mergeReleaseShaders" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
+                <option name="name" value="transformClassesWithStackFramesFixerForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the Android dependencies of the project." />
@@ -1498,10 +1459,6 @@
                 <option name="description" value="Run unit tests for all variants." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
                 <option name="name" value="test" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
-                <option name="name" value="transformNativeLibsWithStripDebugSymbolForDebug" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
@@ -1618,6 +1575,10 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
+                <option name="name" value="transformClassesWithStackFramesFixerForDebugAndroidTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
                 <option name="name" value="bundleDebugResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
@@ -1635,6 +1596,10 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
                 <option name="name" value="preparePUBLISHED_NATIVE_LIBSDebugAndroidTestForPublishing" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
+                <option name="name" value="transformClassesWithDesugarForRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
@@ -1687,6 +1652,10 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
                 <option name="name" value="transformDexArchiveWithExternalLibsDexMergerForDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/NtiTreeTravelFoots" />
+                <option name="name" value="transformClassesWithDesugarForDebug" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project." />
@@ -2213,12 +2182,21 @@
       </map>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="960" />
-    <option name="width" value="960" />
-    <option name="height" value="1032" />
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/NtiTreeTravelFoots/src/main/res/layout/app_bar_main.xml" />
+        <option value="$PROJECT_DIR$/NtiTreeTravelFoots/build.gradle" />
+        <option value="$PROJECT_DIR$/NtiTreeTravelFoots/src/main/res/layout/content_main.xml" />
+        <option value="$PROJECT_DIR$/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/MainActivity.java" />
+      </list>
+    </option>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="width" value="976" />
+    <option name="height" value="1038" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="AndroidView" proportions="" version="1">
       <flattenPackages />
@@ -2234,17 +2212,55 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Trafoots" type="1abcf292:AndroidViewProjectNode" />
+              <item name="NtiTreeTravelFoots" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="Trafoots" type="1abcf292:AndroidViewProjectNode" />
+              <item name="NtiTreeTravelFoots" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="Trafoots" type="1abcf292:AndroidViewProjectNode" />
+              <item name="NtiTreeTravelFoots" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="ntitreetravelfoots" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Trafoots" type="1abcf292:AndroidViewProjectNode" />
+              <item name="NtiTreeTravelFoots" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="Trafoots" type="1abcf292:AndroidViewProjectNode" />
+              <item name="NtiTreeTravelFoots" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="Trafoots" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="android.sdk.path" value="C:/android studio" />
+    <property name="settings.editor.selected.configurable" value="android.studio.gradle" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="device.picker.selection" value="LGMG600KRe13eb135" />
+    <property name="android.profiler.active" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -2282,7 +2298,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NtiTreeTravelFoots" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="NtiTreeTravelFoots" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="NtiTreeTravelFoots" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
@@ -2402,44 +2418,46 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3c699837-8852-43a3-851a-c9ab6780d63a" name="Default" comment="" />
-      <created>1527692224056</created>
+      <changelist id="71415f08-cfd0-43e3-bd8f-ce6952444772" name="Default" comment="" />
+      <created>1527784741149</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1527692224056</updated>
+      <updated>1527784741149</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.5044444" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11868958" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="WIFI ADB ULTIMATE" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.49555555" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Android WiFi ADB" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="91" y="91" width="1738" height="848" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2449,29 +2467,88 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$" />
-    </ignored-roots>
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/NtiTreeTravelFoots/src/main/res/layout/app_bar_main.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="29" column="49" lean-forward="false" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NtiTreeTravelFoots/build/generated/source/apt/debug/com/travelfoots/ntitreetravelfoots/MainActivity_ViewBinding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="34" column="57" lean-forward="false" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/8.8.1/1de300f9b877d30cea69c2ba84a450549f023ab8/butterknife-8.8.1-sources.jar!/butterknife/ButterKnife.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NtiTreeTravelFoots/src/main/res/layout/content_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="90" column="19" lean-forward="false" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+          <folding>
+            <element signature="e#414#454#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://C:/android studio/sources/android-27/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="24959" column="13" lean-forward="false" selection-start-line="24959" selection-start-column="13" selection-end-line="24959" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NtiTreeTravelFoots/src/main/java/com/travelfoots/ntitreetravelfoots/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="188" column="0" lean-forward="true" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5896#5927#0" expanded="true" />
+            <element signature="e#5929#5961#0" expanded="true" />
+            <element signature="e#6232#6264#0" expanded="true" />
+            <element signature="e#6576#6617#0" expanded="true" />
+            <element signature="e#8479#8480#0" expanded="true" />
+            <element signature="e#8521#8522#0" expanded="true" />
+            <element signature="e#8542#8583#0" expanded="true" />
+            <element signature="e#9925#9966#0" expanded="true" />
+            <element signature="e#9997#9998#0" expanded="true" />
+            <element signature="e#10052#10053#0" expanded="true" />
+            <element signature="e#13719#13720#0" expanded="true" />
+            <element signature="e#13770#13771#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NtiTreeTravelFoots/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="40" column="30" lean-forward="false" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

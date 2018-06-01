@@ -1,14 +1,20 @@
 package com.travelfoots.ntitreetravelfoots;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.ListPopupWindow;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -19,13 +25,59 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.mapbox.android.core.location.LocationEngine;
+import com.mapbox.android.core.location.LocationEngineListener;
+import com.mapbox.android.core.location.LocationEnginePriority;
+import com.mapbox.android.core.location.LocationEngineProvider;
+import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
+import com.mapbox.mapboxsdk.constants.Style;
+import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.maps.MapView;
+import com.mapbox.mapboxsdk.maps.MapboxMap;
+import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
+import com.mapbox.mapboxsdk.plugins.locationlayer.LocationLayerOptions;
+import com.mapbox.mapboxsdk.plugins.locationlayer.LocationLayerPlugin;
+import com.mapbox.mapboxsdk.plugins.locationlayer.OnCameraTrackingChangedListener;
+import com.mapbox.mapboxsdk.plugins.locationlayer.OnLocationLayerClickListener;
+import com.mapbox.mapboxsdk.plugins.locationlayer.modes.CameraMode;
+import com.mapbox.mapboxsdk.plugins.locationlayer.modes.RenderMode;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback,
+        LocationEngineListener, OnLocationLayerClickListener, OnCameraTrackingChangedListener {
+    MapView mapView;
+    TextView modeText;
+    TextView trackingText;
+    Button locationModeBtn;
+    Button locationTrackingBtn;
+
+    private LocationLayerPlugin locationLayerPlugin;
+    private LocationEngine locationEngine;
+    private MapboxMap mapboxMap;
+    private boolean customStyle;
+
+    private static final String SAVED_STATE_CAMERA = "saved_state_camera";
+    private static final String SAVED_STATE_RENDER = "saved_state_render";
+
+    @CameraMode.Mode
+    private int cameraMode = CameraMode.NONE;
+
+    @RenderMode.Mode
+    private int renderMode = RenderMode.NORMAL;
+
+
+
 
 
     @Override
@@ -44,36 +96,48 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         setContentView(R.layout.activity_main);
         // 툴바
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
+        mapView = findViewById(R.id.map_view);
+        modeText = findViewById(R.id.tv_mode);
+        trackingText = findViewById(R.id.tv_tracking);
+        locationModeBtn = findViewById(R.id.button_location_mode);
+        locationModeBtn.setOnClickListener(v -> locationMode(locationModeBtn));
+        locationTrackingBtn = findViewById(R.id.button_location_tracking);
+        locationTrackingBtn.setOnClickListener(v -> locationModeCompass(locationTrackingBtn));
+
+
+
         //fab 버튼
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                int permissionCheck = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
-                if (permissionCheck == PackageManager.PERMISSION_DENIED) {
-                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{
-                            Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
-                } else {
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(view -> {
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+            int permissionCheck = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
+            if (permissionCheck == PackageManager.PERMISSION_DENIED) {
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]{
+                        Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+            } else {
 
-                }
-                ArrayList<MetaData> arrayList = MetaData.ContentsMetadata(getApplicationContext());
+            }
+            int permissionCheck2 = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION);
+            if (permissionCheck2 == PackageManager.PERMISSION_DENIED) {
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]{
+                        Manifest.permission.ACCESS_FINE_LOCATION}, 0);
+            } else {
 
-                for (MetaData metaData: arrayList
-                     ) {
+            }
+            ArrayList<MetaData> arrayList = MetaData.ContentsMetadata(getApplicationContext());
 
-                    Log.i("Date2", "onClick: "+metaData.getFileDate());
-                    Log.i("Date2", "LAT : "+metaData.getFileLat()+" LNG : "+metaData.getFileLat());
+            for (MetaData metaData: arrayList
+                 ) {
 
-                }
+                Log.i("Date2", "onClick: "+metaData.getFileDate());
+                Log.i("Date2", "LAT : "+metaData.getFileLat()+" LNG : "+metaData.getFileLat());
 
             }
 
@@ -81,7 +145,7 @@ public class MainActivity extends AppCompatActivity
 
 
         //drawer_layout 툴바 등 뿌려주는 역할.
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -89,11 +153,258 @@ public class MainActivity extends AppCompatActivity
 
 
         //메뉴
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView =  findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
 
+        //지도
+
+        Mapbox.getInstance(this, getString(R.string.access_token));
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
+
+        if (savedInstanceState != null) {
+            cameraMode = savedInstanceState.getInt(SAVED_STATE_CAMERA);
+            renderMode = savedInstanceState.getInt(SAVED_STATE_RENDER);
+        }
+
     }
+
+
+    //TODO 지도 관련
+
+    @SuppressWarnings( {"MissingPermission"})
+    public void locationMode(View view) {
+        if (locationLayerPlugin == null) {
+            return;
+        }
+        showModeListDialog();
+    }
+    public void locationModeCompass(View view) {
+        if (locationLayerPlugin == null) {
+            return;
+        }
+        showTrackingListDialog();
+    }
+
+    @SuppressLint("MissingPermission")
+    @Override
+    public void onMapReady(MapboxMap mapboxMap) {
+        this.mapboxMap = mapboxMap;
+
+        locationEngine = new LocationEngineProvider(this).obtainBestLocationEngineAvailable();
+        locationEngine.setPriority(LocationEnginePriority.HIGH_ACCURACY);
+        locationEngine.setFastestInterval(1000);
+        locationEngine.addLocationEngineListener(this);
+        locationEngine.activate();
+
+        int[] padding;
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            padding = new int[] {0, 750, 0, 0};
+        } else {
+            padding = new int[] {0, 250, 0, 0};
+        }
+        LocationLayerOptions options = LocationLayerOptions.builder(this)
+                .padding(padding)
+                .build();
+        locationLayerPlugin = new LocationLayerPlugin(mapView, mapboxMap, locationEngine, options);
+        locationLayerPlugin.addOnLocationClickListener(this);
+        locationLayerPlugin.addOnCameraTrackingChangedListener(this);
+        locationLayerPlugin.setCameraMode(cameraMode);
+        setRendererMode(renderMode);
+
+        getLifecycle().addObserver(locationLayerPlugin);
+    }
+
+
+    @SuppressLint("MissingPermission")
+
+
+
+    @VisibleForTesting
+    public void toggleMapStyle() {
+        String styleUrl = mapboxMap.getStyleUrl().contentEquals(Style.DARK) ? Style.LIGHT : Style.DARK;
+        mapboxMap.setStyle(styleUrl);
+    }
+
+    @VisibleForTesting
+    public LocationLayerPlugin getLocationLayerPlugin() {
+        return locationLayerPlugin;
+    }
+
+    @Override
+    @SuppressWarnings( {"MissingPermission"})
+    protected void onStart() {
+        super.onStart();
+        mapView.onStart();
+        if (locationEngine != null) {
+            locationEngine.requestLocationUpdates();
+            locationEngine.addLocationEngineListener(this);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mapView.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mapView.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mapView.onStop();
+        if (locationEngine != null) {
+            locationEngine.removeLocationEngineListener(this);
+            locationEngine.removeLocationUpdates();
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mapView.onSaveInstanceState(outState);
+        outState.putInt(SAVED_STATE_CAMERA, cameraMode);
+        outState.putInt(SAVED_STATE_RENDER, renderMode);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+        if (locationEngine != null) {
+            locationEngine.deactivate();
+        }
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+
+    @Override
+    @SuppressWarnings( {"MissingPermission"})
+    public void onConnected() {
+        locationEngine.requestLocationUpdates();
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        mapboxMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+                new LatLng(location.getLatitude(), location.getLongitude()), 16));
+        locationEngine.removeLocationEngineListener(this);
+    }
+
+    @Override
+    public void onLocationLayerClick() {
+        Toast.makeText(this, "OnLocationLayerClick", Toast.LENGTH_LONG).show();
+    }
+
+    private void showModeListDialog() {
+        List<String> modes = new ArrayList<>();
+        modes.add("Normal");
+        modes.add("Compass");
+        modes.add("GPS");
+        ArrayAdapter<String> profileAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, modes);
+        ListPopupWindow listPopup = new ListPopupWindow(this);
+        listPopup.setAdapter(profileAdapter);
+        listPopup.setAnchorView(locationModeBtn);
+        listPopup.setOnItemClickListener((parent, itemView, position, id) -> {
+            String selectedMode = modes.get(position);
+            locationModeBtn.setText(selectedMode);
+            if (selectedMode.contentEquals("Normal")) {
+                setRendererMode(RenderMode.NORMAL);
+            } else if (selectedMode.contentEquals("Compass")) {
+                setRendererMode(RenderMode.COMPASS);
+            } else if (selectedMode.contentEquals("GPS")) {
+                setRendererMode(RenderMode.GPS);
+            }
+            listPopup.dismiss();
+        });
+        listPopup.show();
+    }
+
+    private void setRendererMode(@RenderMode.Mode int mode) {
+        renderMode = mode;
+        locationLayerPlugin.setRenderMode(mode);
+        if (mode == RenderMode.NORMAL) {
+            locationModeBtn.setText("Normal");
+        } else if (mode == RenderMode.COMPASS) {
+            locationModeBtn.setText("Compass");
+        } else if (mode == RenderMode.GPS) {
+            locationModeBtn.setText("Gps");
+        }
+    }
+
+    private void showTrackingListDialog() {
+        List<String> trackingTypes = new ArrayList<>();
+        trackingTypes.add("None");
+        trackingTypes.add("Tracking");
+        trackingTypes.add("Tracking Compass");
+        trackingTypes.add("Tracking GPS");
+        trackingTypes.add("Tracking GPS North");
+        ArrayAdapter<String> profileAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, trackingTypes);
+        ListPopupWindow listPopup = new ListPopupWindow(this);
+        listPopup.setAdapter(profileAdapter);
+        listPopup.setAnchorView(locationTrackingBtn);
+        listPopup.setOnItemClickListener((parent, itemView, position, id) -> {
+            String selectedTrackingType = trackingTypes.get(position);
+            locationTrackingBtn.setText(selectedTrackingType);
+            if (selectedTrackingType.contentEquals("None")) {
+                locationLayerPlugin.setCameraMode(CameraMode.NONE);
+            } else if (selectedTrackingType.contentEquals("Tracking")) {
+                locationLayerPlugin.setCameraMode(CameraMode.TRACKING);
+            } else if (selectedTrackingType.contentEquals("Tracking Compass")) {
+                locationLayerPlugin.setCameraMode(CameraMode.TRACKING_COMPASS);
+            } else if (selectedTrackingType.contentEquals("Tracking GPS")) {
+                locationLayerPlugin.setCameraMode(CameraMode.TRACKING_GPS);
+            } else if (selectedTrackingType.contentEquals("Tracking GPS North")) {
+                locationLayerPlugin.setCameraMode(CameraMode.TRACKING_GPS_NORTH);
+            }
+            listPopup.dismiss();
+        });
+        listPopup.show();
+    }
+
+    @Override
+    public void onCameraTrackingDismissed() {
+        locationTrackingBtn.setText("None");
+    }
+
+    @Override
+    public void onCameraTrackingChanged(int currentMode) {
+        this.cameraMode = currentMode;
+
+        if (cameraMode == CameraMode.NONE) {
+            locationTrackingBtn.setText("None");
+        } else if (cameraMode == CameraMode.TRACKING) {
+            locationTrackingBtn.setText("Tracking");
+        } else if (cameraMode == CameraMode.TRACKING_COMPASS) {
+            locationTrackingBtn.setText("Tracking Compass");
+        } else if (cameraMode == CameraMode.TRACKING_GPS) {
+            locationTrackingBtn.setText("Tracking GPS");
+        } else if (cameraMode == CameraMode.TRACKING_GPS_NORTH) {
+            locationTrackingBtn.setText("Tracking GPS North");
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 
 
     //메뉴 열기

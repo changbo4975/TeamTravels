@@ -1,214 +1,274 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-49:12
-MERGED from [com.android.support:design:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\66602fe79be02cc49a06bedf8e0817f2\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\4a883cf55ade8b7c79eec20dc00a9311\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\c2f835cc8d510e06023c82ed6faf6624\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\ee90ad834ceac9cb1d6e05b88145236a\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\11003e71070becb23d529da1ea231769\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\3f9503762bcfce7fc0ace5baa7685560\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\8a3a2fd5df677b916353a9f580df4ff8\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\2ef1d98baf8b7caad6450bbd9931203b\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\79ddaa0280a1d7875f4831374cb7d2f2\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\67010920c0ebe628149dba1f201e3786\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\4877f69d607e05aa3a6e900c0fb42ca4\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\0fbd863b09c40c9374f3c433061a1527\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\b6f68079ab2a23455a0862fd6d1df7b7\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\f0130006abf8b7e99e6b9f8ac2793bb4\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\0e9147d653ae92d4671d5829a7a434be\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\38de826b527a11b934a082375ee26314\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ab5028b0af29b6329c7c79460d74c1f5\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-49:12
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-52:12
+MERGED from [com.android.support:design:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\a6640a3e2815f04e672011c78e23888c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-plugin-locationlayer:0.5.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-plugin-locationlayer-0.5.0.aar\afe929637d1e29322c190f49b683c03c\AndroidManifest.xml:2:1-10:12
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:2:1-20:12
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-telemetry:3.1.2] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-telemetry-3.1.2.aar\eb9bc745fbe1715c8efd400f0fffe4e0\AndroidManifest.xml:2:1-19:12
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-gestures:0.2.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-gestures-0.2.0.aar\697354458a5583eb2959d3a5e0df8067\AndroidManifest.xml:2:1-11:12
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-core:0.2.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-core-0.2.0.aar\9e70de6d8d3248da7b098eec8329eeb3\AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\352c72e971bb7d51a50b821f3a958791\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\a6ee891450098a974bd795fedc9f02bc\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\dde0e92a16ed647ae6605e432522aadc\AndroidManifest.xml:2:1-11:12
+MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\butterknife-8.8.1.aar\2ce7a60380e6728e285eaf5d4773ca48\AndroidManifest.xml:2:1-7:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\5710b9174b618f71854367a2e9ba3606\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\88beaa18bf7a229741e22c67d8931b5b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\44861ad61db5a840247bf69987387386\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\f1e59c4fba1ce163ed769eedb3ff81b1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\ddcc0e3a9e012b723bda12d57b8fddd2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\502d67e8a79303e31be3a73565b55249\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\f8529692851f4d3c0e0d7575912f2b80\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\78f39b70c2b3a51b0841710e7ff7f6ae\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\d7ca9d9c9a926938dbfbdeaccc43d195\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\134e164bbf1e9d0083085529607ae61d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\3c0ac3e6b7af9ba41331ef8f8c5b2133\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\d980fcc09514a12264265fd6f22b1107\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ff1ac591a505987f98411b68ffff1fa9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.jakewharton.timber:timber:4.6.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\timber-4.6.0.aar\86c17beab5929fa9743c2871af72ea47\AndroidManifest.xml:2:1-10:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\61f23a5ffcbd6b3b68d875535e190bf1\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-52:12
 	package
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:3:5-49
-		INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:3:5-49
+		INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-49:12
-		INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-52:12
+		INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-49:12
-		INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:1-52:12
+		INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:5:5-97
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:5:5-97
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:5:22-78
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:5:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:6:5-96
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:6:5-96
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:6:22-77
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:6:22-77
 uses-permission#android.permission.CAMERA
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:7:5-81
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:7:5-81
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:7:22-62
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:7:22-62
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:8:5-83
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:8:5-83
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:16:5-67
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:16:5-67
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:8:22-64
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:8:22-64
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:9:5-79
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-core:0.2.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-core-0.2.0.aar\9e70de6d8d3248da7b098eec8329eeb3\AndroidManifest.xml:11:5-79
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-core:0.2.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-core-0.2.0.aar\9e70de6d8d3248da7b098eec8329eeb3\AndroidManifest.xml:11:5-79
+	android:name
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:9:22-76
 application
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:9:5-47:19
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\ee90ad834ceac9cb1d6e05b88145236a\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\ee90ad834ceac9cb1d6e05b88145236a\AndroidManifest.xml:9:5-20
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:12:5-50:19
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-telemetry:3.1.2] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-telemetry-3.1.2.aar\eb9bc745fbe1715c8efd400f0fffe4e0\AndroidManifest.xml:15:5-17:19
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-telemetry:3.1.2] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-telemetry-3.1.2.aar\eb9bc745fbe1715c8efd400f0fffe4e0\AndroidManifest.xml:15:5-17:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\dde0e92a16ed647ae6605e432522aadc\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\dde0e92a16ed647ae6605e432522aadc\AndroidManifest.xml:9:5-20
+MERGED from [com.jakewharton.timber:timber:4.6.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\timber-4.6.0.aar\86c17beab5929fa9743c2871af72ea47\AndroidManifest.xml:8:5-20
+MERGED from [com.jakewharton.timber:timber:4.6.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\timber-4.6.0.aar\86c17beab5929fa9743c2871af72ea47\AndroidManifest.xml:8:5-20
 	android:supportsRtl
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:14:9-35
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:17:9-35
 	android:label
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:12:9-41
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:15:9-41
 	android:roundIcon
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:13:9-54
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:16:9-54
 	android:icon
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:11:9-43
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:14:9-43
 	android:allowBackup
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:15:9-40
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:18:9-40
 activity#com.travelfoots.ntitreetravelfoots.MainActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:16:9-25:20
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:19:9-28:20
 	android:label
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:18:13-45
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:21:13-45
 	android:theme
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:19:13-56
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:22:13-56
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:17:13-41
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:20:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:20:13-24:29
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:23:13-27:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:21:17-69
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:24:17-69
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:21:25-66
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:24:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:23:17-77
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:26:17-77
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:23:27-74
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:26:27-74
 activity#com.travelfoots.ntitreetravelfoots.MypageActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:26:9-29:59
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:29:9-32:59
 	android:label
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:28:13-47
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:31:13-47
 	android:theme
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:29:13-56
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:32:13-56
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:27:13-43
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:30:13-43
 activity#com.travelfoots.ntitreetravelfoots.MyTravelHistoryActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:30:9-61
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:33:9-61
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:30:19-58
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:33:19-58
 activity#com.travelfoots.ntitreetravelfoots.UploadActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:31:9-52
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:34:9-52
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:31:19-49
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:34:19-49
 activity#com.travelfoots.ntitreetravelfoots.EditPersonalInformationActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:32:9-69
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:35:9-69
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:32:19-66
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:35:19-66
 activity#com.travelfoots.ntitreetravelfoots.MyPinpointActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:33:9-56
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:36:9-56
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:33:19-53
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:36:19-53
 activity#com.travelfoots.ntitreetravelfoots.TravelHistoryActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:34:9-59
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:37:9-59
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:34:19-56
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:37:19-56
 activity#com.travelfoots.ntitreetravelfoots.SettingActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:35:9-53
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:38:9-53
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:35:19-50
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:38:19-50
 activity#com.travelfoots.ntitreetravelfoots.PinpointActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:36:9-54
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:39:9-54
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:36:19-51
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:39:19-51
 activity#com.travelfoots.ntitreetravelfoots.LeaveMemberActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:37:9-57
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:40:9-57
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:37:19-54
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:40:19-54
 activity#com.travelfoots.ntitreetravelfoots.MyPinpointListActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:38:9-60
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:41:9-60
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:38:19-57
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:41:19-57
 activity#com.travelfoots.ntitreetravelfoots.MyPinPointDetailActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:39:9-62
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:42:9-62
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:39:19-59
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:42:19-59
 activity#com.travelfoots.ntitreetravelfoots.MyTravelHistoryListActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:40:9-65
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:43:9-65
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:40:19-62
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:43:19-62
 activity#com.travelfoots.ntitreetravelfoots.TravelHistoryDetailActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:41:9-65
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:44:9-65
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:41:19-62
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:44:19-62
 activity#com.travelfoots.ntitreetravelfoots.TravelHistoryListActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:42:9-63
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:45:9-63
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:42:19-60
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:45:19-60
 activity#com.travelfoots.ntitreetravelfoots.PinpointListActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:43:9-58
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:46:9-58
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:43:19-55
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:46:19-55
 activity#com.travelfoots.ntitreetravelfoots.MyTravelHisroryDetailActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:44:9-67
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:47:9-67
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:44:19-64
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:47:19-64
 activity#com.travelfoots.ntitreetravelfoots.PinpointDetailActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:45:9-60
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:48:9-60
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:45:19-57
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:48:19-57
 activity#com.travelfoots.ntitreetravelfoots.SplashActivity
-ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:46:9-61
+ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:49:9-61
 	android:name
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:46:19-49
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml:49:19-49
 uses-sdk
-INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
-INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
-MERGED from [com.android.support:design:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\66602fe79be02cc49a06bedf8e0817f2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\66602fe79be02cc49a06bedf8e0817f2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\4a883cf55ade8b7c79eec20dc00a9311\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\4a883cf55ade8b7c79eec20dc00a9311\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\c2f835cc8d510e06023c82ed6faf6624\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\c2f835cc8d510e06023c82ed6faf6624\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\ee90ad834ceac9cb1d6e05b88145236a\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\ee90ad834ceac9cb1d6e05b88145236a\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\11003e71070becb23d529da1ea231769\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\11003e71070becb23d529da1ea231769\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\3f9503762bcfce7fc0ace5baa7685560\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\3f9503762bcfce7fc0ace5baa7685560\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\8a3a2fd5df677b916353a9f580df4ff8\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\8a3a2fd5df677b916353a9f580df4ff8\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\2ef1d98baf8b7caad6450bbd9931203b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\2ef1d98baf8b7caad6450bbd9931203b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\79ddaa0280a1d7875f4831374cb7d2f2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\79ddaa0280a1d7875f4831374cb7d2f2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\67010920c0ebe628149dba1f201e3786\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\67010920c0ebe628149dba1f201e3786\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\4877f69d607e05aa3a6e900c0fb42ca4\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\4877f69d607e05aa3a6e900c0fb42ca4\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\0fbd863b09c40c9374f3c433061a1527\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\0fbd863b09c40c9374f3c433061a1527\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\b6f68079ab2a23455a0862fd6d1df7b7\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\b6f68079ab2a23455a0862fd6d1df7b7\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\f0130006abf8b7e99e6b9f8ac2793bb4\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\f0130006abf8b7e99e6b9f8ac2793bb4\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\0e9147d653ae92d4671d5829a7a434be\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\0e9147d653ae92d4671d5829a7a434be\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\38de826b527a11b934a082375ee26314\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\38de826b527a11b934a082375ee26314\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ab5028b0af29b6329c7c79460d74c1f5\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\GAK\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ab5028b0af29b6329c7c79460d74c1f5\AndroidManifest.xml:20:5-44
-INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
-INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\a6640a3e2815f04e672011c78e23888c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\a6640a3e2815f04e672011c78e23888c\AndroidManifest.xml:20:5-44
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-plugin-locationlayer:0.5.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-plugin-locationlayer-0.5.0.aar\afe929637d1e29322c190f49b683c03c\AndroidManifest.xml:6:5-8:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-plugin-locationlayer:0.5.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-plugin-locationlayer-0.5.0.aar\afe929637d1e29322c190f49b683c03c\AndroidManifest.xml:6:5-8:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:5:5-7:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:5:5-7:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-telemetry:3.1.2] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-telemetry-3.1.2.aar\eb9bc745fbe1715c8efd400f0fffe4e0\AndroidManifest.xml:11:5-13:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-telemetry:3.1.2] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-telemetry-3.1.2.aar\eb9bc745fbe1715c8efd400f0fffe4e0\AndroidManifest.xml:11:5-13:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-gestures:0.2.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-gestures-0.2.0.aar\697354458a5583eb2959d3a5e0df8067\AndroidManifest.xml:7:5-9:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-gestures:0.2.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-gestures-0.2.0.aar\697354458a5583eb2959d3a5e0df8067\AndroidManifest.xml:7:5-9:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-core:0.2.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-core-0.2.0.aar\9e70de6d8d3248da7b098eec8329eeb3\AndroidManifest.xml:7:5-9:41
+MERGED from [com.mapbox.mapboxsdk:mapbox-android-core:0.2.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-core-0.2.0.aar\9e70de6d8d3248da7b098eec8329eeb3\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\352c72e971bb7d51a50b821f3a958791\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\352c72e971bb7d51a50b821f3a958791\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\a6ee891450098a974bd795fedc9f02bc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\a6ee891450098a974bd795fedc9f02bc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\dde0e92a16ed647ae6605e432522aadc\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\dde0e92a16ed647ae6605e432522aadc\AndroidManifest.xml:5:5-7:41
+MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\butterknife-8.8.1.aar\2ce7a60380e6728e285eaf5d4773ca48\AndroidManifest.xml:5:5-43
+MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\butterknife-8.8.1.aar\2ce7a60380e6728e285eaf5d4773ca48\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\5710b9174b618f71854367a2e9ba3606\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\5710b9174b618f71854367a2e9ba3606\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\88beaa18bf7a229741e22c67d8931b5b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\88beaa18bf7a229741e22c67d8931b5b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\44861ad61db5a840247bf69987387386\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\44861ad61db5a840247bf69987387386\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\f1e59c4fba1ce163ed769eedb3ff81b1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\f1e59c4fba1ce163ed769eedb3ff81b1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\ddcc0e3a9e012b723bda12d57b8fddd2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\ddcc0e3a9e012b723bda12d57b8fddd2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\502d67e8a79303e31be3a73565b55249\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\502d67e8a79303e31be3a73565b55249\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\f8529692851f4d3c0e0d7575912f2b80\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\f8529692851f4d3c0e0d7575912f2b80\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\78f39b70c2b3a51b0841710e7ff7f6ae\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\78f39b70c2b3a51b0841710e7ff7f6ae\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\d7ca9d9c9a926938dbfbdeaccc43d195\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\d7ca9d9c9a926938dbfbdeaccc43d195\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\134e164bbf1e9d0083085529607ae61d\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\134e164bbf1e9d0083085529607ae61d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\3c0ac3e6b7af9ba41331ef8f8c5b2133\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\3c0ac3e6b7af9ba41331ef8f8c5b2133\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\d980fcc09514a12264265fd6f22b1107\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\d980fcc09514a12264265fd6f22b1107\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ff1ac591a505987f98411b68ffff1fa9\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ff1ac591a505987f98411b68ffff1fa9\AndroidManifest.xml:20:5-44
+MERGED from [com.jakewharton.timber:timber:4.6.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\timber-4.6.0.aar\86c17beab5929fa9743c2871af72ea47\AndroidManifest.xml:6:5-43
+MERGED from [com.jakewharton.timber:timber:4.6.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\timber-4.6.0.aar\86c17beab5929fa9743c2871af72ea47\AndroidManifest.xml:6:5-43
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\61f23a5ffcbd6b3b68d875535e190bf1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\61f23a5ffcbd6b3b68d875535e190bf1\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
-		ADDED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\GAK\Desktop\TT\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+		ADDED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\leehojun\git\TeamTravels\Android\Trafoots\NtiTreeTravelFoots\src\main\AndroidManifest.xml
+uses-feature#0x00020000
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:9:5-11:35
+	android:glEsVersion
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:10:9-41
+	android:required
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:11:9-32
+uses-feature#android.hardware.wifi
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:12:5-14:36
+	android:required
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:14:9-33
+	android:name
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:13:9-45
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:17:5-79
+	android:name
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:17:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:18:5-76
+	android:name
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-sdk-6.1.3.aar\6e4f69a0dea6d83e291072a971424c3d\AndroidManifest.xml:18:22-73
+service#com.mapbox.android.telemetry.TelemetryService
+ADDED from [com.mapbox.mapboxsdk:mapbox-android-telemetry:3.1.2] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-telemetry-3.1.2.aar\eb9bc745fbe1715c8efd400f0fffe4e0\AndroidManifest.xml:16:9-81
+	android:name
+		ADDED from [com.mapbox.mapboxsdk:mapbox-android-telemetry:3.1.2] C:\Users\leehojun\.gradle\caches\transforms-1\files-1.1\mapbox-android-telemetry-3.1.2.aar\eb9bc745fbe1715c8efd400f0fffe4e0\AndroidManifest.xml:16:18-78
