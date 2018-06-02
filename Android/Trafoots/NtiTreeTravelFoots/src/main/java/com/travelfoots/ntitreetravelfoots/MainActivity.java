@@ -2,13 +2,11 @@ package com.travelfoots.ntitreetravelfoots;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -47,9 +45,9 @@ import com.mapbox.mapboxsdk.plugins.locationlayer.OnCameraTrackingChangedListene
 import com.mapbox.mapboxsdk.plugins.locationlayer.OnLocationLayerClickListener;
 import com.mapbox.mapboxsdk.plugins.locationlayer.modes.CameraMode;
 import com.mapbox.mapboxsdk.plugins.locationlayer.modes.RenderMode;
+import com.travelfoots.ntitreetravelfoots.domain.MetaData;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -61,6 +59,7 @@ public class MainActivity extends AppCompatActivity
     TextView trackingText;
     Button locationModeBtn;
     Button locationTrackingBtn;
+    Button createPinpointBtn;
 
     private LocationLayerPlugin locationLayerPlugin;
     private LocationEngine locationEngine;
@@ -77,8 +76,7 @@ public class MainActivity extends AppCompatActivity
     private int renderMode = RenderMode.NORMAL;
 
 
-
-
+    Pinpoint_AutoGeneration pinpoint_autoGeneration;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -98,7 +96,7 @@ public class MainActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_main);
         // 툴바
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
@@ -109,7 +107,8 @@ public class MainActivity extends AppCompatActivity
         locationModeBtn.setOnClickListener(v -> locationMode(locationModeBtn));
         locationTrackingBtn = findViewById(R.id.button_location_tracking);
         locationTrackingBtn.setOnClickListener(v -> locationModeCompass(locationTrackingBtn));
-
+        createPinpointBtn = findViewById(R.id.button);
+        createPinpointBtn.setOnClickListener(v -> CreatePinpoint(createPinpointBtn));
 
 
         //fab 버튼
@@ -131,15 +130,6 @@ public class MainActivity extends AppCompatActivity
             } else {
 
             }
-            ArrayList<MetaData> arrayList = MetaData.ContentsMetadata(getApplicationContext());
-
-            for (MetaData metaData: arrayList
-                 ) {
-
-                Log.i("Date2", "onClick: "+metaData.getFileDate());
-                Log.i("Date2", "LAT : "+metaData.getFileLat()+" LNG : "+metaData.getFileLat());
-
-            }
 
         });
 
@@ -153,7 +143,7 @@ public class MainActivity extends AppCompatActivity
 
 
         //메뉴
-        NavigationView navigationView =  findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
 
@@ -171,15 +161,29 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    public void CreatePinpoint(View view) {
+        ArrayList<MetaData> metaDataArrayList = Pinpoint_AutoGeneration.MetaDataExtract(getApplicationContext());
+
+        pinpoint_autoGeneration.CreatePinpoint(metaDataArrayList);
+
+        for (MetaData metaData : metaDataArrayList
+                ) {
+
+            Log.i("Date2", "onClick: " + metaData.getFileDate());
+            Log.i("Date2", "LAT : " + metaData.getFileLat() + " LNG : " + metaData.getFileLat());
+
+        }
+    }
     //TODO 지도 관련
 
-    @SuppressWarnings( {"MissingPermission"})
+    @SuppressWarnings({"MissingPermission"})
     public void locationMode(View view) {
         if (locationLayerPlugin == null) {
             return;
         }
         showModeListDialog();
     }
+
     public void locationModeCompass(View view) {
         if (locationLayerPlugin == null) {
             return;
@@ -198,11 +202,13 @@ public class MainActivity extends AppCompatActivity
         locationEngine.addLocationEngineListener(this);
         locationEngine.activate();
 
+
         int[] padding;
+
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            padding = new int[] {0, 750, 0, 0};
+            padding = new int[]{0, 750, 0, 0};
         } else {
-            padding = new int[] {0, 250, 0, 0};
+            padding = new int[]{0, 250, 0, 0};
         }
         LocationLayerOptions options = LocationLayerOptions.builder(this)
                 .padding(padding)
@@ -220,7 +226,6 @@ public class MainActivity extends AppCompatActivity
     @SuppressLint("MissingPermission")
 
 
-
     @VisibleForTesting
     public void toggleMapStyle() {
         String styleUrl = mapboxMap.getStyleUrl().contentEquals(Style.DARK) ? Style.LIGHT : Style.DARK;
@@ -233,7 +238,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    @SuppressWarnings( {"MissingPermission"})
+    @SuppressWarnings({"MissingPermission"})
     protected void onStart() {
         super.onStart();
         mapView.onStart();
@@ -289,7 +294,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    @SuppressWarnings( {"MissingPermission"})
+    @SuppressWarnings({"MissingPermission"})
     public void onConnected() {
         locationEngine.requestLocationUpdates();
     }
@@ -395,16 +400,6 @@ public class MainActivity extends AppCompatActivity
             locationTrackingBtn.setText("Tracking GPS North");
         }
     }
-
-
-
-
-
-
-
-
-
-
 
 
     //메뉴 열기

@@ -10,6 +10,16 @@ public class Pinpoint implements Serializable {
 	private double longitude;
 	private int range;
 	private int iconNo;
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
+	private String filePath;
 	
 	public int getNo() {
 		return no;
