@@ -13,6 +13,22 @@
 		<result column="RANGE" property="range" />
 		<result column="ICON_NO" property="iconNo" />
 	</resultMap>
+	
+	<select id="list" parameterType="com.tf.domain.Pinpoint"
+		resultMap="pinpointResultMap">
+		SELECT *
+		FROM (
+			SELECT
+			NO,
+			TRAVELRECORD_NO,
+			EMAIL,
+			LATITUDE,
+			LONGITUDE,
+			RANGE,
+			ICON_NO
+			FROM PINPOINT)
+			PINPOINT
+	</select>
 
 	<select id="select" parameterType="com.tf.domain.Pinpoint"
 		resultMap="com.tf.domain.Pinpoint">
