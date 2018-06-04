@@ -66,6 +66,14 @@ public class MainActivity extends AppCompatActivity
     Button locationTrackingBtn;
     Button createPinpointBtn;
 
+
+
+
+
+
+
+
+
     private LocationLayerPlugin locationLayerPlugin;
     private LocationEngine locationEngine;
     private MapboxMap mapboxMap;
@@ -79,6 +87,9 @@ public class MainActivity extends AppCompatActivity
 
     @RenderMode.Mode
     private int renderMode = RenderMode.NORMAL;
+
+
+
 
 
     Pinpoint_AutoGeneration pinpoint_autoGeneration;

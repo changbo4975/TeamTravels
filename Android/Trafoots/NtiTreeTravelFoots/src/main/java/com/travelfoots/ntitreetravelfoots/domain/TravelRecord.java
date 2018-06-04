@@ -10,6 +10,8 @@ public class TravelRecord implements Serializable {
 	private String startDate;
 	private String endDate;
 	private int state;
+
+
 	
 	public int getNo() {
 		return no;
