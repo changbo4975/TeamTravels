@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.ulis.persistence.NoticeBoardMapper">
+	<resultMap id="noticeBoardResultMap" type="org.ulis.domain.NoticeBoard">
+		<id column="NOTICE_BOARD_NO" property="noticeBoardNo" />
+		<result column="SUBJECT_NO" property="subjectNo" />
+		<result column="GRADE_ONE" property="gradeOne" />
+		<result column="GRADE_TWO" property="gradeTwo" />
+		<result column="GRADE_THREE" property="gradeThree" />
+		<result column="GRADE_FOUR" property="gradeFour" />
+		<result column="TITLE" property="title" />
+		<result column="CONTENT" property="content" />
+		<result column="WRITE_DATE" property="writeDate" />
+		<result column="END_DATE" property="endDate" />
+		<result column="ADMINISTRATOR_NO" property="administratorNo" />
+	</resultMap>
+
+	<sql id="whereSql">
+		<where>
+			<if test="noticeBoardNo > 0">
+				AND NOTICE_BOARD_NO = #{noticeBoardNo}
+			</if>
+			<if test="subjectNo > 0">
+				AND SUBJECT_NO = #{subjectNo}
+			</if>
+			<if test="gradeOne != null">
+				GRADE_ONE = #{gradeOne}
+			</if>
+			<if test="gradeTwo != null">
+				GRADE_TWO = #{gradeTwo}
+			</if>
+			<if test="gradeThree != null">
+				GRADE_THREE = #{gradeThree}
+			</if>
+			<if test="gradeFour != null">
+				GRADE_FOUR = #{gradeFour}
+			</if>
+			<if test="title != null and title != ''">
+				AND TITLE = #{title}
+			</if>
+			<if test="content != null and content != ''">
+				AND CONTENT = #{content}
+			</if>
+			<if test="writeDate != null and writeDate != ''">
+				AND WRITE_DATE = #{writeDate}
+			</if>
+			<if test="endDate != null and endDate != ''">
+				AND END_DATE = #{endDate}
+			</if>
+			<if test="administratorNo != null and administratorNo != ''">
+				AND ADMINISTRATOR_NO = #{administratorNo}
+			</if>
+		</where>
+	</sql>
+
+	<select id="list" parameterType="org.ulis.domain.NoticeBoard"
+		resultMap="noticeBoardResultMap">
+		SELECT *
+		FROM (
+			SELECT 
+			ROW_NUMBER() OVER(ORDER BY NOTICE_BOARD_NO DESC) RN
+			,NOTICE_BOARD_NO
+			,TITLE
+			,GRADE_ONE
+			,GRADE_TWO
+			,GRADE_THREE
+			,GRADE_FOUR
+			,CONTENT
+			,TO_CHAR(WRITE_DATE, 'YYYY-MM-DD') AS WRITE_DATE
+			,TO_CHAR(END_DATE, 'YYYY-MM-DD') AS END_DATE
+			,ADMINISTRATOR_NO
+			FROM NOTICE_BOARD
+		<include refid="whereSql" />
+		) TB
+	</select>
+
+	
+	<select id="select" parameterType="org.ulis.domain.NoticeBoard" resultMap="noticeBoardResultMap">
+		SELECT
+			NOTICE_BOARD_NO,
+			SUBJECT_NO,
+			GRADE_ONE,
+			GRADE_TWO,
+			GRADE_THREE,
+			GRADE_FOUR,
+			TITLE,
+			CONTENT,
+			TO_CHAR(WRITE_DATE, 'YYYY-MM-DD') AS WRITE_DATE,
+			TO_CHAR(END_DATE, 'YYYY-MM-DD') AS END_DATE,
+			ADMINISTRATOR_NO
+		FROM NOTICE_BOARD
+		<include refid="whereSql" />
+		
+	</select>
+
+	<insert id="insert" parameterType="org.ulis.domain.NoticeBoard"
+		useGeneratedKeys="true" keyProperty="noticeBoardNo" keyColumn="noticeBoardNo">
+		<selectKey keyColumn="NOTICE_BOARD_NO" keyProperty="noticeBoardNo"
+			resultType="int" order="BEFORE">
+				SELECT NOTICE_BOARD_NO_SEQ.NEXTVAL
+				FROM DUAL
+		</selectKey>
+		
+		INSERT INTO NOTICE_BOARD (
+			NOTICE_BOARD_NO,
+			SUBJECT_NO,
+			GRADE_ONE,
+			GRADE_TWO,
+			GRADE_THREE,
+			GRADE_FOUR,
+			TITLE,
+			CONTENT,
+			WRITE_DATE,
+			END_DATE,
+			ADMINISTRATOR_NO )
+		VALUES (
+			#{noticeBoardNo},
+			#{subjectNo},
+			#{gradeOne},
+			#{gradeTwo},
+			#{gradeThree},
+			#{gradeFour},
+			#{title},
+			#{content},
+			SYSDATE,
+			#{endDate},
+			#{administratorNo} )
+	</insert>
+
+	<!-- TODO : EDIT -->
+	<update id="update" parameterType="org.ulis.domain.NoticeBoard">
+		UPDATE NOTICE_BOARD
+		<set>
+			<if test="noticeBoardNo > 0">
+				NOTICE_BOARD_NO = #{noticeBoardNo},
+			</if>
+			<if test="subjectNo > 0">
+				SUBJECT_NO = #{subjectNo},
+			</if>
+			<if test="gradeOne != null">
+				GRADE_ONE = #{gradeOne},
+			</if>
+			<if test="gradeTwo != null">
+				GRADE_TWO = #{gradeTwo},
+			</if>
+			<if test="gradeThree != null">
+				GRADE_THREE = #{gradeThree},
+			</if>
+			<if test="gradeFour != null">
+				GRADE_FOUR = #{gradeFour},
+			</if>
+			<if test="title != null">
+				TITLE = #{title},
+			</if>
+			<if test="content != null">
+				CONTENT = #{content},
+			</if>
+			<if test="writeDate != null">
+				WRITE_DATE = #{writeDate},
+			</if>
+			<if test="administratorNo != null">
+				ADMINISTRATOR_NO = #{administratorNo},
+			</if>
+		</set>
+		<where>
+			<if test="noticeBoardNo > 0">
+				AND NOTICE_BOARD_NO = #{noticeBoardNo}
+			</if>
+		</where>
+	</update>
+
+	<delete id="delete" parameterType="org.ulis.domain.NoticeBoard">
+		DELETE FROM NOTICE_BOARD
+		<include refid="whereSql" />
+	</delete>
+</mapper>

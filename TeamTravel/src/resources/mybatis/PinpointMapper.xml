@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tf.persistence.PinpointMapper">
+	<resultMap id="pinpointResultMap" type="com.tf.domain.Pinpoint">
+		<id column="NO" property="no" />
+		<result column="TRAVELRECORD_NO" property="travelrecordNo" />
+		<result column="EMAIL" property="email" />
+		<result column="LATITUDE" property="latitude" />
+		<result column="LONGITUDE" property="longtitude" />
+		<result column="RANGE" property="range" />
+		<result column="ICON_NO" property="iconNo" />
+	</resultMap>
+
+	<select id="select" parameterType="com.tf.domain.Pinpoint"
+		resultMap="com.tf.domain.Pinpoint">
+		SELECT
+		NO as no,
+		TRAVELRECORD_NO as travelrecordNo,
+		EMAIL as email,
+		LATITUDE as latitude,
+		LONGITUDE as longitude,
+		RANGE as range,
+		ICON_NO as iconNo,
+		FROM PINPOINT
+		<where>
+			<if test="no != null and no != ''">
+				AND NO = #{no}
+			</if>
+		</where>
+	</select>
+	
+	<insert id="insert" parameterType="com.tf.domain.Pinpoint">
+		INSERT INTO PINPOINT
+			(NO, TRAVELRECORD_NO, EMAIL, LATITUDE, LONGITUDE, RANGE, ICON_NO)
+		VALUES
+			( #{no}, #{travelrecordNo}, #{email}, #{latitude}, #{longitude}, #{range}, #{iconNo})
+	</insert>
+	
+	<update id="update" parameterType="com.tf.domain.Pinpoint" >
+		UPDATE PINPOINT
+		<set>
+		    <if test="iconNo != '' and iconNo != null">
+		        ICON_NO = #{iconNo},
+		    </if>
+		</set>
+		WHERE 
+		    NO = #{no}
+	</update>
+	
+	<update id="delete" parameterType="com.tf.domain.Pinpoint">
+		DELETE FROM PINPOINT
+		WHERE NO = #{no}
+	</update>
+</mapper>

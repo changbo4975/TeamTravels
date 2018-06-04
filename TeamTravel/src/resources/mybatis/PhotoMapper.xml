@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.ulis.persistence.SendMapper">
+	<resultMap id="sendResultMap" type="org.ulis.domain.Send">
+		<id column="SEND_NO" property="sendNo" />
+		<result column="ADMINISTRATOR_NO" property="administratorNo" />
+		<result column="INTEGRATION_MESSAGE_NO" property="integrationMessageNo" />
+		<result column="STUDENT_NO" property="studentNo" />
+		<result column="SEND_DATE" property="sendDate" />
+		<result column="SEND_STATUS" property="sendStatus" />
+	</resultMap>
+
+	<resultMap id="sendAndsubQueryResultMap" type="java.util.Map">
+		<id column="INTEGRATION_MESSAGE_NO" property="integrationMessageNo" />
+		<result column="SEND_NO" property="sendNo" />
+		<result column="GRADE" property="grade" />
+		<result column="ADMINISTRATOR_NAME" property="administratorName"/>		
+		<result column="STUDENT_NAME" property="studentName" />
+		<result column="TITLE" property="title" />
+		<result column="CONTENT" property="content"/>
+		<result column="SEND_DATE" property="sendDate" />
+		<result column="SEND_STATUS" property="sendStatus" />
+	</resultMap>
+
+	<sql id="whereSql">
+		<where>
+			<if test="sendNo > 0">
+				AND SEND_NO = #{sendNo}
+			</if>
+			<if test="administratorNo != null and administratorNo != ''">
+				AND ADMINISTRATOR_NO = #{administratorNo}
+			</if>
+			<if test="integrationMessageNo > 0">
+				AND INTEGRATION_MESSAGE_NO = #{integrationMessageNo}
+			</if>
+			<if test="studentNo != null and studentNo != ''">
+				AND STUDENT_NO = #{studentNo}
+			</if>
+			<if test="sendDate != null and sendDate != ''">
+				AND SEND_DATE = #{sendDate}
+			</if>
+			<if test="sendStatus != null and sendStatus != ''">
+				AND SEND_STATUS = #{sendStatus}
+			</if>
+		</where>
+	</sql>
+	
+	<select id="selectOne" parameterType="org.ulis.domain.Send" resultType="java.util.Map">
+		SELECT
+			SEND_NO as sendNo,
+			ADMINISTRATOR_NO as administratorNo,
+			INTEGRATION_MESSAGE_NO as integrationMessageNo,
+			(
+				SELECT TITLE
+				FROM INTEGRATION_MESSAGE
+				WHERE INTEGRATION_MESSAGE.INTEGRATION_MESSAGE_NO = SEND.INTEGRATION_MESSAGE_NO
+			) integrationMessageTitle,
+			(
+				SELECT CONTENT
+				FROM INTEGRATION_MESSAGE
+				WHERE INTEGRATION_MESSAGE.INTEGRATION_MESSAGE_NO =
+				SEND.INTEGRATION_MESSAGE_NO
+			) integrationMessageContent,
+			STUDENT_NO as studentNo,
+			(
+				SELECT STUDENT_NAME FROM STUDENT WHERE STUDENT.STUDENT_NO = SEND.STUDENT_NO 
+			)studentName,
+			SEND_DATE as sendDate,
+			SEND_STATUS as sendStatus
+		FROM SEND
+		<where>
+			<if test="sendNo > 0">
+				AND SEND_NO = #{sendNo}
+			</if>
+		</where>
+	</select>
+
+	<select id="selectList" parameterType="org.ulis.domain.Send"
+		resultMap="sendAndsubQueryResultMap">
+		SELECT
+			SEND_NO,
+			INTEGRATION_MESSAGE_NO,
+		    (
+		        SELECT GRADE FROM STUDENT WHERE STUDENT.STUDENT_NO = SEND.STUDENT_NO
+		    )GRADE,
+		    (
+		        SELECT ADMINISTRATOR_NAME FROM Administrator WHERE ADMINISTRATOR.ADMINISTRATOR_NO = SEND.ADMINISTRATOR_NO
+		    )ADMINISTRATOR_NAME,
+		    (
+		        SELECT STUDENT_NAME FROM STUDENT WHERE STUDENT.STUDENT_NO = SEND.STUDENT_NO
+		    )STUDENT_NAME,
+		    (
+		        SELECT TITLE FROM Integration_Message WHERE INTEGRATION_MESSAGE.INTEGRATION_MESSAGE_NO = SEND.INTEGRATION_MESSAGE_NO
+		    )TITLE,
+		    (
+		        SELECT CONTENT FROM Integration_Message WHERE INTEGRATION_MESSAGE.INTEGRATION_MESSAGE_NO = SEND.INTEGRATION_MESSAGE_NO
+		    )CONTENT,
+		    TO_CHAR(SEND_DATE, 'YYYY-MM-DD HH:MM') AS SEND_DATE,
+		    SEND_STATUS,
+		    SEND_STATUS
+    	FROM SEND
+		<where>
+			<if test="administratorNo != null and administratorNo != ''">
+				AND ADMINISTRATOR_NO = #{administratorNo}
+			</if>
+			
+			<if test="studentNo != null and studentNo != ''">
+				AND STUDENT_NO = #{studentNo}
+			</if>
+		</where>
+    		ORDER BY SEND_NO DESC
+	</select>
+
+	<insert id="insert" parameterType="org.ulis.domain.Send">
+		<selectKey keyColumn="SEND_NO" keyProperty="sendNo"
+			resultType="int" order="BEFORE">
+			SELECT SEND_NO_SEQ.NEXTVAL
+			FROM DUAL
+		</selectKey>
+		INSERT INTO SEND (
+		SEND_NO,
+		ADMINISTRATOR_NO,
+		INTEGRATION_MESSAGE_NO,
+		STUDENT_NO,
+		SEND_DATE,
+		SEND_STATUS
+		)
+		VALUES (
+		SEND_NO_SEQ.Nextval,
+		#{administratorNo},
+		#{integrationMessageNo},
+		#{studentNo},
+		SYSDATE,
+		#{sendStatus}
+		)
+	</insert>
+
+	<update id="update" parameterType="org.ulis.domain.Send">
+		UPDATE SEND
+		<set>
+			<if test="sendNo > 0">
+				SEND_NO = #{sendNo},
+			</if>
+			<if test="administratorNo != null">
+				ADMINISTRATOR_NO = #{administratorNo},
+			</if>
+			<if test="integrationMessageNo > 0">
+				INTEGRATION_MESSAGE_NO = #{integrationMessageNo},
+			</if>
+			<if test="studentNo != null">
+				STUDENT_NO = #{studentNo},
+			</if>
+			<if test="sendDate != null">
+				SEND_DATE = #{sendDate},
+			</if>
+			<if test="sendStatus != null">
+				SEND_STATUS = #{sendStatus},
+			</if>
+		</set>
+		<where>
+			<if test="sendNo > 0">
+				AND SEND_NO = #{sendNo}
+			</if>
+		</where>
+	</update>
+</mapper>

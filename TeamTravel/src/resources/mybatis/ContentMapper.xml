@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.ulis.persistence.StudentMapper">
+	<resultMap id="studentResultMap" type="org.ulis.domain.Student">
+		<id column="STUDENT_NO" property="studentNo" />
+		<result column="SUBJECT_NO" property="subjectNo" />
+		<result column="GRADE" property="grade" />
+		<result column="STUDENT_NAME" property="studentName" />
+		<result column="PASSWORD" property="password" />
+		<result column="FCM_TOKEN" property="fcmToken" />
+	</resultMap>
+
+	<resultMap id="studentListResultMap" type="java.util.Map">
+		<id column="STUDENT_NAME" property="studentName" />
+		<result column="GRADE" property="grade" />
+		<result column="STUDENT_NO" property="studentNo" />
+	</resultMap>
+
+	<sql id="whereSql">
+		<where>
+			<if test="studentNo != null and studentNo != ''">
+				AND STUDENT_NO = #{studentNo}
+			</if>
+			<if test="subjectNo > 0">
+				AND SUBJECT_NO = #{subjectNo}
+			</if>
+			<if test="grade > 0">
+				AND GRADE = #{grade}
+			</if>
+			<if test="studentName != null and studentName != ''">
+				AND STUDENT_NAME = #{studentName}
+			</if>
+			<if test="password != null and password != ''">
+				AND PASSWORD = #{password}
+			</if>
+			<if test="fcmToken != null and fcmToken != ''">
+				AND FCM_TOKEN = #{fcmToken}
+			</if>
+		</where>
+	</sql>
+
+	<select id="list" parameterType="org.ulis.domain.Student"
+		resultMap="studentResultMap">
+		SELECT *
+		FROM (
+			SELECT ROW_NUMBER() OVER(ORDER BY STUDENT_NO) RN
+				,STUDENT_NO
+				,SUBJECT_NO
+				,GRADE
+				,STUDENT_NAME
+				,PASSWORD
+				,FCM_TOKEN
+			FROM
+			STUDENT
+			<include refid="whereSql" />
+		) TB
+		<where>
+			<if test="itemStart > -1">
+				RN BETWEEN (#{itemStart} + 1)
+				AND (#{itemStart} +
+				#{itemSizePerPage})
+			</if>
+		</where>
+	</select>
+
+	<select id="searchGrade" parameterType="org.ulis.domain.Student" resultMap="studentResultMap">
+		SELECT
+			GRADE,
+			STUDENT_NO,
+			STUDENT_NAME,
+			FCM_TOKEN
+		FROM STUDENT
+		
+		<where> 
+			<if test="grade != null and grade != ''">
+			AND GRADE = ${grade}
+			</if>
+			<if test="subjectNo > 0">
+			AND SUBJECT_NO = ${subjectNo}
+			</if>
+			AND FCM_TOKEN IS NOT NULL
+		</where>
+	</select>
+
+
+	<select id="select" parameterType="org.ulis.domain.Student"
+		resultType="org.ulis.domain.Student">
+		SELECT
+		STUDENT_NO as studentNo,
+		SUBJECT_NO as subjectNo,
+		GRADE as grade,
+		STUDENT_NAME as studentName,
+		PASSWORD as password
+		FROM STUDENT
+		<where>
+			<if test="studentNo != null and studentNo != ''">
+				AND STUDENT_NO = #{studentNo}
+			</if>
+			<if test="password != null and password != ''">
+				AND PASSWORD = #{password}
+			</if>
+		</where>
+	</select>
+	
+	<select id="selectSubject" parameterType="org.ulis.domain.Student" resultType="java.lang.String">
+		SELECT
+			SUBJECT_NAME
+		FROM SUBJECT
+		<where>
+			SUBJECT_NO = #{subjectNo}
+		</where>
+	</select>
+	
+	<select id="selectFCM" parameterType="org.ulis.domain.Student"
+		resultType="org.ulis.domain.Student">
+		SELECT
+			STUDENT_NO as studentNo,
+			STUDENT_NAME as studentName,
+			FCM_TOKEN as fcmToken
+		FROM STUDENT
+		<where>
+			<if test="studentNo != null and studentNo != ''">
+				AND STUDENT_NO = #{studentNo}
+			</if>
+		</where>
+				
+	</select>
+	
+	<select id="fcmList" parameterType="org.ulis.domain.Student"
+		resultMap="studentResultMap">
+		SELECT
+			STUDENT_NO,
+			STUDENT_NAME,
+			FCM_TOKEN
+		FROM STUDENT
+		<where>
+			<if test="subjectNo > 0">
+				AND SUBJECT_NO = #{subjectNo}
+			</if>
+			<if test="grade > 0">
+				AND GRADE = #{grade}
+			</if>
+		</where>
+	</select>
+
+	<select id="selectOne" parameterType="org.ulis.domain.Student"
+		resultType="java.util.Map">
+		SELECT
+		STUDENT_NO as studentNo,
+		(
+		SELECT SUBJECT_NAME as subjectName FROM
+		SUBJECT WHERE SUBJECT.SUBJECT_NO =
+		STUDENT.SUBJECT_NO
+		)subjectName,
+		GRADE as grade,
+		STUDENT_NAME as studentName
+		FROM STUDENT
+		<where>
+			<if test="studentNo != null and studentNo != ''">
+				AND STUDENT_NO = #{studentNo}
+			</if>
+		</where>
+	</select>
+
+	<select id="selectList" parameterType="org.ulis.domain.Student"
+		resultMap="studentListResultMap">
+		SELECT *
+		FROM (
+			SELECT
+			ROW_NUMBER() OVER(ORDER BY STUDENT_NAME) RN
+		,STUDENT_NAME
+		,GRADE
+		,STUDENT_NO
+		FROM STUDENT
+		<where>
+			<if test="subjectNo > -1">
+				AND SUBJECT_NO = #{subjectNo}
+			</if>
+		</where>
+		)TB
+	</select>
+
+	<update id="updateFcm" parameterType="org.ulis.domain.Student">
+		UPDATE
+		STUDENT
+		SET
+		FCM_TOKEN =#{fcmToken}
+		<where>
+			<if test="studentNo != null and studentNo != ''">
+				AND STUDENT_NO = #{studentNo}
+			</if>
+			<if test="password != null and password != ''">
+				AND PASSWORD = #{password}
+			</if>
+		</where>
+
+	</update>
+
+<update id="updateStudent" parameterType="org.ulis.domain.Student">
+		UPDATE STUDENT
+		<set>
+			<if test="grade > 0">
+				GRADE = #{grade},
+			</if>
+			<if test="studentName != null">
+				STUDENT_NAME = #{studentName},
+			</if>
+			<if test="password != null">
+				PASSWORD = #{password},
+			</if>
+		</set>
+		<where>
+			<if test="studentNo != null and studentNo != ''">
+				AND STUDENT_NO = #{studentNo}
+			</if>
+		</where>
+	</update>
+
+	<update id="updateEdit" parameterType="org.ulis.domain.Student">
+		UPDATE STUDENT
+		<set>
+			<if test="password != null">
+				PASSWORD = #{password}
+			</if>
+		</set>
+		<where>
+			<if test="studentNo != null and studentNo != ''">
+				AND STUDENT_NO = #{studentNo}
+			</if>
+		</where>
+	</update>
+</mapper>
