@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Jun 04 20:06:57 KST 2018
+#Mon Jun 04 21:49:24 KST 2018
 4.path=lib/armeabi/libmapbox-gl.so
 8.set=NATIVE_RESOURCE
 6.path=lib/x86_64/libmapbox-gl.so
