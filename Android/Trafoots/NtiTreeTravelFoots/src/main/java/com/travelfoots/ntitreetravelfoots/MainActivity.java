@@ -45,9 +45,14 @@ import com.mapbox.mapboxsdk.plugins.locationlayer.OnCameraTrackingChangedListene
 import com.mapbox.mapboxsdk.plugins.locationlayer.OnLocationLayerClickListener;
 import com.mapbox.mapboxsdk.plugins.locationlayer.modes.CameraMode;
 import com.mapbox.mapboxsdk.plugins.locationlayer.modes.RenderMode;
+import com.travelfoots.ntitreetravelfoots.domain.GPSMetaData;
 import com.travelfoots.ntitreetravelfoots.domain.MetaData;
+import com.travelfoots.ntitreetravelfoots.domain.Pinpoint;
+import com.travelfoots.ntitreetravelfoots.util.GpsMetaDataSaveLoad;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -78,6 +83,10 @@ public class MainActivity extends AppCompatActivity
 
     Pinpoint_AutoGeneration pinpoint_autoGeneration;
 
+    ;ArrayList<Pinpoint> pinpointArrayList;
+    ArrayList<GPSMetaData> gpsMetaDataArrayList;
+
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == 0) {
@@ -93,7 +102,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        gpsMetaDataArrayList = new ArrayList<>();
+        pinpointArrayList = new ArrayList<>();
         setContentView(R.layout.activity_main);
         // 툴바
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -123,6 +133,14 @@ public class MainActivity extends AppCompatActivity
             } else {
 
             }
+
+            int permissionCheck5 = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            if (permissionCheck5 == PackageManager.PERMISSION_DENIED) {
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]{
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+            } else {
+
+            }
             int permissionCheck2 = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION);
             if (permissionCheck2 == PackageManager.PERMISSION_DENIED) {
                 ActivityCompat.requestPermissions(MainActivity.this, new String[]{
@@ -130,6 +148,18 @@ public class MainActivity extends AppCompatActivity
             } else {
 
             }
+
+            List<GPSMetaData> list = null;
+            GpsMetaDataSaveLoad gpsMetaDataSaveLoad = new GpsMetaDataSaveLoad();
+            gpsMetaDataSaveLoad.save(gpsMetaDataArrayList);
+
+            list = gpsMetaDataSaveLoad.load();
+
+            for(GPSMetaData g : list) {
+                Log.i("sia","lat : "+Double.toString(g.getUserLat())+" lng : "+Double.toString(g.getUserLng()));
+            }
+
+
 
         });
 
@@ -166,11 +196,10 @@ public class MainActivity extends AppCompatActivity
 
         pinpoint_autoGeneration.CreatePinpoint(metaDataArrayList);
 
-        for (MetaData metaData : metaDataArrayList
+        for (Pinpoint pinpoint : pinpointArrayList
                 ) {
 
-            Log.i("Date2", "onClick: " + metaData.getFileDate());
-            Log.i("Date2", "LAT : " + metaData.getFileLat() + " LNG : " + metaData.getFileLat());
+            Log.i("Date2", "onClick: " + pinpoint.getNo());
 
         }
     }
@@ -303,7 +332,23 @@ public class MainActivity extends AppCompatActivity
     public void onLocationChanged(Location location) {
         mapboxMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
                 new LatLng(location.getLatitude(), location.getLongitude()), 16));
-        locationEngine.removeLocationEngineListener(this);
+        double lat;
+        double lng;
+        lat = location.getLatitude();
+        lng = location.getLongitude();
+
+        GPSMetaData gpsMetaData = new GPSMetaData();
+
+
+        long now = System.currentTimeMillis();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(now);
+        Date date = calendar.getTime();
+        gpsMetaData.setUserDate(date);
+        gpsMetaData.setUserLat(lat);
+        gpsMetaData.setUserLng(lng);
+
+        gpsMetaDataArrayList.add(gpsMetaData);
     }
 
     @Override

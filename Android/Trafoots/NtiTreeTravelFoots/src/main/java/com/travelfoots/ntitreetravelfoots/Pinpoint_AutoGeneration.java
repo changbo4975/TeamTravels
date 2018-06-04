@@ -170,16 +170,24 @@ public class Pinpoint_AutoGeneration {
     }
 
     //TODO 핀포인트 생성
-    public ArrayList<Pinpoint> CreatePinpoint(ArrayList<MetaData> metaDataArrayList) {
+    public static ArrayList<Pinpoint> CreatePinpoint(ArrayList<MetaData> metaDataArrayList) {
         ArrayList<Pinpoint> pinpointArrayList = new ArrayList<>();
+        long now = System.currentTimeMillis();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(now);
+        Date date = calendar.getTime();
+        int i=0;
         for (MetaData metadata : metaDataArrayList
                 ) {
-            Pinpoint pinpoint = new Pinpoint();
-            pinpoint.setLongitude(metadata.getFileLng());
-            pinpoint.setLatitude(metadata.getFileLat());
-            pinpoint.setFilePath(metadata.getFilePath());
-
-            pinpointArrayList.add(pinpoint);
+            if(date.compareTo(metadata.getFileDate())!=1) {
+                Pinpoint pinpoint = new Pinpoint();
+                pinpoint.setLongitude(metadata.getFileLng());
+                pinpoint.setLatitude(metadata.getFileLat());
+                pinpoint.setFilePath(metadata.getFilePath());
+                pinpoint.setNo(i);
+                pinpointArrayList.add(pinpoint);
+                i++;
+            }
         }
 
         return pinpointArrayList;
