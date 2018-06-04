@@ -1,18 +1,17 @@
 package com.travelfoots.ntitreetravelfoots.domain;
 
 import java.io.Serializable;
-
+import java.util.List;
+//TODO: 여행기록객체
 public class TravelRecord implements Serializable {
 	private int no;
 	private String email;
-	private int range;
 	private String nation;
 	private String startDate;
 	private String endDate;
 	private int state;
+	private List<Pinpoint> pinpoints;
 
-
-	
 	public int getNo() {
 		return no;
 	}
@@ -24,12 +23,6 @@ public class TravelRecord implements Serializable {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public int getRange() {
-		return range;
-	}
-	public void setRange(int range) {
-		this.range = range;
 	}
 	public String getNation() {
 		return nation;
@@ -54,5 +47,11 @@ public class TravelRecord implements Serializable {
 	}
 	public void setState(int state) {
 		this.state = state;
+	}
+	public List<Pinpoint> getPinpoints() {
+		return pinpoints;
+	}
+	public void setPinpoints(List<Pinpoint> pinpoints) {
+		this.pinpoints = pinpoints;
 	}
 }

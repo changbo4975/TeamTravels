@@ -4,40 +4,15 @@ import java.io.Serializable;
 
 public class Pinpoint implements Serializable {
 	private int no;
-	private int travelRecordNo;
-	private String email;
 	private double latitude;
 	private double longitude;
-	private int range;
-	private int iconNo;
-
-	public String getFilePath() {
-		return filePath;
-	}
-
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
-
 	private String filePath;
-	
+
 	public int getNo() {
 		return no;
 	}
 	public void setNo(int no) {
 		this.no = no;
-	}
-	public int getTravelRecordNo() {
-		return travelRecordNo;
-	}
-	public void setTravelRecordNo(int travelRecordNo) {
-		this.travelRecordNo = travelRecordNo;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	public double getLatitude() {
 		return latitude;
@@ -51,16 +26,10 @@ public class Pinpoint implements Serializable {
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-	public int getRange() {
-		return range;
+	public String getFilePath() {
+		return filePath;
 	}
-	public void setRange(int range) {
-		this.range = range;
-	}
-	public int getIconNo() {
-		return iconNo;
-	}
-	public void setIconNo(int iconNo) {
-		this.iconNo = iconNo;
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}
 }
