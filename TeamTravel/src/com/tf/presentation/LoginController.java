@@ -24,7 +24,7 @@ public class LoginController {
 	public ModelAndView login(HttpServletRequest request) {
 		HttpSession httpSession = request.getSession(true);
 		if(httpSession.getAttribute("email") != null) {
-			return new ModelAndView(new RedirectView("/NewFile"));
+			return new ModelAndView(new RedirectView("/pinpoint/list"));
 		} else {
 			return new ModelAndView("/login");
 		}

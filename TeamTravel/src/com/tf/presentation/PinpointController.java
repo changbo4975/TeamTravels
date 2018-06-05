@@ -66,7 +66,7 @@ public class PinpointController {
 			pinpoint.setEmail(email);
 			List<Pinpoint> listPinpoint= this.pinpointService.list(pinpoint);
 			
-			ModelAndView modelAndView = new ModelAndView("/pinpoint/sadf");
+			ModelAndView modelAndView = new ModelAndView("/pinpoint/list");
 			modelAndView.addObject("listPinpoint", listPinpoint);
 			return modelAndView;
 		}

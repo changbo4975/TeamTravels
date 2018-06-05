@@ -15,28 +15,6 @@
 		<result column="PASSWORD" property="password" />
 	</resultMap>
 
-	<select id="select" parameterType="com.tf.domain.Member"
-		resultType="com.tf.domain.Member">
-		SELECT
-		EMAIL as email,
-		NICKNAME as nickname,
-		AGE as age,
-		GENDER as gender,
-		REPRESENTATIVE_PHOTO as representativePhoto,
-		SELFINTRODUCTION as selfintroduction,
-		RESTRICTION_COUNT as restrictionCount,
-		PASSWORD as password
-		FROM MEMBER
-		<where>
-			<if test="email != null and email != ''">
-				AND EMAIL = #{email}
-			</if>
-			<if test="password != null and password != ''">
-				AND PASSWORD = #{password}
-			</if>
-		</where>
-	</select>
-
 	<select id="list" parameterType="com.tf.domain.Member" resultMap="memberResultMap">
 		SELECT 
 			EMAIL, 
