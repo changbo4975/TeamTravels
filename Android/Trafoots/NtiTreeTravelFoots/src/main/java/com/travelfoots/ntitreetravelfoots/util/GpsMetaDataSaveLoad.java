@@ -21,6 +21,8 @@ public class GpsMetaDataSaveLoad {
 
         try {
             out = new ObjectOutputStream(new FileOutputStream( Environment.getExternalStorageDirectory().getAbsolutePath() + "/gpsRecord.dat" ));
+
+
             out.writeObject(gpsMetaDataList);
 
             out.flush();

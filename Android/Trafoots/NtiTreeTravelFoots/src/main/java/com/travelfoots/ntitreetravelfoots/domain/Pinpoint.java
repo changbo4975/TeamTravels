@@ -1,12 +1,15 @@
 package com.travelfoots.ntitreetravelfoots.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Pinpoint implements Serializable {
 	private int no;
 	private double latitude;
 	private double longitude;
-	private String filePath;
+	private List<String> filePaths;
+
+
 
 	public int getNo() {
 		return no;
@@ -26,10 +29,10 @@ public class Pinpoint implements Serializable {
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-	public String getFilePath() {
-		return filePath;
+	public List<String> getFilePaths() {
+		return filePaths;
 	}
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
+	public void setFilePaths(List<String> filePaths) {
+		this.filePaths = filePaths;
 	}
 }

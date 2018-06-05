@@ -92,9 +92,9 @@ public class MainActivity extends AppCompatActivity
 
 
 
-    Pinpoint_AutoGeneration pinpoint_autoGeneration;
+    Pinpoint_AutoGeneration pinpoint_autoGeneration = new Pinpoint_AutoGeneration();
 
-    ;ArrayList<Pinpoint> pinpointArrayList;
+    ArrayList<Pinpoint> pinpointArrayList;
     ArrayList<GPSMetaData> gpsMetaDataArrayList;
 
 
@@ -166,11 +166,18 @@ public class MainActivity extends AppCompatActivity
 
             list = gpsMetaDataSaveLoad.load();
 
+
+
             for(GPSMetaData g : list) {
-                Log.i("sia","lat : "+Double.toString(g.getUserLat())+" lng : "+Double.toString(g.getUserLng()));
+                Log.i("sia","lat : "+Double.toString(g.getUserLat())+" lng : "+Double.toString(g.getUserLng()) + " " + g.getUserDate());
             }
-
-
+            ArrayList<MetaData> metaDataArrayList = pinpoint_autoGeneration.MetaDataExtract(getApplicationContext());
+            int i=0;
+            for(MetaData a : metaDataArrayList) {
+                pinpoint_autoGeneration.Near(gpsMetaDataArrayList, metaDataArrayList.get(i));
+                Log.i("sisi", "onCreate: "+a.getFileLat()+"  "+a.getFileLng() +" "+  a.getFileDate());
+                i++;
+            }
 
         });
 
@@ -201,9 +208,10 @@ public class MainActivity extends AppCompatActivity
 
 
     public void CreatePinpoint(View view) {
-        ArrayList<MetaData> metaDataArrayList = Pinpoint_AutoGeneration.MetaDataExtract(getApplicationContext());
+        pinpointArrayList = new ArrayList<>();
+        ArrayList<MetaData> metaDataArrayList = pinpoint_autoGeneration.MetaDataExtract(getApplicationContext());
 
-        pinpoint_autoGeneration.CreatePinpoint(metaDataArrayList);
+        pinpointArrayList = pinpoint_autoGeneration.CreatePinpoint(metaDataArrayList);
 
         for (Pinpoint pinpoint : pinpointArrayList
                 ) {
@@ -349,10 +357,8 @@ public class MainActivity extends AppCompatActivity
         GPSMetaData gpsMetaData = new GPSMetaData();
 
 
-        long now = System.currentTimeMillis();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(now);
-        Date date = calendar.getTime();
+
+        Date date = new Date();
         gpsMetaData.setUserDate(date);
         gpsMetaData.setUserLat(lat);
         gpsMetaData.setUserLng(lng);
