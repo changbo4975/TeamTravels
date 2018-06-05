@@ -11,18 +11,15 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
-public class PinpointSaveLoad {
+public class SaveLoad {
 
-
-
-
-    public boolean save(Pinpoint pinpoint) {
+    public boolean save(Object obj, String fileName) {
                     ObjectOutputStream out = null;
 
                     try {
                         out = new ObjectOutputStream(new FileOutputStream( Environment.getExternalStorageDirectory().getAbsolutePath() + "/"
-                                + Integer.toString(pinpoint.getNo())));
-                        out.writeObject(pinpoint);
+                                + fileName));
+                        out.writeObject(obj);
 
                         out.flush();
                         out.close();
@@ -43,14 +40,14 @@ public class PinpointSaveLoad {
         return true;
     }
 
-    public Pinpoint load(int no) {
+    public Object load(String fileName) {
         ObjectInputStream in = null;
-        Pinpoint pinpoint = null;
+        Object obj = null;
 
         try {
             in = new ObjectInputStream(new FileInputStream(Environment.getExternalStorageDirectory().getAbsolutePath() + "/"
-                    + Integer.toString(no)));
-            pinpoint = (Pinpoint) in.readObject();
+                    + fileName));
+            obj = in.readObject();
 
             in.close();
 
@@ -67,8 +64,6 @@ public class PinpointSaveLoad {
             return null;
         }
 
-        return pinpoint;
+        return obj;
     }
-
-
 }
