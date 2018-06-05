@@ -15,31 +15,36 @@
 	</resultMap>
 	
 	<select id="list" parameterType="com.tf.domain.Pinpoint"
-		resultMap="pinpointResultMap">
+		resultType="com.tf.domain.Pinpoint">
 		SELECT *
 		FROM (
 			SELECT
-			NO,
-			TRAVELRECORD_NO,
-			EMAIL,
-			LATITUDE,
-			LONGITUDE,
-			RANGE,
-			ICON_NO
+			NO as no,
+			TRAVELRECORD_NO as travelrecordNo,
+			EMAIL as email,
+			LATITUDE as latitude,
+			LONGITUDE as longitude,
+			RANGE as range,
+			ICON_NO as iconNo
 			FROM PINPOINT)
 			PINPOINT
+		<where>
+			<if test="email != null and email != ''">
+				AND EMAIL = #{email}
+			</if>
+		</where>
 	</select>
 
 	<select id="select" parameterType="com.tf.domain.Pinpoint"
-		resultMap="com.tf.domain.Pinpoint">
+		resultMap="pinpointResultMap">
 		SELECT
-		NO as no,
-		TRAVELRECORD_NO as travelrecordNo,
-		EMAIL as email,
-		LATITUDE as latitude,
-		LONGITUDE as longitude,
-		RANGE as range,
-		ICON_NO as iconNo,
+		NO,
+		TRAVELRECORD_NO,
+		EMAIL,
+		LATITUDE,
+		LONGITUDE,
+		RANGE,
+		ICON_NO,
 		FROM PINPOINT
 		<where>
 			<if test="no != null and no != ''">

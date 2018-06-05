@@ -40,7 +40,7 @@ public class LoginController {
 			Object member = (Object)this.loginService.login(userEmail, pw);
 			
 			if (member != null) {
-				return new ModelAndView(new RedirectView("/NewFile"));
+				return new ModelAndView(new RedirectView("/pinpoint/list"));
 			}
 		}
 		return new ModelAndView("/login");

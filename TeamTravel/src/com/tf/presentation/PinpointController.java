@@ -59,7 +59,7 @@ public class PinpointController {
 		HttpSession httpSession = request.getSession(false);
 		
 		if(httpSession == null) {
-			return null; // 원래경로
+			return new ModelAndView("/login");
 		} else {
 			String email = (String)httpSession.getAttribute("email");
 			Pinpoint pinpoint = new Pinpoint();
