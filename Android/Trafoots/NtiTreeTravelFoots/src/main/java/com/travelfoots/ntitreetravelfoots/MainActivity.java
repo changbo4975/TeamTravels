@@ -194,6 +194,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
+
         //지도
         Mapbox.getInstance(this, getString(R.string.access_token));
         mapView.onCreate(savedInstanceState);
