@@ -33,6 +33,9 @@ import com.mapbox.android.core.location.LocationEngineListener;
 import com.mapbox.android.core.location.LocationEnginePriority;
 import com.mapbox.android.core.location.LocationEngineProvider;
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.annotations.Icon;
+import com.mapbox.mapboxsdk.annotations.IconFactory;
+import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.constants.Style;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -193,6 +196,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        navigationView.inflateHeaderView(R.layout.nav_header_main2);
+
+
 
         //지도
         Mapbox.getInstance(this, getString(R.string.access_token));
@@ -212,13 +218,21 @@ public class MainActivity extends AppCompatActivity
         ArrayList<MetaData> metaDataArrayList = pinpoint_autoGeneration.MetaDataExtract(getApplicationContext());
 
         pinpointArrayList = pinpoint_autoGeneration.CreatePinpoint(metaDataArrayList);
+        IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
+        Icon icon = iconFactory.fromResource(R.drawable.custom_marker);
 
-        for (Pinpoint pinpoint : pinpointArrayList
-                ) {
 
-            Log.i("Date2", "onClick: " + pinpoint.getNo());
+        for (Pinpoint pinpoint: pinpointArrayList) {
+            double lat = pinpoint.getLatitude();
+            double lng = pinpoint.getLongitude();
 
+            mapboxMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(lat,lng))
+                    .icon(icon));
         }
+
+
+
     }
     //TODO 지도 관련
 
