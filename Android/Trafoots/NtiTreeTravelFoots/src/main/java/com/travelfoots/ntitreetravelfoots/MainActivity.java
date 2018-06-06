@@ -88,12 +88,9 @@ public class MainActivity extends AppCompatActivity
     private int renderMode = RenderMode.NORMAL;
 
 
-
-
-
     Pinpoint_AutoGeneration pinpoint_autoGeneration = new Pinpoint_AutoGeneration();
 
-    ArrayList<Pinpoint> pinpointArrayList;
+    List<Pinpoint> pinpointArrayList;
     ArrayList<GPSMetaData> gpsMetaDataArrayList;
 
 
@@ -177,17 +174,11 @@ public class MainActivity extends AppCompatActivity
             list = gpsMetaDataSaveLoad.load();
 
 
-
-            for(GPSMetaData g : list) {
-                Log.i("sia","lat : "+Double.toString(g.getUserLat())+" lng : "+Double.toString(g.getUserLng()) + " " + g.getUserDate());
+            for (GPSMetaData g : list) {
+                Log.i("sia", "lat : " + Double.toString(g.getUserLat()) + " lng : " + Double.toString(g.getUserLng()) + " " + g.getUserDate());
             }
             ArrayList<MetaData> metaDataArrayList = pinpoint_autoGeneration.MetaDataExtract(getApplicationContext());
-            int i=0;
-            for(MetaData a : metaDataArrayList) {
-                pinpoint_autoGeneration.Near(gpsMetaDataArrayList, metaDataArrayList.get(i));
-                Log.i("sisi", "onCreate: "+a.getFileLat()+"  "+a.getFileLng() +" "+  a.getFileDate());
-                i++;
-            }
+            pinpointArrayList = pinpoint_autoGeneration.CreatePinpoint(metaDataArrayList);
 
         });
 
@@ -198,7 +189,7 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        
+
         //메뉴
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -238,6 +229,7 @@ public class MainActivity extends AppCompatActivity
         for (Pinpoint pinpoint: pinpointArrayList) {
             double lat = pinpoint.getLatitude();
             double lng = pinpoint.getLongitude();
+            Log.i("pinpoint", "pinpoint_count: " + pinpoint.getNo());
 
             mapboxMap.addMarker(new MarkerOptions()
                     .position(new LatLng(lat,lng))
@@ -384,7 +376,6 @@ public class MainActivity extends AppCompatActivity
         lng = location.getLongitude();
 
         GPSMetaData gpsMetaData = new GPSMetaData();
-
 
 
         Date date = new Date();

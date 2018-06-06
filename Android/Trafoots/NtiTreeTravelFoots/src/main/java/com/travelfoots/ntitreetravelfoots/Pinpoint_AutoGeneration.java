@@ -10,11 +10,18 @@ import android.util.Log;
 import com.travelfoots.ntitreetravelfoots.domain.GPSMetaData;
 import com.travelfoots.ntitreetravelfoots.domain.MetaData;
 import com.travelfoots.ntitreetravelfoots.domain.Pinpoint;
+import com.travelfoots.ntitreetravelfoots.util.GpsMetaDataSaveLoad;
+
+import org.gavaghan.geodesy.Ellipsoid;
+import org.gavaghan.geodesy.GeodeticCalculator;
+import org.gavaghan.geodesy.GlobalPosition;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
 
 public class Pinpoint_AutoGeneration {
     public Pinpoint_AutoGeneration() {
@@ -40,7 +47,6 @@ public class Pinpoint_AutoGeneration {
         int columnDisplayname = Image_cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DISPLAY_NAME);
 
         int imageLastIndex;
-
         while (Image_cursor.moveToNext()) {
             String imagePath = Image_cursor.getString(columnImageData);
             double imagesLat = Image_cursor.getDouble(columnImageLat);
@@ -111,99 +117,120 @@ public class Pinpoint_AutoGeneration {
 
 
     //TODO 근사값 찾기
-    public MetaData Near(ArrayList<GPSMetaData> gpsMetaDataArrayList, MetaData contentMetaData) {
-        ArrayList<GPSMetaData> tempGpsMetaDataArrayList = new ArrayList<>();
-        Date date = contentMetaData.getFileDate();
+    public double Near(List<GPSMetaData> data, MetaData target) {
+        double nearLat = 0;
+        double nearLng = 0;
+        double minLat = Double.MAX_VALUE;
+        double minLng = Double.MAX_VALUE;
 
-//        for (int k = 0; k < gpsMetaDataArrayList.size(); k++) {
-//            if (gpsMetaDataArrayList.get(k).getUserDate() == date)
-//                tempGpsMetaDataArrayList.add(gpsMetaDataArrayList.get(k)); // temp 에 GPS데이터와 메타데이터와 같은 날짜 값을 넣음.
-//        }
-        double resultLat = 0;
-        double resultLng = 0;
-        int Listnum = 0;
-        for (int i = 0; i < tempGpsMetaDataArrayList.size(); i++) {
-            //list에 있는 숫자 - 검색하고자 하는 숫자
-            //뺀 값의 절대값이 낮을수록 유사한 숫자
-            double tempLng = Math.abs(tempGpsMetaDataArrayList.get(i).getUserLng() - contentMetaData.getFileLng());
-            double tempLat = Math.abs(tempGpsMetaDataArrayList.get(i).getUserLat() - contentMetaData.getFileLat());
-            if (resultLng > tempLng && resultLat > tempLat) {  // 근사치 검사
-                resultLng = tempLng;
-                resultLat = tempLat;
-                Listnum = i;
-
-
-            } else if (tempLng == 0 && tempLat == 0) {    // 같은 값 (일치)
-                resultLng = tempLng;
-                resultLat = tempLat;
-                Listnum = i;
-                break;
+        for (int i = 0; i < data.size(); i++) {
+            if (Abs(data.get(i).getUserLat() - target.getFileLat()) < minLat &&
+                    Abs(data.get(i).getUserLng() - target.getFileLng()) < minLng) {
+                minLat = Abs(data.get(i).getUserLat() - target.getFileLat());
+                nearLat = data.get(i).getUserLng();
+                minLng = Abs(data.get(i).getUserLng() - target.getFileLng());
+                nearLng = data.get(i).getUserLng();
             }
         }
-        contentMetaData.setFileLat(resultLat);
-        contentMetaData.setFileLng(resultLng);
+        double distance = DistanceComparison(nearLat, nearLng, target.getFileLat(), target.getFileLng());
 
+        return distance;
 
-        return contentMetaData;
+    }
+
+    public static double Abs(double p) {
+        return (p < 0) ? -p : p;
     }
 
     //TODO 거리비교
-    /**
-     * Mean radius.
-     */
-    private static double EARTH_RADIUS = 6371;
+    double DistanceComparison(double lat, double lng, double nlat, double nlng) {
+        GeodeticCalculator geoCalc = new GeodeticCalculator();
 
-    /**
-     * Returns the distance between two sets of latitudes and longitudes in meters.
-     * <p/>
-     * Based from the following JavaScript SO answer:
-     * http://.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula,
-     * which is based on https://en.wikipedia.org/wiki/Haversine_formula (error rate: ~0.55%).
-     */
-    public double DisTanceComperison(double lat1, double lon1, double lat2, double lon2) {
-        double dLat = toRadians(lat2 - lat1);
-        double dLon = toRadians(lon2 - lon1);
+        Ellipsoid reference = Ellipsoid.WGS84;
 
-        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
-                        Math.sin(dLon / 2) * Math.sin(dLon / 2);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        double d = EARTH_RADIUS * c;
+        GlobalPosition pointA = new GlobalPosition(lat, lng, 0.0); // Point A
+        GlobalPosition userPos = new GlobalPosition(nlat, nlng, 0.0); // Point B
+        //거리값 m단위
+        double distance = geoCalc.calculateGeodeticCurve(reference, userPos, pointA).getEllipsoidalDistance(); // Distance between Point A and Point B
 
-        return d;
+        return distance;
     }
 
-    public double toRadians(double degrees) {
-        return degrees * (Math.PI / 180);
+    //TODO 거리비교
+
+    List<MetaData> DistanceComparison(List<MetaData> metaDataList) {
+        GeodeticCalculator geoCalc = new GeodeticCalculator();
+
+        Ellipsoid reference = Ellipsoid.WGS84;
+
+        for (int i = 0; i < metaDataList.size() - 1; i++) {
+            if (i == metaDataList.size() - 1) {
+                break;
+            }
+            double fLat = metaDataList.get(i).getFileLat();
+            double fLng = metaDataList.get(i).getFileLng();
+            double rLat = metaDataList.get(i + 1).getFileLat();
+            double rLng = metaDataList.get(i + 1).getFileLng();
+            GlobalPosition pointA = new GlobalPosition(fLat, fLng, 0.0); // Point A
+            GlobalPosition userPos = new GlobalPosition(rLat, rLng, 0.0); // Point B
+            //거리값 m단위
+            double distance = geoCalc.calculateGeodeticCurve(reference, userPos, pointA).getEllipsoidalDistance(); // Distance between Point A and Point B
+
+            if (distance <= 5) {
+                metaDataList.get(i + 1).setFileLat(fLat);
+                metaDataList.get(i + 1).setFileLng(fLng);
+            }
+        }
+        return metaDataList;
     }
+
 
     //TODO 핀포인트 생성
-    public ArrayList<Pinpoint> CreatePinpoint(ArrayList<MetaData> metaDataArrayList) {
+    public List<Pinpoint> CreatePinpoint(List<MetaData> metaDataArrayList) {
         ArrayList<Pinpoint> pinpointArrayList = new ArrayList<>();
+        List<String> filepaths = new ArrayList<>();
+        GpsMetaDataSaveLoad gpsMetaDataSaveLoad = new GpsMetaDataSaveLoad();
         long now = System.currentTimeMillis();
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(now);
         Date date = calendar.getTime();
         int i = 0;
+        metaDataArrayList = DistanceComparison(metaDataArrayList);
         for (MetaData metadata : metaDataArrayList
                 ) {
             //TODO 시간 잡아주는곳.
-//            if (date.compareTo(metadata.getFileDate()) > 0) {
+            //TODO 파일패쓰 설정
+            if (10 >= (Near(gpsMetaDataSaveLoad.load(), metadata))) {
                 Pinpoint pinpoint = new Pinpoint();
-                Log.i("제발", "CreatePinpoint: "+metadata.getFileDate());
-                Log.i("제발", "CreatePinpoint: "+date);
                 pinpoint.setLongitude(metadata.getFileLng());
                 pinpoint.setLatitude(metadata.getFileLat());
-                //TODO 파일패쓰 설정
-//                pinpoint.setFilePaths(metadata.getFilePath());
+                filepaths =getFilepaths(metaDataArrayList,metadata);
+                pinpoint.setFilePaths(filepaths);
                 pinpoint.setNo(i);
                 pinpointArrayList.add(pinpoint);
-                i++;
+                Log.i("제뱔", "CreatePinpoint: " + pinpoint.getFilePaths().toString());
+            }
+            Log.i("제발", "CreatePinpoint: " + pinpointArrayList.size());
+            i++;
 //            }
         }
 
         return pinpointArrayList;
     }
+    List<String> getFilepaths(List<MetaData> metaDataList,MetaData metaData){
+        List<String> filepaths = new ArrayList<>();
+        double lat = metaData.getFileLat();
+        double lng = metaData.getFileLng();
+        filepaths.add(metaData.getFilePath());
+        for (MetaData met: metaDataList
+                ) {
+            if(lat == met.getFileLat() && lng == met.getFileLng()){
+                filepaths.add(met.getFilePath());
+            }
 
+        }
+        List<String> uniqueItems = new ArrayList<String>(new HashSet<>(filepaths));
+        return uniqueItems;
+    }
 
 }
