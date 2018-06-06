@@ -48,6 +48,7 @@ public class TravelRecordConnecter {
                     .addFormDataPart("endDate", travelRecord.getEndDate());
 
             int cnt = 1;
+<<<<<<< HEAD
             for(Pinpoint pinpoint : travelRecord.getPinpoints()) {
                 builder.addFormDataPart("pinpointNo" + cnt, Integer.toString(pinpoint.getNo()))
                         .addFormDataPart("latitude" + cnt, Double.toString(pinpoint.getLatitude()))
@@ -60,6 +61,15 @@ public class TravelRecordConnecter {
                 }
                 cnt++;
             }
+=======
+//            for(Pinpoint pinpoint : travelRecord.getPinpoints()) {
+////                builder.addFormDataPart("pinpointNo" + cnt, Integer.toString(pinpoint.getNo()))
+////                        .addFormDataPart("latitude" + cnt, Double.toString(pinpoint.getLatitude()))
+////                        .addFormDataPart("longitude" + cnt, Double.toString(pinpoint.getLongitude()))
+//////                        .addFormDataPart("file" + cnt++, Double.toString(pinpoint.getLongitude()),
+//////                                RequestBody.create(MultipartBody.FORM, pinpoint.getFilePaths()));
+////            }
+>>>>>>> 6f4217a4589ccedff6ae3d9336d3862516cbb944
 
             filePost = new FilePost(builder, path + "/travelRecord/addApp");
             isSucess = filePost.execute().get();
