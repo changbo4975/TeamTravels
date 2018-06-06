@@ -45,9 +45,11 @@ import com.mapbox.mapboxsdk.plugins.locationlayer.OnCameraTrackingChangedListene
 import com.mapbox.mapboxsdk.plugins.locationlayer.OnLocationLayerClickListener;
 import com.mapbox.mapboxsdk.plugins.locationlayer.modes.CameraMode;
 import com.mapbox.mapboxsdk.plugins.locationlayer.modes.RenderMode;
+import com.travelfoots.ntitreetravelfoots.Service.TravelRecordConnecter;
 import com.travelfoots.ntitreetravelfoots.domain.GPSMetaData;
 import com.travelfoots.ntitreetravelfoots.domain.MetaData;
 import com.travelfoots.ntitreetravelfoots.domain.Pinpoint;
+import com.travelfoots.ntitreetravelfoots.domain.TravelRecord;
 import com.travelfoots.ntitreetravelfoots.util.GpsMetaDataSaveLoad;
 
 import java.util.ArrayList;
@@ -130,6 +132,17 @@ public class MainActivity extends AppCompatActivity
         locationTrackingBtn.setOnClickListener(v -> locationModeCompass(locationTrackingBtn));
         createPinpointBtn = findViewById(R.id.button);
         createPinpointBtn.setOnClickListener(v -> CreatePinpoint(createPinpointBtn));
+
+
+        // 여행기록 서버 전송 확인
+        Button btn = findViewById(R.id.button2);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TravelRecordConnecter t = new TravelRecordConnecter();
+                t.add(new TravelRecord());
+            }
+        });
 
 
         //fab 버튼

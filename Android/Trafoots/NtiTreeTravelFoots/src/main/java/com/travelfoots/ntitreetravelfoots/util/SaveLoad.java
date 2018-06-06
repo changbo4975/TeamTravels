@@ -13,12 +13,12 @@ import java.util.List;
 
 public class SaveLoad {
 
-    public boolean save(Object obj, String fileName) {
+    public boolean save(Object obj, String path, String fileName) {
                     ObjectOutputStream out = null;
 
                     try {
-                        out = new ObjectOutputStream(new FileOutputStream( Environment.getExternalStorageDirectory().getAbsolutePath() + "/"
-                                + fileName));
+                        out = new ObjectOutputStream(new FileOutputStream( Environment.getExternalStorageDirectory().getAbsolutePath()
+                                + "/travelFoot/" + path + fileName));
                         out.writeObject(obj);
 
                         out.flush();
@@ -40,13 +40,13 @@ public class SaveLoad {
         return true;
     }
 
-    public Object load(String fileName) {
+    public Object load(String path, String fileName) {
         ObjectInputStream in = null;
         Object obj = null;
 
         try {
-            in = new ObjectInputStream(new FileInputStream(Environment.getExternalStorageDirectory().getAbsolutePath() + "/"
-                    + fileName));
+            in = new ObjectInputStream(new FileInputStream(Environment.getExternalStorageDirectory().getAbsolutePath()
+                    + "/travelFoot/" + path + fileName));
             obj = in.readObject();
 
             in.close();

@@ -12,8 +12,6 @@ public class TravelStart {
 
         SaveLoad s = new SaveLoad();
 
-        s.save(travelRecord, "travel1");
-
         return travelRecord;
     }
 }

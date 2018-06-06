@@ -7,18 +7,7 @@ import com.travelfoots.ntitreetravelfoots.network.Post;
 
 import okhttp3.FormBody;
 
-public class MemberShipManagement extends AsyncTask {
-
-    public MemberShipManagement () {
-
-    }
-
-    @Override
-    protected Object doInBackground(Object[] objects) {
-
-        return null;
-    }
-
+public class MemberShipManagement {
     public boolean add(Member member) {
         Post post = null;
         Boolean isSucess = true;

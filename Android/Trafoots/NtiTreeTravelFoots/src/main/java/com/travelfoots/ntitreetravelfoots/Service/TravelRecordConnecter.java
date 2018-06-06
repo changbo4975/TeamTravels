@@ -1,9 +1,12 @@
 package com.travelfoots.ntitreetravelfoots.Service;
 
+import android.util.Log;
+
 import com.travelfoots.ntitreetravelfoots.domain.Pinpoint;
 import com.travelfoots.ntitreetravelfoots.domain.TravelRecord;
 import com.travelfoots.ntitreetravelfoots.network.FilePost;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,9 +14,9 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 public class TravelRecordConnecter {
-    private final static String path = "http://192.168.60.61";
+    private final static String path = "http://192.168.60.56";
 
-    private boolean add(TravelRecord travelRecord) {
+    public boolean add(TravelRecord travelRecord) {
         FilePost filePost = null;
         Boolean isSucess = true;
 
@@ -29,7 +32,12 @@ public class TravelRecordConnecter {
         for(int i = 0; i < 3; i++) {
             Pinpoint pinpoint = new Pinpoint();
             pinpoint.setNo(i);
+            pinpoint.setLatitude(30 + i);
+            pinpoint.setLongitude(40 + i);
+            pinpointList.add(pinpoint);
         }
+
+        travelRecord.setPinpoints(pinpointList);
 
         try {
             MultipartBody.Builder builder = new MultipartBody.Builder();
@@ -43,9 +51,14 @@ public class TravelRecordConnecter {
             for(Pinpoint pinpoint : travelRecord.getPinpoints()) {
                 builder.addFormDataPart("pinpointNo" + cnt, Integer.toString(pinpoint.getNo()))
                         .addFormDataPart("latitude" + cnt, Double.toString(pinpoint.getLatitude()))
-                        .addFormDataPart("longitude" + cnt, Double.toString(pinpoint.getLongitude()))
-                        .addFormDataPart("file" + cnt++, Double.toString(pinpoint.getLongitude()),
-                                RequestBody.create(MultipartBody.FORM, pinpoint.getFilePath()));
+                        .addFormDataPart("longitude" + cnt, Double.toString(pinpoint.getLongitude()));
+
+                int filCnt = 1;
+                for(String path : pinpoint.getFilePaths()) {
+                    builder.addFormDataPart(cnt + "_" + filCnt, Double.toString(pinpoint.getLongitude()),
+                            RequestBody.create(MultipartBody.FORM, new File(path)));
+                }
+                cnt++;
             }
 
             filePost = new FilePost(builder, path + "/travelRecord/addApp");
@@ -58,5 +71,4 @@ public class TravelRecordConnecter {
 
         return isSucess;
     }
-
 }
