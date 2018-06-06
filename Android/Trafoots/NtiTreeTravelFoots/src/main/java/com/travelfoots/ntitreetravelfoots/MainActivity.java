@@ -35,6 +35,7 @@ import com.mapbox.android.core.location.LocationEngineProvider;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
+import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.constants.Style;
@@ -61,21 +62,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback,
-        LocationEngineListener, OnLocationLayerClickListener, OnCameraTrackingChangedListener {
+        LocationEngineListener, OnLocationLayerClickListener, OnCameraTrackingChangedListener,MapboxMap.OnMarkerClickListener {
+
     MapView mapView;
     TextView modeText;
     TextView trackingText;
     Button locationModeBtn;
     Button locationTrackingBtn;
     Button createPinpointBtn;
-
-
-
-
-
-
-
-
 
     private LocationLayerPlugin locationLayerPlugin;
     private LocationEngine locationEngine;
@@ -196,7 +190,13 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        navigationView.inflateHeaderView(R.layout.nav_header_main2);
+        //1= 회원 2=비회원
+        int i=0;
+        if(i==1){
+            navigationView.inflateHeaderView(R.layout.nav_header_main2);
+        }else {
+            navigationView.inflateHeaderView(R.layout.nav_header_main);
+        }
 
 
 
@@ -230,10 +230,12 @@ public class MainActivity extends AppCompatActivity
                     .position(new LatLng(lat,lng))
                     .icon(icon));
         }
-
+        mapboxMap.setOnMarkerClickListener(this);
 
 
     }
+
+
     //TODO 지도 관련
 
     @SuppressWarnings({"MissingPermission"})
@@ -361,8 +363,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onLocationChanged(Location location) {
-        mapboxMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-                new LatLng(location.getLatitude(), location.getLongitude()), 16));
+        //mapboxMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+        //      new LatLng(location.getLatitude(), location.getLongitude()), 16));
         double lat;
         double lng;
         lat = location.getLatitude();
@@ -532,6 +534,12 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public boolean onMarkerClick(@NonNull Marker marker) {
+        Toast.makeText(this,marker.getTitle() + "\n" + marker.getPosition(),Toast.LENGTH_LONG).show();
         return true;
     }
 }
