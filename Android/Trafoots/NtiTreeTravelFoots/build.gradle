@@ -5,7 +5,11 @@ android {
     defaultConfig {
         applicationId "com.travelfoots.ntitreetravelfoots"
         minSdkVersion 25
+<<<<<<< HEAD
         targetSdkVersion 25
+=======
+        targetSdkVersion 26
+>>>>>>> dc5ef413e992cac65247ddf270f5f328faa13de9
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -26,9 +30,15 @@ android {
 dependencies {
     implementation 'com.drewnoakes:metadata-extractor:2.11.0'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+<<<<<<< HEAD
     implementation 'com.android.support:appcompat-v7:25.4.0'
     implementation 'com.android.support:support-v4:25.4.0'
     implementation 'com.android.support:design:25.4.0'
+=======
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+>>>>>>> dc5ef413e992cac65247ddf270f5f328faa13de9
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -39,4 +49,5 @@ dependencies {
     //butter knife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'org.gavaghan:geodesy:1.1.3'
 }
