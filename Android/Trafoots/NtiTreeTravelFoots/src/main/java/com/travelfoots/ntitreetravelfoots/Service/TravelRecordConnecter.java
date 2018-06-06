@@ -41,12 +41,21 @@ public class TravelRecordConnecter {
 
             int cnt = 1;
 //            for(Pinpoint pinpoint : travelRecord.getPinpoints()) {
+<<<<<<< Updated upstream
 ////                builder.addFormDataPart("pinpointNo" + cnt, Integer.toString(pinpoint.getNo()))
 ////                        .addFormDataPart("latitude" + cnt, Double.toString(pinpoint.getLatitude()))
 ////                        .addFormDataPart("longitude" + cnt, Double.toString(pinpoint.getLongitude()))
 //////                        .addFormDataPart("file" + cnt++, Double.toString(pinpoint.getLongitude()),
 //////                                RequestBody.create(MultipartBody.FORM, pinpoint.getFilePaths()));
 ////            }
+=======
+//                builder.addFormDataPart("pinpointNo" + cnt, Integer.toString(pinpoint.getNo()))
+//                        .addFormDataPart("latitude" + cnt, Double.toString(pinpoint.getLatitude()))
+//                        .addFormDataPart("longitude" + cnt, Double.toString(pinpoint.getLongitude()))
+//                        .addFormDataPart("file" + cnt++, Double.toString(pinpoint.getLongitude()),
+//                                RequestBody.create(MultipartBody.FORM, pinpoint.getFilePaths()));
+//            }
+>>>>>>> Stashed changes
 
             filePost = new FilePost(builder, path + "/travelRecord/addApp");
             isSucess = filePost.execute().get();
