@@ -16,7 +16,6 @@ import org.gavaghan.geodesy.Ellipsoid;
 import org.gavaghan.geodesy.GeodeticCalculator;
 import org.gavaghan.geodesy.GlobalPosition;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -176,7 +175,7 @@ public class Pinpoint_AutoGeneration {
             //거리값 m단위
             double distance = geoCalc.calculateGeodeticCurve(reference, userPos, pointA).getEllipsoidalDistance(); // Distance between Point A and Point B
 
-            if (distance <= 5) {
+            if (distance <= 10) {
                 metaDataList.get(i + 1).setFileLat(fLat);
                 metaDataList.get(i + 1).setFileLng(fLng);
             }
@@ -188,29 +187,25 @@ public class Pinpoint_AutoGeneration {
     //TODO 핀포인트 생성
     public List<Pinpoint> CreatePinpoint(List<MetaData> metaDataArrayList) {
         ArrayList<Pinpoint> pinpointArrayList = new ArrayList<>();
-        List<String> filepaths = new ArrayList<>();
         GpsMetaDataSaveLoad gpsMetaDataSaveLoad = new GpsMetaDataSaveLoad();
         long now = System.currentTimeMillis();
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(now);
         Date date = calendar.getTime();
         int i = 0;
-        metaDataArrayList = DistanceComparison(metaDataArrayList);
+        metaDataArrayList = DistanceComparison(metaDataArrayList);// -> 사진묶기
         for (MetaData metadata : metaDataArrayList
                 ) {
-            //TODO 시간 잡아주는곳.
             //TODO 파일패쓰 설정
-            if (10 >= (Near(gpsMetaDataSaveLoad.load(), metadata))) {
+            if (15 >= (Near(gpsMetaDataSaveLoad.load(), metadata))) { //GPS 근사치 구해 거리비교 시 15m 이내에 있을경우.
                 Pinpoint pinpoint = new Pinpoint();
                 pinpoint.setLongitude(metadata.getFileLng());
                 pinpoint.setLatitude(metadata.getFileLat());
-                filepaths =getFilepaths(metaDataArrayList,metadata);
-                pinpoint.setFilePaths(filepaths);
+                pinpoint.setFilePaths(getFilepaths(metaDataArrayList,metadata));
                 pinpoint.setNo(i);
                 pinpointArrayList.add(pinpoint);
-                Log.i("제뱔", "CreatePinpoint: " + pinpoint.getFilePaths().toString());
+                Log.i("제뱔", "CreatePinpoint: " + pinpoint.getFilePaths().toString()+" pinpointSize : " + pinpointArrayList.size());
             }
-            Log.i("제발", "CreatePinpoint: " + pinpointArrayList.size());
             i++;
 //            }
         }
