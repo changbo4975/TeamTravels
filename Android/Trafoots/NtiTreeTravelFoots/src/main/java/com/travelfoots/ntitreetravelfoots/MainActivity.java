@@ -49,6 +49,7 @@ import com.mapbox.mapboxsdk.plugins.locationlayer.OnCameraTrackingChangedListene
 import com.mapbox.mapboxsdk.plugins.locationlayer.OnLocationLayerClickListener;
 import com.mapbox.mapboxsdk.plugins.locationlayer.modes.CameraMode;
 import com.mapbox.mapboxsdk.plugins.locationlayer.modes.RenderMode;
+import com.travelfoots.ntitreetravelfoots.Service.MemberConnecter;
 import com.travelfoots.ntitreetravelfoots.Service.TravelRecordConnecter;
 import com.travelfoots.ntitreetravelfoots.domain.GPSMetaData;
 import com.travelfoots.ntitreetravelfoots.domain.MetaData;
@@ -93,7 +94,6 @@ public class MainActivity extends AppCompatActivity
     List<Pinpoint> pinpointArrayList;
     ArrayList<GPSMetaData> gpsMetaDataArrayList;
 
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == 0) {
@@ -133,8 +133,8 @@ public class MainActivity extends AppCompatActivity
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TravelRecordConnecter t = new TravelRecordConnecter();
-                t.add(new TravelRecord());
+                MemberConnecter memberConnecter = new MemberConnecter();
+                memberConnecter.view("test@email.com");
             }
         });
 
