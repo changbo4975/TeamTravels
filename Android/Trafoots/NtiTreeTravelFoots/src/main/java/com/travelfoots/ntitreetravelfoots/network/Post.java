@@ -6,8 +6,9 @@ import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 
-public class Post extends AsyncTask<Boolean, Boolean, Boolean> {
+public class Post extends AsyncTask<Integer, Response, Response> {
     FormBody.Builder formBuilder;
     String url;
 
@@ -17,8 +18,8 @@ public class Post extends AsyncTask<Boolean, Boolean, Boolean> {
     }
 
     @Override
-    protected Boolean doInBackground(Boolean[] objects)  {
-        Boolean isSucess = true;
+    protected Response doInBackground(Integer[] list)  {
+        Response response = null;
         OkHttpClient client = new OkHttpClient();
 
         RequestBody body = formBuilder.build();
@@ -28,11 +29,11 @@ public class Post extends AsyncTask<Boolean, Boolean, Boolean> {
                 .post(body)
                 .build();
         try {
-            isSucess = client.newCall(request).execute().isSuccessful();
+            response = client.newCall(request).execute();
         } catch(Exception e) {
             e.printStackTrace();
         }
 
-        return isSucess;
+        return response;
     }
 }
