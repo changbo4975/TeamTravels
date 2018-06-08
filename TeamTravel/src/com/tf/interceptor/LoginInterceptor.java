@@ -15,7 +15,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 		Object email = httpSession.getAttribute("email");
 		
-		System.out.println(email);
+		//System.out.println(email);
 		if(email == null) {
 		
 			response.sendRedirect("/login");
