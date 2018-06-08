@@ -2,8 +2,10 @@ package com.travelfoots.ntitreetravelfoots;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -37,6 +39,7 @@ import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
+import com.mapbox.mapboxsdk.annotations.PolylineOptions;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.constants.Style;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -64,7 +67,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback,
-        LocationEngineListener, OnLocationLayerClickListener, OnCameraTrackingChangedListener,MapboxMap.OnMarkerClickListener {
+        LocationEngineListener, OnLocationLayerClickListener, OnCameraTrackingChangedListener
+        , MapboxMap.OnMarkerClickListener {
 
     MapView mapView;
     TextView modeText;
@@ -180,6 +184,7 @@ public class MainActivity extends AppCompatActivity
             ArrayList<MetaData> metaDataArrayList = pinpoint_autoGeneration.MetaDataExtract(getApplicationContext());
             pinpointArrayList = pinpoint_autoGeneration.CreatePinpoint(metaDataArrayList);
 
+
         });
 
 
@@ -191,17 +196,19 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         //메뉴
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_viewm);
         navigationView.setNavigationItemSelectedListener(this);
 
         //1= 회원 2=비회원
-        int i=0;
-        if(i==1){
+        int i = 0;
+        if (i == 1) {
             navigationView.inflateHeaderView(R.layout.nav_header_main2);
-        }else {
+        } else {
             navigationView.inflateHeaderView(R.layout.nav_header_main);
         }
 
+        navigationView.inflateHeaderView(R.layout.nav_header_main2);
+        navigationView.inflateHeaderView(R.layout.nav_header_main);
 
 
         //지도
@@ -226,20 +233,21 @@ public class MainActivity extends AppCompatActivity
         Icon icon = iconFactory.fromResource(R.drawable.custom_marker);
 
 
-        for (Pinpoint pinpoint: pinpointArrayList) {
+        for (Pinpoint pinpoint : pinpointArrayList) {
             double lat = pinpoint.getLatitude();
             double lng = pinpoint.getLongitude();
             Log.i("pinpoint", "pinpoint_count: " + pinpoint.getNo());
 
+            //addMarker
             mapboxMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(lat,lng))
-                    .icon(icon));
+                    .position(new LatLng(lat, lng))
+                    .icon(icon).setTitle(String.valueOf(pinpoint.getNo())
+                    ));
+            mapboxMap.setOnMarkerClickListener(this::onMarkerClick);
         }
-        mapboxMap.setOnMarkerClickListener(this);
 
 
     }
-
 
     //TODO 지도 관련
 
@@ -287,6 +295,8 @@ public class MainActivity extends AppCompatActivity
         setRendererMode(renderMode);
 
         getLifecycle().addObserver(locationLayerPlugin);
+
+
     }
 
 
@@ -368,7 +378,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onLocationChanged(Location location) {
-        //mapboxMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+        //  mapboxMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
         //      new LatLng(location.getLatitude(), location.getLongitude()), 16));
         double lat;
         double lng;
@@ -385,6 +395,7 @@ public class MainActivity extends AppCompatActivity
 
         gpsMetaDataArrayList.add(gpsMetaData);
     }
+
 
     @Override
     public void onLocationLayerClick() {
@@ -543,7 +554,14 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
-        Toast.makeText(this,marker.getTitle() + "\n" + marker.getPosition(),Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,marker.getTitle() + "\n" + marker.getPosition(),Toast.LENGTH_LONG).show();
+        int i = Integer.valueOf(marker.getTitle());
+        pinpointArrayList.get(i);
+
+        Intent intent = new Intent(getApplicationContext(), MyPinpointActivity.class);
+        intent.putExtra("pinpoint", pinpointArrayList.get(i));
+        startActivity(intent);
+
         return true;
     }
 }
