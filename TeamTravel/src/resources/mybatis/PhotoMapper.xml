@@ -4,14 +4,14 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.tf.persistence.PhotoMapper">
-	<resultMap id="uriResultMap" type="com.tf.domain.PhotoMapper">
+	<resultMap id="uriResultMap" type="com.tf.domain.Photo">
 		<id column="NO" property="email" />
 		<result column="PINPOINT_NO" property="pinpointNo" />
 		<result column="URI" property="uri" />
 	</resultMap>
 
-	<select id="select" parameterType="com.tf.domain.PhotoMapper"
-		resultType="com.tf.domain.PhotoMapper">
+	<select id="select" parameterType="com.tf.domain.Photo"
+		resultType="com.tf.domain.Photo">
 		SELECT
 		NO as no,
 		PINPOINT_NO as pinpointNo,
@@ -24,14 +24,14 @@
 		</where>
 	</select>
 	
-	<insert id="insert" parameterType="com.tf.domain.PhotoMapper">
+	<insert id="insert" parameterType="com.tf.domain.Photo">
 		INSERT INTO PHOTO
 			(NO, PINPOINT_NO, URI)
 		VALUES
 			( #{no}, #{pinpointNo}, #{uri})
 	</insert>
 	
-	<update id="update" parameterType="com.tf.domain.PhotoMapper" >
+	<update id="update" parameterType="com.tf.domain.Photo" >
 		UPDATE PHOTO
 		<set>
 		    <if test="uri != '' and uri != null">
@@ -42,7 +42,7 @@
 		    NO = #{no}
 	</update>
 	
-	<update id="delete" parameterType="com.tf.domain.PhotoMapper">
+	<update id="delete" parameterType="com.tf.domain.Photo">
 		DELETE FROM PHOTO
 		WHERE NO = #{no}
 	</update>
