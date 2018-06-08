@@ -10,8 +10,8 @@
 		<result column="PASSWORD" property="password" />
 	</resultMap>
 
-	<select id="select" parameterType="com.tf.domain.PinpointCommentMapper"
-		resultType="com.tf.domain.PinpointCommentMapper">
+	<select id="select" parameterType="com.tf.domain.PinpointComment"
+		resultType="com.tf.domain.PinpointComment">
 		SELECT
 		NO as no,
 		PINPOINT_NO as pinpointNo,
@@ -26,14 +26,14 @@
 		</where>
 	</select>
 	
-	<insert id="insert" parameterType="com.tf.domain.PinpointCommentMapper">
+	<insert id="insert" parameterType="com.tf.domain.PinpointComment">
 		INSERT INTO PINPOINT_COMMENT
 			(NO, PINPOINT_NO, EMAIL, REPLY, PINPOINT_DATE)
 		VALUES
 			( #{no}, #{pinpointNo}, #{email}, #{reply}, #{pinpointDate})
 	</insert>
 	
-	<update id="update" parameterType="com.tf.domain.PinpointCommentMapper" >
+	<update id="update" parameterType="com.tf.domain.PinpointComment" >
 		UPDATE PINPOINT_COMMENT
 		<set>
 		    <if test="reply != '' and reply != null">
@@ -44,7 +44,7 @@
 		    NO = #{no}
 	</update>
 	
-	<update id="delete" parameterType="com.tf.domain.PinpointCommentMapper">
+	<update id="delete" parameterType="com.tf.domain.PinpointComment">
 		DELETE FROM PINPOINT_COMMENT
 		WHERE NO = #{no}
 	</update>

@@ -4,14 +4,14 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.tf.persistence.TravelRecordCommentMapper">
-	<resultMap id="managerResultMap" type="com.tf.domain.TravelRecordCommentMapper">
+	<resultMap id="managerResultMap" type="com.tf.domain.TravelRecordComment">
 		<id column="EMAIL" property="email" />
 		<result column="NICKNAME" property="nickname" />
 		<result column="PASSWORD" property="password" />
 	</resultMap>
 
-	<select id="select" parameterType="com.tf.domain.TravelRecordCommentMapper"
-		resultType="com.tf.domain.TravelRecordCommentMapper">
+	<select id="select" parameterType="com.tf.domain.TravelRecordComment"
+		resultType="com.tf.domain.TravelRecordComment">
 		SELECT
 		NO as no,
 		TRAVELRECORD_NO as travelRecordNo,
@@ -26,14 +26,14 @@
 		</where>
 	</select>
 	
-	<insert id="insert" parameterType="com.tf.domain.TravelRecordCommentMapper">
+	<insert id="insert" parameterType="com.tf.domain.TravelRecordComment">
 		INSERT INTO TRAVELRECORD_COMMENT
 			(NO, TRAVELRECORD_NO, EMAIL, REPLY, RECORD_DATE)
 		VALUES
 			( #{no}, #{travelRecordNo}, #{email}, #{reply}, #{recordDate})
 	</insert>
 	
-	<update id="update" parameterType="com.tf.domain.TravelRecordCommentMapper" >
+	<update id="update" parameterType="com.tf.domain.TravelRecordComment" >
 		UPDATE TRAVELRECORD_COMMENT
 		<set>
 		    <if test="reply != '' and reply != null">
@@ -44,7 +44,7 @@
 		    NO = #{no}
 	</update>
 	
-	<update id="delete" parameterType="com.tf.domain.TravelRecordCommentMapper">
+	<update id="delete" parameterType="com.tf.domain.TravelRecordComment">
 		DELETE FROM TRAVELRECORD_COMMENT
 		WHERE NO = #{no}
 	</update>
