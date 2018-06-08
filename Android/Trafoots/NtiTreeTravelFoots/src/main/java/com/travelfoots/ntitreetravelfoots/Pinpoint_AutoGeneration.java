@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.travelfoots.ntitreetravelfoots.domain.GPSMetaData;
 import com.travelfoots.ntitreetravelfoots.domain.MetaData;
+import com.travelfoots.ntitreetravelfoots.domain.Photo;
 import com.travelfoots.ntitreetravelfoots.domain.Pinpoint;
 import com.travelfoots.ntitreetravelfoots.util.GpsMetaDataSaveLoad;
 
@@ -201,10 +202,10 @@ public class Pinpoint_AutoGeneration {
                 Pinpoint pinpoint = new Pinpoint();
                 pinpoint.setLongitude(metadata.getFileLng());
                 pinpoint.setLatitude(metadata.getFileLat());
-                pinpoint.setFilePaths(getFilepaths(metaDataArrayList,metadata));
+                pinpoint.setPhotoList(getPhotoList(metaDataArrayList,metadata));
                 pinpoint.setNo(i);
                 pinpointArrayList.add(pinpoint);
-                Log.i("제뱔", "CreatePinpoint: " + pinpoint.getFilePaths().toString()+" pinpointSize : " + pinpointArrayList.size());
+                Log.i("제뱔", "CreatePinpoint: " + pinpoint.getPhotoList().toString()+" pinpointSize : " + pinpointArrayList.size());
             }
             i++;
 //            }
@@ -212,19 +213,25 @@ public class Pinpoint_AutoGeneration {
 
         return pinpointArrayList;
     }
-    List<String> getFilepaths(List<MetaData> metaDataList,MetaData metaData){
-        List<String> filepaths = new ArrayList<>();
+    List<Photo> getPhotoList(List<MetaData> metaDataList,MetaData metaData){
+
         double lat = metaData.getFileLat();
         double lng = metaData.getFileLng();
-        filepaths.add(metaData.getFilePath());
+
+        List<Photo> photoList= new ArrayList<>();
+        Photo photo = new Photo();
+        photo.setFilepath(metaData.getFilePath());
+        photoList.add(photo);
         for (MetaData met: metaDataList
                 ) {
             if(lat == met.getFileLat() && lng == met.getFileLng()){
-                filepaths.add(met.getFilePath());
+                Photo same_photo = new Photo();
+                same_photo.setFilepath(met.getFilePath());
+                photoList.add(photo);
             }
 
         }
-        List<String> uniqueItems = new ArrayList<String>(new HashSet<>(filepaths));
+        List<Photo> uniqueItems = new ArrayList<>(new HashSet<>(photoList));
         return uniqueItems;
     }
 

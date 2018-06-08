@@ -2,16 +2,20 @@ package com.travelfoots.ntitreetravelfoots;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -23,12 +27,18 @@ import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListPopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieProperty;
+import com.airbnb.lottie.model.KeyPath;
+import com.airbnb.lottie.value.LottieValueCallback;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineListener;
 import com.mapbox.android.core.location.LocationEnginePriority;
@@ -56,7 +66,9 @@ import com.travelfoots.ntitreetravelfoots.domain.MetaData;
 import com.travelfoots.ntitreetravelfoots.domain.Pinpoint;
 import com.travelfoots.ntitreetravelfoots.domain.TravelRecord;
 import com.travelfoots.ntitreetravelfoots.util.GpsMetaDataSaveLoad;
+import com.travelfoots.ntitreetravelfoots.util.SaveLoad;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -76,6 +88,9 @@ public class MainActivity extends AppCompatActivity
     Button createPinpointBtn;
     Button startEndBtn;
     boolean check_records = false;
+    private int file_count=0;
+    //그리기
+    List<LatLng> latLngs = new ArrayList<>();
 
     private LocationLayerPlugin locationLayerPlugin;
     private LocationEngine locationEngine;
@@ -93,16 +108,21 @@ public class MainActivity extends AppCompatActivity
 
 
     Pinpoint_AutoGeneration pinpoint_autoGeneration = new Pinpoint_AutoGeneration();
-
+    ArrayList<MetaData> metaDataArrayList = new ArrayList<>();
     List<Pinpoint> pinpointArrayList;
-    List<GPSMetaData> gpsMetaDataArrayList;
+    ArrayList<GPSMetaData> gpsMetaDataArrayList;
 
     GpsMetaDataSaveLoad gpsMetaDataSaveLoad = new GpsMetaDataSaveLoad();
+    SaveLoad saveLoad = new SaveLoad();
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        Window w = getWindow();
+        w.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        w.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION); super.onCreate(savedInstanceState);
+
         checkPermissionF();
         gpsMetaDataArrayList = new ArrayList<>();
         pinpointArrayList = new ArrayList<>();
@@ -125,6 +145,9 @@ public class MainActivity extends AppCompatActivity
 
         startEndBtn = findViewById(R.id.startEndBut);
 
+//        LottieAnimationView animationView = findViewById(R.id.startEndBut);
+//        animationView.setAnimation("menu.json");
+//        animationView.setOnClickListener(v -> animationView.playAnimation());
         startEndBtn.setOnClickListener(view -> TravelRecordStartEnd(startEndBtn));
         // 여행기록 서버 전송 확인
         Button btn = findViewById(R.id.button2);
@@ -169,7 +192,7 @@ public class MainActivity extends AppCompatActivity
 
     public void CreatePinpoint(View view) {
         pinpointArrayList = new ArrayList<>();
-        ArrayList<MetaData> metaDataArrayList = pinpoint_autoGeneration.MetaDataExtract(getApplicationContext());
+        metaDataArrayList = pinpoint_autoGeneration.MetaDataExtract(getApplicationContext());
 
         pinpointArrayList = pinpoint_autoGeneration.CreatePinpoint(metaDataArrayList);
         IconFactory iconFactory = IconFactory.getInstance(MainActivity.this);
@@ -194,11 +217,11 @@ public class MainActivity extends AppCompatActivity
     void TravelRecordStartEnd(View view) {
         if (check_records) {
             startEndBtn.setText("▶");
-            gpsMetaDataSaveLoad.save(gpsMetaDataArrayList);
+            saveLoad.save(gpsMetaDataArrayList,"gpsdata/","gpsData"+file_count+".dat");
             check_records = false;
             for (GPSMetaData m : gpsMetaDataArrayList
                     ) {
-                Log.i("gps data", "lng : " + m.getUserLng() + " lat:  " + m.getUserLat());
+                Log.i("gps data", "lng : " + m.getUserLng() + " lat:  " + m.getUserLat()+m.getUserDate());
 
             }
         } else {
@@ -300,6 +323,7 @@ public class MainActivity extends AppCompatActivity
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mapView.onSaveInstanceState(outState);
+
         outState.putInt(SAVED_STATE_CAMERA, cameraMode);
         outState.putInt(SAVED_STATE_RENDER, renderMode);
     }
@@ -343,16 +367,14 @@ public class MainActivity extends AppCompatActivity
         gpsMetaData.setUserLat(lat);
         gpsMetaData.setUserLng(lng);
         LatLng latLng = new LatLng(lat, lng);
-        List<LatLng> latLngs = new ArrayList<>();
+
         latLngs.add(latLng);
-        for (LatLng late: latLngs
-             ) {
-        }
         gpsMetaDataArrayList.add(gpsMetaData);
         mapboxMap.addPolyline(new PolylineOptions()
                 .addAll(latLngs)
                 .color(Color.parseColor("#3bb2d0"))
                 .width(2));
+
     }
 
     @Override
@@ -493,16 +515,21 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_main) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_mypage) {
+            Intent intent=new Intent(MainActivity.this,MypageActivity.class);
+            intent.putExtra("gpslist",(Serializable)metaDataArrayList);
+            startActivity(intent);
+        } else if (id == R.id.nav_travelrecords) {
+            Intent intent=new Intent(MainActivity.this,TravelHistoryActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_setting) {
+            Intent intent=new Intent(MainActivity.this,SettingActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_infomation) {
+//            Intent intent=new Intent(MainActivity.this,.class);
+//            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -620,13 +647,3 @@ public class MainActivity extends AppCompatActivity
 
     }
 }
-
-
-
-
-
-
-
-
-
-
