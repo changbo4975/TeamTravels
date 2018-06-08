@@ -1,18 +1,30 @@
 package com.tf.presentation;
 
-import javax.annotation.Resource;
+import java.nio.charset.Charset;
+import java.util.Map;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tf.domain.Member;
 import com.tf.service.MemberService;
 
 @Controller
-@RequestMapping(value = "/member")
+@RequestMapping("/member")
 public class MemberController {
 	@Resource
 	private MemberService memberService;
@@ -29,14 +41,23 @@ public class MemberController {
 			member.setRepresentativePhoto("»çÁø");
 			memberService.add(member);
 		}
-	
+		
 		return new ModelAndView("/member/add");
 	}
 	
 	@RequestMapping(value = "/addApp", method = RequestMethod.POST)
-	public void addPostApp(Member member) throws Exception {
-
-	
+	public void addPostApp(HttpServletRequest req) throws Exception {
+		
+		System.out.println(req.getParameter("email"));
+		Member member = new Member();
+		member.setEmail(req.getParameter("email"));
+		member.setNickname(req.getParameter("nickname"));
+		member.setAge(Integer.parseInt(req.getParameter("age")));
+		member.setGender(Integer.parseInt(req.getParameter("gender")));
+		member.setSelfintroduction(req.getParameter("introduction"));
+		member.setPassword(req.getParameter("password"));
+		
+		memberService.add(member);
 	}
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
@@ -61,6 +82,21 @@ public class MemberController {
 	
 	public ModelAndView list(Member member) throws Exception {
 		return null;
+	}
+	
+	@RequestMapping(value = "/viewApp", method = RequestMethod.GET)
+	public @ResponseBody ResponseEntity<Member> viewApp(HttpServletRequest req) throws Exception {
+		
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(new MediaType("text", "json", Charset.forName("UTF-8")));
+		
+		Member member = new Member();
+		member.setEmail(req.getParameter("email"));
+		member = this.memberService.view(member);
+		
+		System.out.println(req.getParameter("email"));
+		
+		return new ResponseEntity<Member>(member, httpHeaders, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/view/{email:.+}", method = RequestMethod.GET)

@@ -13,6 +13,14 @@ public class Member implements Serializable {
 	private int restrictionCount;
 	
 	public Member() {
+		this.email = "";
+		this.nickname = "";
+		this.age = -1;
+		this.gender = 0;
+		this.representativePhoto = "";
+		this.selfintroduction = "";
+		this.password = "";
+		this.restrictionCount = -1;
 	}
 	
 	public Member(String email, String nickname, int age, int gender, String representativePhoto, String selfintroduction, String password, int restrictionCount) {

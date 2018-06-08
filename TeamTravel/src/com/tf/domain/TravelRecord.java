@@ -1,6 +1,7 @@
 package com.tf.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class TravelRecord implements Serializable {
 	private int no;
@@ -11,7 +12,14 @@ public class TravelRecord implements Serializable {
 	private String endDate;
 	private int state;
 	private String title;
+	private List<Pinpoint> pinpointList;
 	
+	public List<Pinpoint> getPinpointList() {
+		return pinpointList;
+	}
+	public void setPinpointList(List<Pinpoint> pinpointList) {
+		this.pinpointList = pinpointList;
+	}
 	public int getNo() {
 		return no;
 	}

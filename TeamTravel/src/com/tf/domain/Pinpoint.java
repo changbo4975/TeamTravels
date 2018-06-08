@@ -1,6 +1,7 @@
 package com.tf.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Pinpoint implements Serializable {
 	private int no;
@@ -10,7 +11,14 @@ public class Pinpoint implements Serializable {
 	private double longitude;
 	private int range;
 	private int iconNo;
+	private List<String> filePaths;
 	
+	public List<String> getPhotoList() {
+		return filePaths;
+	}
+	public void setPhotoList(List<String> filePaths) {
+		this.filePaths = filePaths;
+	}
 	public int getNo() {
 		return no;
 	}
