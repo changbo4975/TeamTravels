@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tf.persistence.PinpointCommentMapper">
+	<resultMap id="managerResultMap" type="com.tf.domain.PinpointComment">
+		<id column="EMAIL" property="email" />
+		<result column="NICKNAME" property="nickname" />
+		<result column="PASSWORD" property="password" />
+	</resultMap>
+
+	<select id="select" parameterType="com.tf.domain.PinpointCommentMapper"
+		resultType="com.tf.domain.PinpointCommentMapper">
+		SELECT
+		NO as no,
+		PINPOINT_NO as pinpointNo,
+		EMAIL as email,
+		REPLY as reply,
+		PINPOINT_DATE as pinpointDate
+		FROM PINPOINT_COMMENT
+		<where>
+			<if test="no != null and no != ''">
+				AND NO = #{no}
+			</if>
+		</where>
+	</select>
+	
+	<insert id="insert" parameterType="com.tf.domain.PinpointCommentMapper">
+		INSERT INTO PINPOINT_COMMENT
+			(NO, PINPOINT_NO, EMAIL, REPLY, PINPOINT_DATE)
+		VALUES
+			( #{no}, #{pinpointNo}, #{email}, #{reply}, #{pinpointDate})
+	</insert>
+	
+	<update id="update" parameterType="com.tf.domain.PinpointCommentMapper" >
+		UPDATE PINPOINT_COMMENT
+		<set>
+		    <if test="reply != '' and reply != null">
+		        REPLY = #{reply},
+		    </if>
+		</set>
+		WHERE 
+		    NO = #{no}
+	</update>
+	
+	<update id="delete" parameterType="com.tf.domain.PinpointCommentMapper">
+		DELETE FROM PINPOINT_COMMENT
+		WHERE NO = #{no}
+	</update>
+</mapper>

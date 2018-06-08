@@ -22,15 +22,15 @@ public class PinpointController {
 	@Resource
 	private PinpointService pinpointService;
 	
-	@RequestMapping(value="/pinpoint{NO}", method = RequestMethod.GET)
-	public ModelAndView editGet(@PathVariable String email, HttpServletRequest request) throws Exception {
+	@RequestMapping(value="/pinpoint{no}", method = RequestMethod.GET)
+	public ModelAndView editGet(@PathVariable int no, HttpServletRequest request) throws Exception {
 		HttpSession httpSession = request.getSession(false);
 		
 		if(httpSession == null) {
 			return new ModelAndView("/pinoint/find"); // 원래창 경로 기입
 		} else {
 			Pinpoint pinpoint = new Pinpoint();
-			pinpoint.setEmail(email);
+			pinpoint.setNo(no);
 			
 			pinpoint = this.pinpointService.view(pinpoint);
 

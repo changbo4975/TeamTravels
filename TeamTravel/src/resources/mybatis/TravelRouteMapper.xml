@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tf.persistence.TravelRouteMapper">
+	<resultMap id="TravelRouteResultMap" type="com.tf.domain.TravelRoute">
+		<id column="NO" property="no" />
+		<result column="TRAVELRECORD_NO" property="travelrecordNo" />
+		<result column="LATITUDE" property="latitude" />
+		<result column="LONGITUDE" property="longtitude" />
+		<result column="COUNT" property="count" />
+	</resultMap>
+
+	<select id="select" parameterType="com.tf.domain.TravelRoute"
+		resultMap="TravelRouteResultMap">
+		SELECT
+		NO,
+		TRAVELRECORD_NO,
+		LATITUDE,
+		LONGITUDE,
+		COUNT
+		FROM TravelRoute
+		<where>
+			<if test="no != null and no != ''">
+				AND NO = #{no}
+			</if>
+		</where>
+	</select>
+	
+	<insert id="insert" parameterType="com.tf.domain.TravelRoute">
+		INSERT INTO TRAVELROUTE
+			(NO, TRAVELRECORD_NO, LATITUDE, LONGITUDE, COUNT)
+		VALUES
+			( #{no}, #{travelrecordNo}, #{latitude}, #{longitude}, #{count} )
+	</insert>
+	
+	<update id="delete" parameterType="com.tf.domain.TravelRoute">
+		DELETE FROM TRAVELROUTE
+		WHERE NO = #{no}
+	</update>
+</mapper>
