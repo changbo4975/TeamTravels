@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tf.persistence.TravelRecordMapper">
+	<resultMap id="travelRecordResultMap" type="com.tf.domain.TravelRecord">
+		<id column="NO" property="no" />
+		<result column="EMAIL" property="email" />
+		<result column="RANGE" property="range" />
+		<result column="NATION" property="nation" />
+		<result column="START_DATE" property="startDate" />
+		<result column="END_DATE" property="endDate" />
+		<result column="STATE" property="state" />
+		<result column="TITLE" property="title" />
+	</resultMap>
+
+	<select id="list" parameterType="com.tf.domain.TravelRecord" resultMap="travelRecordResultMap">
+		SELECT 
+			NO, 
+			EMAIL, 
+			RANGE, 
+            NATION,
+            START_DATE,
+			END_DATE,
+			STATE,
+			TITLE
+		FROM TRAVELRECORD
+		<where>
+			<if test="email != null and email != ''">
+				AND EMAIL = #{email}
+			</if>
+		</where>
+		ORDER BY NO DESC
+	</select>
+	
+	<select id="select" parameterType="com.tf.domain.TravelRecord"
+		resultMap="travelRecordResultMap">
+		SELECT 
+			NO, 
+			EMAIL, 
+			RANGE, 
+            NATION,
+            START_DATE,
+			END_DATE,
+			STATE,
+			TITLE
+		FROM TRAVELRECORD
+		WHERE NO = #{no}
+	</select>
+	
+	<insert id="insert" parameterType="com.tf.domain.TravelRecord">
+		INSERT INTO TRAVELRECORD
+			(NO, EMAIL, RANGE, NATION, START_DATE, END_DATE, STATE,	TITLE)
+		VALUES
+			( #{no}, #{email}, #{range}, #{nation}, #{startDate}, #{endDate}, #{state}, #{title})
+	</insert>
+	
+	<update id="update" parameterType="com.tf.domain.TravelRecord" >
+		UPDATE TRAVELRECORD 
+		<set>
+		    <if test="no != '' and no != null">
+		        NO = #{no},
+		    </if>
+		    <if test="email != '' and email != null">
+		        EMAIL = #{email},
+		    </if>
+		    <if test="range != '' and range != null">
+		        RANGE = #{range},
+		    </if>
+		    <if test="nation != '' and nation != null">
+		        NATION = #{nation},
+		    </if>
+		    <if test="startDate != '' and startDate != null">
+		        START_DATE = #{startDate},
+		    </if>
+		    <if test="endDate != '' and endDate != null">
+		        END_DATE = #{endDate},
+		    </if>
+		    <if test="state != '' and state != null">
+		        STATE = #{state},
+		    </if>
+		    <if test="title != '' and title != null">
+		        TITLE = #{title},
+		    </if>
+		</set>
+		WHERE 
+		    NO = #{no}
+	</update>
+	
+	<update id="delete" parameterType="com.tf.domain.TravelRecord">
+		DELETE FROM TRAVELRECORD
+		WHERE NO = #{no}
+	</update>
+	
+</mapper>
