@@ -25,4 +25,10 @@
 
     <include layout="@layout/content_main" />
 
+    <ImageView
+        android:id="@+id/modechange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_view" />
+
 </android.support.design.widget.CoordinatorLayout>

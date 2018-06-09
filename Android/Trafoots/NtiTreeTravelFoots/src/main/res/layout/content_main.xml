@@ -35,8 +35,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            mapbox:mapbox_cameraTargetLat="37.7749"
-            mapbox:mapbox_cameraTargetLng="-122.075806"
             mapbox:mapbox_cameraZoom="12"
             mapbox:mapbox_styleUrl="mapbox://styles/mapbox/streets-v10" />
 
@@ -104,26 +102,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/button_location_mode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="삭제" />
-
             <TextView
                 android:id="@+id/tv_tracking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
             button_location_tracking
-
-            <Button
-                android:id="@+id/button_location_tracking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="삭제" />
 
         </LinearLayout>
 
