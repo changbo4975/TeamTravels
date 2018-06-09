@@ -1,47 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    tools:layout_editor_absoluteY="105dp"
+    tools:layout_editor_absoluteY="81dp"
     tools:showIn="@layout/app_bar_main">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/map_view"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginTop="4dp"
-        android:orientation="vertical"
+        android:layout_height="397dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="9dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        mapbox:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        mapbox:layout_constraintTop_toTopOf="parent">
-
-        <com.mapbox.mapboxsdk.maps.MapView
-            android:id="@+id/map_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="9dp"
-            android:layout_weight="1"
-            android:theme="@style/AppTheme.PopupOverlay"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            mapbox:mapbox_cameraTargetLat="37.7749"
-            mapbox:mapbox_cameraTargetLng="-122.075806"
-            mapbox:mapbox_cameraZoom="12"
-            mapbox:mapbox_styleUrl="mapbox://styles/mapbox/streets-v10" />
-
-
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        mapbox:mapbox_cameraTargetLat="37.7749"
+        mapbox:mapbox_cameraTargetLng="-122.075806"
+        mapbox:mapbox_cameraZoom="12"
+        mapbox:mapbox_styleUrl="mapbox://styles/mapbox/streets-v10" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -52,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/map_view">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,32 +47,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/redius_button"
                 android:text="check" />
-
-            <!--<com.airbnb.lottie.LottieAnimationView-->
-            <!--android:id="@+id/startEndBut"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--app:lottie_autoPlay="true"-->
-            <!--app:lottie_fileName="menu.json"-->
-            <!--app:lottie_loop="true" />-->
 
             <Button
                 android:id="@+id/startEndBut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/redius_button"
-                android:text="Button" />
+                android:text="▶" />
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/redius_button"
                 android:text="Pin생성" />
         </LinearLayout>
 
@@ -117,7 +88,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
             button_location_tracking
-
             <Button
                 android:id="@+id/button_location_tracking"
                 android:layout_width="wrap_content"
