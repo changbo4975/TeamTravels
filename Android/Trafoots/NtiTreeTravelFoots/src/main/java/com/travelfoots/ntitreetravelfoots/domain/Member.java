@@ -1,26 +1,39 @@
 package com.travelfoots.ntitreetravelfoots.domain;
 
+import com.google.gson.internal.LinkedTreeMap;
+
 import java.io.Serializable;
 
 public class Member implements Serializable {
 	private String email;
-	private String nickName;
+	private String nickname;
 	private int age;
-	private int gender;
+	private char gender;
 	private String representativePhoto;
-	private String introduction;
+	private String selfintroduction;
 	private int restrictionCount;
 	private String password;
 
+	public Member(LinkedTreeMap linkedTreeMap) {
+		this.email = (String)linkedTreeMap.get("email");
+		this.nickname = (String)linkedTreeMap.get("nickname");
+		this.age = (int)((double)linkedTreeMap.get("age"));
+		this.gender = (char)linkedTreeMap.get("gender");
+		this.representativePhoto = (String)linkedTreeMap.get("representativePhoto");
+		this.selfintroduction = (String)linkedTreeMap.get("selfintroduction");
+		this.restrictionCount = (int)((double)linkedTreeMap.get("restrictionCount"));
+		this.password = (String)linkedTreeMap.get("password");
+	}
+
 	public Member() {
-		email = null;
-		nickName = null;
+		email = "";
+		nickname = "";
 		age = -1;
-		gender = -1;
-		representativePhoto = null;
-		introduction = " ";
+		gender = ' ';
+		representativePhoto = "";
+		selfintroduction = "";
 		restrictionCount = -1;
-		password = null;
+		password = "";
 	}
 
 	public String getEmail() {
@@ -29,11 +42,11 @@ public class Member implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getNickName() {
-		return nickName;
+	public String getNickname() {
+		return nickname;
 	}
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public int getAge() {
 		return age;
@@ -41,10 +54,10 @@ public class Member implements Serializable {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public int getGender() {
+	public char getGender() {
 		return gender;
 	}
-	public void setGender(int gender) {
+	public void setGender(char gender) {
 		this.gender = gender;
 	}
 	public String getRepresentativePhoto() {
@@ -53,11 +66,11 @@ public class Member implements Serializable {
 	public void setRepresentativePhoto(String representativePhoto) {
 		this.representativePhoto = representativePhoto;
 	}
-	public String getIntroduction() {
-		return introduction;
+	public String getSelfintroduction() {
+		return selfintroduction;
 	}
-	public void setIntroduction(String introduction) {
-		this.introduction = introduction;
+	public void setSelfintroduction(String selfintroduction) {
+		this.selfintroduction = selfintroduction;
 	}
 	public String getPassword() {
 		return password;
