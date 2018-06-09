@@ -12,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.app.ActivityCompat;
@@ -68,6 +69,7 @@ import com.travelfoots.ntitreetravelfoots.domain.TravelRecord;
 import com.travelfoots.ntitreetravelfoots.util.GpsMetaDataSaveLoad;
 import com.travelfoots.ntitreetravelfoots.util.SaveLoad;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -77,8 +79,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback,
-        LocationEngineListener, OnLocationLayerClickListener, OnCameraTrackingChangedListener, MapboxMap.OnMarkerClickListener {
-
+        LocationEngineListener, OnLocationLayerClickListener, OnCameraTrackingChangedListener, MapboxMap.OnMarkerClickListener,MapboxMap.OnMapClickListener {
+    private int RENDER_COUNT = 0;
     int M = 23;//minsdkversion
     MapView mapView;
     TextView modeText;
@@ -88,7 +90,7 @@ public class MainActivity extends AppCompatActivity
     Button createPinpointBtn;
     Button startEndBtn;
     boolean check_records = false;
-    private int file_count=0;
+    private int file_count = 0;
     //그리기
     List<LatLng> latLngs = new ArrayList<>();
 
@@ -106,7 +108,7 @@ public class MainActivity extends AppCompatActivity
     @RenderMode.Mode
     private int renderMode = RenderMode.NORMAL;
 
-
+    TravelRecord travelRecord = new TravelRecord();
     Pinpoint_AutoGeneration pinpoint_autoGeneration = new Pinpoint_AutoGeneration();
     ArrayList<MetaData> metaDataArrayList = new ArrayList<>();
     List<Pinpoint> pinpointArrayList;
@@ -116,12 +118,12 @@ public class MainActivity extends AppCompatActivity
     SaveLoad saveLoad = new SaveLoad();
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Window w = getWindow();
         w.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        w.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION); super.onCreate(savedInstanceState);
+        w.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        super.onCreate(savedInstanceState);
 
         checkPermissionF();
         gpsMetaDataArrayList = new ArrayList<>();
@@ -135,13 +137,8 @@ public class MainActivity extends AppCompatActivity
         mapView = findViewById(R.id.map_view);
         modeText = findViewById(R.id.tv_mode);
         trackingText = findViewById(R.id.tv_tracking);
-        locationModeBtn = findViewById(R.id.button_location_mode);
-        locationModeBtn.setOnClickListener(v -> locationMode(locationModeBtn));
-        locationTrackingBtn = findViewById(R.id.button_location_tracking);
-        locationTrackingBtn.setOnClickListener(v -> locationModeCompass(locationTrackingBtn));
         createPinpointBtn = findViewById(R.id.button);
         createPinpointBtn.setOnClickListener(v -> CreatePinpoint(createPinpointBtn));
-
 
         startEndBtn = findViewById(R.id.startEndBut);
 
@@ -154,6 +151,10 @@ public class MainActivity extends AppCompatActivity
         btn.setOnClickListener(view -> {
             TravelRecordConnecter t = new TravelRecordConnecter();
 //            t.add(new TravelRecord());
+            String dirPath = Environment.getExternalStorageDirectory().getAbsoluteFile() + "/sibal";
+            File file = new File(dirPath);
+
+                file.mkdirs();
         });
 
 
@@ -217,11 +218,13 @@ public class MainActivity extends AppCompatActivity
     void TravelRecordStartEnd(View view) {
         if (check_records) {
             startEndBtn.setText("▶");
-            saveLoad.save(gpsMetaDataArrayList,"gpsdata/","gpsData"+file_count+".dat");
+            travelRecord.setPinpoints(pinpointArrayList);
+//            saveLoad.save(Tra)
+            saveLoad.save(metaDataArrayList, "/gpsdata2/", "/gpsData" + file_count + ".dat");
             check_records = false;
             for (GPSMetaData m : gpsMetaDataArrayList
                     ) {
-                Log.i("gps data", "lng : " + m.getUserLng() + " lat:  " + m.getUserLat()+m.getUserDate());
+                Log.i("gps data", "lng : " + m.getUserLng() + " lat:  " + m.getUserLat() + m.getUserDate());
 
             }
         } else {
@@ -235,19 +238,25 @@ public class MainActivity extends AppCompatActivity
     //TODO 지도 관련
 
     @SuppressWarnings({"MissingPermission"})
-    public void locationMode(View view) {
-        if (locationLayerPlugin == null) {
-            return;
+    private void SetRenderMode(View view) {
+        if (RENDER_COUNT == 0) {
+            locationLayerPlugin.setCameraMode(CameraMode.TRACKING);
+            RENDER_COUNT++;
+        } else if (RENDER_COUNT == 1) {
+            locationLayerPlugin.setCameraMode(CameraMode.TRACKING_COMPASS);
+            RENDER_COUNT++;
+        } else if (RENDER_COUNT == 2) {
+            locationLayerPlugin.setCameraMode(CameraMode.TRACKING_GPS);
+            RENDER_COUNT++;
+        } else if (RENDER_COUNT == 3) {
+            locationLayerPlugin.setCameraMode(CameraMode.TRACKING_GPS_NORTH);
+            RENDER_COUNT++;
+        } else if (RENDER_COUNT == 4) {
+            locationLayerPlugin.setCameraMode(CameraMode.NONE);
+            RENDER_COUNT = 0;
         }
-        showModeListDialog();
     }
 
-    public void locationModeCompass(View view) {
-        if (locationLayerPlugin == null) {
-            return;
-        }
-        showTrackingListDialog();
-    }
 
     @SuppressLint("MissingPermission")
     @Override
@@ -382,72 +391,10 @@ public class MainActivity extends AppCompatActivity
         Toast.makeText(this, "OnLocationLayerClick", Toast.LENGTH_LONG).show();
     }
 
-    private void showModeListDialog() {
-        List<String> modes = new ArrayList<>();
-        modes.add("Normal");
-        modes.add("Compass");
-        modes.add("GPS");
-        ArrayAdapter<String> profileAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, modes);
-        ListPopupWindow listPopup = new ListPopupWindow(this);
-        listPopup.setAdapter(profileAdapter);
-        listPopup.setAnchorView(locationModeBtn);
-        listPopup.setOnItemClickListener((parent, itemView, position, id) -> {
-            String selectedMode = modes.get(position);
-            locationModeBtn.setText(selectedMode);
-            if (selectedMode.contentEquals("Normal")) {
-                setRendererMode(RenderMode.NORMAL);
-            } else if (selectedMode.contentEquals("Compass")) {
-                setRendererMode(RenderMode.COMPASS);
-            } else if (selectedMode.contentEquals("GPS")) {
-                setRendererMode(RenderMode.GPS);
-            }
-            listPopup.dismiss();
-        });
-        listPopup.show();
-    }
 
-    private void setRendererMode(@RenderMode.Mode int mode) {
+    private void setRendererMode ( @RenderMode.Mode int mode){
         renderMode = mode;
         locationLayerPlugin.setRenderMode(mode);
-        if (mode == RenderMode.NORMAL) {
-            locationModeBtn.setText("Normal");
-        } else if (mode == RenderMode.COMPASS) {
-            locationModeBtn.setText("Compass");
-        } else if (mode == RenderMode.GPS) {
-            locationModeBtn.setText("Gps");
-        }
-    }
-
-    private void showTrackingListDialog() {
-        List<String> trackingTypes = new ArrayList<>();
-        trackingTypes.add("None");
-        trackingTypes.add("Tracking");
-        trackingTypes.add("Tracking Compass");
-        trackingTypes.add("Tracking GPS");
-        trackingTypes.add("Tracking GPS North");
-        ArrayAdapter<String> profileAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, trackingTypes);
-        ListPopupWindow listPopup = new ListPopupWindow(this);
-        listPopup.setAdapter(profileAdapter);
-        listPopup.setAnchorView(locationTrackingBtn);
-        listPopup.setOnItemClickListener((parent, itemView, position, id) -> {
-            String selectedTrackingType = trackingTypes.get(position);
-            locationTrackingBtn.setText(selectedTrackingType);
-            if (selectedTrackingType.contentEquals("None")) {
-                locationLayerPlugin.setCameraMode(CameraMode.NONE);
-            } else if (selectedTrackingType.contentEquals("Tracking")) {
-                locationLayerPlugin.setCameraMode(CameraMode.TRACKING);
-            } else if (selectedTrackingType.contentEquals("Tracking Compass")) {
-                locationLayerPlugin.setCameraMode(CameraMode.TRACKING_COMPASS);
-            } else if (selectedTrackingType.contentEquals("Tracking GPS")) {
-                locationLayerPlugin.setCameraMode(CameraMode.TRACKING_GPS);
-            } else if (selectedTrackingType.contentEquals("Tracking GPS North")) {
-                locationLayerPlugin.setCameraMode(CameraMode.TRACKING_GPS_NORTH);
-            }
-            listPopup.dismiss();
-        });
-        listPopup.show();
     }
 
     @Override
@@ -460,15 +407,10 @@ public class MainActivity extends AppCompatActivity
         this.cameraMode = currentMode;
 
         if (cameraMode == CameraMode.NONE) {
-            locationTrackingBtn.setText("None");
         } else if (cameraMode == CameraMode.TRACKING) {
-            locationTrackingBtn.setText("Tracking");
         } else if (cameraMode == CameraMode.TRACKING_COMPASS) {
-            locationTrackingBtn.setText("Tracking Compass");
         } else if (cameraMode == CameraMode.TRACKING_GPS) {
-            locationTrackingBtn.setText("Tracking GPS");
         } else if (cameraMode == CameraMode.TRACKING_GPS_NORTH) {
-            locationTrackingBtn.setText("Tracking GPS North");
         }
     }
 
@@ -518,14 +460,14 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_main) {
             // Handle the camera action
         } else if (id == R.id.nav_mypage) {
-            Intent intent=new Intent(MainActivity.this,MypageActivity.class);
-            intent.putExtra("gpslist",(Serializable)metaDataArrayList);
+            Intent intent = new Intent(MainActivity.this, MypageActivity.class);
+            intent.putExtra("gpslist", (Serializable) metaDataArrayList);
             startActivity(intent);
         } else if (id == R.id.nav_travelrecords) {
-            Intent intent=new Intent(MainActivity.this,TravelHistoryActivity.class);
+            Intent intent = new Intent(MainActivity.this, TravelHistoryActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_setting) {
-            Intent intent=new Intent(MainActivity.this,SettingActivity.class);
+            Intent intent = new Intent(MainActivity.this, SettingActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_infomation) {
 //            Intent intent=new Intent(MainActivity.this,.class);
@@ -645,5 +587,9 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "요청 권한 거부", Toast.LENGTH_SHORT).show();
         }
 
+    }
+    @Override
+    public void onMapClick (@NonNull LatLng point){
+        locationLayerPlugin.setCameraMode(CameraMode.NONE);
     }
 }

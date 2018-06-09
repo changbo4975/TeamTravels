@@ -11,6 +11,7 @@ public class TravelRecord implements Serializable {
 	private String endDate;
 	private int state;
 	private List<Pinpoint> pinpoints;
+	private List<GPSMetaData> gpsMetaDataList;
 
 	public int getNo() {
 		return no;

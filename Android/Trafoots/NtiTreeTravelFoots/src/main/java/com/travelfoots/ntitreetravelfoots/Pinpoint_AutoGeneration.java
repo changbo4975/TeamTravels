@@ -12,6 +12,7 @@ import com.travelfoots.ntitreetravelfoots.domain.MetaData;
 import com.travelfoots.ntitreetravelfoots.domain.Photo;
 import com.travelfoots.ntitreetravelfoots.domain.Pinpoint;
 import com.travelfoots.ntitreetravelfoots.util.GpsMetaDataSaveLoad;
+import com.travelfoots.ntitreetravelfoots.util.SaveLoad;
 
 import org.gavaghan.geodesy.Ellipsoid;
 import org.gavaghan.geodesy.GeodeticCalculator;
@@ -188,7 +189,7 @@ public class Pinpoint_AutoGeneration {
     //TODO 핀포인트 생성
     public List<Pinpoint> CreatePinpoint(List<MetaData> metaDataArrayList) {
         ArrayList<Pinpoint> pinpointArrayList = new ArrayList<>();
-        GpsMetaDataSaveLoad gpsMetaDataSaveLoad = new GpsMetaDataSaveLoad();
+        SaveLoad saveLoad = new SaveLoad();
         long now = System.currentTimeMillis();
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(now);
@@ -198,7 +199,7 @@ public class Pinpoint_AutoGeneration {
         for (MetaData metadata : metaDataArrayList
                 ) {
             //TODO 파일패쓰 설정
-            if (15 >= (Near(gpsMetaDataSaveLoad.load(), metadata))) { //GPS 근사치 구해 거리비교 시 15m 이내에 있을경우.
+//            if (15 >= (Near(saveLoad.load(), metadata))) { //GPS 근사치 구해 거리비교 시 15m 이내에 있을경우.
                 Pinpoint pinpoint = new Pinpoint();
                 pinpoint.setLongitude(metadata.getFileLng());
                 pinpoint.setLatitude(metadata.getFileLat());
@@ -206,7 +207,7 @@ public class Pinpoint_AutoGeneration {
                 pinpoint.setNo(i);
                 pinpointArrayList.add(pinpoint);
                 Log.i("제뱔", "CreatePinpoint: " + pinpoint.getPhotoList().toString()+" pinpointSize : " + pinpointArrayList.size());
-            }
+//            }
             i++;
 //            }
         }
