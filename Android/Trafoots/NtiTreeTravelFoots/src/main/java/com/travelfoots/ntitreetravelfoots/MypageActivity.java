@@ -75,7 +75,7 @@ public class MypageActivity extends AppCompatActivity
     }
 
 
-    //메뉴 열기
+    //메뉴 닫기
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

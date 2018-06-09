@@ -231,8 +231,10 @@ public class Pinpoint_AutoGeneration {
             }
 
         }
-        List<Photo> uniqueItems = new ArrayList<>(new HashSet<>(photoList));
-        return uniqueItems;
+
+        HashSet<Photo> listSet = new HashSet<Photo>(photoList);
+        ArrayList<Photo> processedList = new ArrayList<>( listSet);
+        return processedList;
     }
 
 }
