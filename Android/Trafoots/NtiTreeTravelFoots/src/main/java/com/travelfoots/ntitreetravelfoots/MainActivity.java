@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity
         Button btn = findViewById(R.id.button2);
         btn.setOnClickListener(view -> {
             TravelRecordConnecter t = new TravelRecordConnecter();
-            t.add(new TravelRecord());
+//            t.add(new TravelRecord());
         });
 
 
