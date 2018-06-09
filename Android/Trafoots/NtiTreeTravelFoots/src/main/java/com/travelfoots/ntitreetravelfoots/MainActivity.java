@@ -49,6 +49,7 @@ import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.annotations.PolylineOptions;
+import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.constants.Style;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
@@ -119,6 +120,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         Window w = getWindow();
         w.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         w.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION); super.onCreate(savedInstanceState);
@@ -142,6 +144,8 @@ public class MainActivity extends AppCompatActivity
         createPinpointBtn = findViewById(R.id.button);
         createPinpointBtn.setOnClickListener(v -> CreatePinpoint(createPinpointBtn));
 
+        //지도 클릭시 compass모드
+        mapView.setOnClickListener(v -> locationModeCompass(mapView));
 
         startEndBtn = findViewById(R.id.startEndBut);
 
@@ -252,6 +256,13 @@ public class MainActivity extends AppCompatActivity
     @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(MapboxMap mapboxMap) {
+
+        //앱 실행시 카메라위치를 내위치로
+        GPSMetaData gpsMetaData = new GPSMetaData();
+        double lat = gpsMetaData.getUserLat();
+        double lng = gpsMetaData.getUserLng();
+        mapboxMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+                new LatLng(lat,lng), 20));
         this.mapboxMap = mapboxMap;
 
         locationEngine = new LocationEngineProvider(this).obtainBestLocationEngineAvailable();
@@ -278,6 +289,7 @@ public class MainActivity extends AppCompatActivity
         setRendererMode(renderMode);
 
         getLifecycle().addObserver(locationLayerPlugin);
+
     }
 
 
@@ -351,8 +363,10 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onLocationChanged(Location location) {
-        //mapboxMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-        //      new LatLng(location.getLatitude(), location.getLongitude()), 16));
+
+       /* mapboxMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+             new LatLng(location.getLatitude(), location.getLongitude()), 16));*/
+
         double lat;
         double lng;
         lat = location.getLatitude();
@@ -408,16 +422,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setRendererMode(@RenderMode.Mode int mode) {
-        renderMode = mode;
-        locationLayerPlugin.setRenderMode(mode);
-        if (mode == RenderMode.NORMAL) {
-            locationModeBtn.setText("Normal");
-        } else if (mode == RenderMode.COMPASS) {
-            locationModeBtn.setText("Compass");
-        } else if (mode == RenderMode.GPS) {
-            locationModeBtn.setText("Gps");
+
+       mode = RenderMode.COMPASS;
+
         }
-    }
+
 
     private void showTrackingListDialog() {
         List<String> trackingTypes = new ArrayList<>();
