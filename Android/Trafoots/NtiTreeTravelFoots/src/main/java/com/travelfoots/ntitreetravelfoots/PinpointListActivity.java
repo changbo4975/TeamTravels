@@ -1,5 +1,6 @@
 package com.travelfoots.ntitreetravelfoots;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import java.util.List;
 public class PinpointListActivity extends AppCompatActivity {
     ListView listView;
     Pinpoint pinpoint;
+    myAdapter adapter;
     List<Pinpoint> pinpointArrayList = new ArrayList<>();
 
 
@@ -29,6 +31,8 @@ public class PinpointListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pinpoint_list);
 
         listView = (ListView)findViewById(R.id.ListView);
+        adapter = new myAdapter();
+        listView.setAdapter(adapter);
 
     }
     class myAdapter extends BaseAdapter {
@@ -50,7 +54,10 @@ public class PinpointListActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-
+            TextView view = new TextView(getApplicationContext());
+            view.setText(pinpointArrayList.indexOf(pinpoint));
+            view.setTextSize(50.0f);
+            view.setTextColor(Color.BLUE);
             return convertView;
         }
     }
