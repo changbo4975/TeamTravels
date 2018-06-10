@@ -14,7 +14,7 @@ import com.airbnb.lottie.LottieAnimationView;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private final int SPLASH_TIME = 2650;
+    private final int SPLASH_TIME = 2900;
     Typeface fontNanum;
 
 

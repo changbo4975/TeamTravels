@@ -190,6 +190,7 @@ public class Pinpoint_AutoGeneration {
     public List<Pinpoint> CreatePinpoint(List<MetaData> metaDataArrayList) {
         ArrayList<Pinpoint> pinpointArrayList = new ArrayList<>();
         SaveLoad saveLoad = new SaveLoad();
+        ArrayList<GPSMetaData> gpsMetaDataArrayList = (ArrayList<GPSMetaData>)saveLoad.load( "/gpsdata/", "/gpsData"+ ".dat");
         long now = System.currentTimeMillis();
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(now);
@@ -199,7 +200,7 @@ public class Pinpoint_AutoGeneration {
         for (MetaData metadata : metaDataArrayList
                 ) {
             //TODO 파일패쓰 설정
-//            if (15 >= (Near(saveLoad.load(), metadata))) { //GPS 근사치 구해 거리비교 시 15m 이내에 있을경우.
+            if (15 >= (Near(gpsMetaDataArrayList, metadata))) { //GPS 근사치 구해 거리비교 시 15m 이내에 있을경우.
                 Pinpoint pinpoint = new Pinpoint();
                 pinpoint.setLongitude(metadata.getFileLng());
                 pinpoint.setLatitude(metadata.getFileLat());
@@ -209,7 +210,7 @@ public class Pinpoint_AutoGeneration {
                 Log.i("제뱔", "CreatePinpoint: " + pinpoint.getPhotoList().toString()+" pinpointSize : " + pinpointArrayList.size());
 //            }
             i++;
-//            }
+            }
         }
 
         return pinpointArrayList;
