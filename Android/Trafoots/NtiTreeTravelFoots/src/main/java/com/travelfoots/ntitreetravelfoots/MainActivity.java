@@ -147,7 +147,10 @@ public class MainActivity extends AppCompatActivity
         // 툴바
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+<<<<<<< HEAD
 
+=======
+>>>>>>> bb5a27dd389991ec5c2d07078147e9119eaa9b3f
         ImageView imageView = findViewById(R.id.modechange);
         imageView.setOnClickListener(v -> SetRenderMode(imageView));
         mapView = findViewById(R.id.map_view);
@@ -313,9 +316,12 @@ public class MainActivity extends AppCompatActivity
     @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(MapboxMap mapboxMap) {
+
+<<<<<<< HEAD
+
+=======
         this.mapboxMap = mapboxMap;
-
-
+>>>>>>> bb5a27dd389991ec5c2d07078147e9119eaa9b3f
         locationEngine = new LocationEngineProvider(this).obtainBestLocationEngineAvailable();
         locationEngine.setPriority(LocationEnginePriority.HIGH_ACCURACY);
         locationEngine.setFastestInterval(1000);
@@ -542,6 +548,49 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    public void onMapClick (@NonNull LatLng point){
+        locationLayerPlugin.setCameraMode(CameraMode.NONE);
+    }
+
+
+
+    public void saveListInLocal(ArrayList<GPSMetaData> list, String key) {
+        SharedPreferences prefs = getSharedPreferences("NtiTreeTravelFoots", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        editor.putString(key, json);
+        editor.apply();     // This line is IMPORTANT !!!
+
+    }
+
+    public ArrayList<GPSMetaData> getListFromLocal(String key) {
+        SharedPreferences prefs = getSharedPreferences("NtiTreeTravelFoots", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = prefs.getString(key, null);
+        Type type = new TypeToken<ArrayList<GPSMetaData>>() {
+        }.getType();
+        return gson.fromJson(json, type);
+
+    }
+
+    public ArrayList<GPSMetaData> loadListFromLocal(ArrayList<GPSMetaData> gpsMetas) {
+        gpsMetas =  getListFromLocal("gpsmetadata");
+        ArrayList<LatLng> latLngArrayList = new ArrayList<>();
+        LatLng latLng = new LatLng();
+        for (GPSMetaData gd: gpsMetas
+                ) {
+            latLng.setLatitude(gd.getUserLat());
+            latLng.setLongitude(gd.getUserLng());
+            latLngArrayList.add(latLng);
+        }
+        mapboxMap.addPolyline(new PolylineOptions()
+                .addAll(latLngArrayList)
+                .color(Color.parseColor("#3bb2d0"))
+                .width(2));
+        return gpsMetas;
+    }
 
     private void checkPermissionF() {
 
@@ -600,7 +649,6 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
-
     /**
      * 사용자가 권한을 허용했는지 거부했는지 체크
      *
@@ -645,6 +693,7 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+<<<<<<< HEAD
 
     @Override
     public void onMapClick(@NonNull LatLng point) {
@@ -695,3 +744,6 @@ public class MainActivity extends AppCompatActivity
         textView.setTypeface(fontNanum, Typeface.BOLD);
     }
 }
+=======
+}
+>>>>>>> bb5a27dd389991ec5c2d07078147e9119eaa9b3f
