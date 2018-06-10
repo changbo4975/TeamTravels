@@ -13,6 +13,9 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="access_token">pk.eyJ1IjoibGVlaG9qdW4iLCJhIjoiY2poZGV6eGEyMG16ajMwcW92ZGZpZmVnMyJ9.W5-HU5UKTRGGnwpomZJuiw</string>
+
+    <string name="travel_status_ing">여행 상태 : 여행중</string>
+    <string name="travel_status_end">여행 상태 : 여행 종료</string>
 </resources>
 
 
