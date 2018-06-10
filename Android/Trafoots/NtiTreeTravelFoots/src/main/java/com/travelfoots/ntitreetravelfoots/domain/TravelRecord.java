@@ -30,7 +30,6 @@ public class TravelRecord implements Serializable {
 
 	}
 
-
 	public int getRange() {
 		return range;
 	}

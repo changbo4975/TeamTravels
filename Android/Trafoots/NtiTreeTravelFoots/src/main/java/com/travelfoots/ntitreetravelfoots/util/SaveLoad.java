@@ -1,37 +1,46 @@
 package com.travelfoots.ntitreetravelfoots.util;
 
 import android.os.Environment;
+import android.util.Log;
 
 import com.travelfoots.ntitreetravelfoots.domain.Pinpoint;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.List;
 
-public class SaveLoad {
+public class SaveLoad implements Serializable {
 
-    public boolean save(Object obj, String path, String fileName) {
-                    ObjectOutputStream out = null;
+    public boolean save(Object obj, String path, String fileName){
 
-                    try {
-                        out = new ObjectOutputStream(new FileOutputStream( Environment.getExternalStorageDirectory().getAbsolutePath()
-                                + "/travelFoot/" + path + fileName));
-                        out.writeObject(obj);
+        ObjectOutputStream out = null;
 
-                        out.flush();
-                        out.close();
+        try {
+            String filePath = Environment.getExternalStorageDirectory().getAbsolutePath()  + "/travelFoot/" + path;
+            Log.i("경로", filePath);
 
-                    } catch (IOException e) {
-                        if(out != null) {
-                            try {
-                                out.flush();
-                                out.close();
-                            } catch (IOException e1) {
+            File file = new File(filePath);
+            file.mkdirs();
 
-                            }
+            out = new ObjectOutputStream(new FileOutputStream(filePath + "/" + fileName));
+            out.writeObject(obj);
+
+            //out.flush();
+            out.close();
+
+        } catch (IOException e) {
+            if (out != null) {
+                try {
+                    out.flush();
+                    out.close();
+                } catch (IOException e1) {
+
+                }
             }
 
             return false;
@@ -45,15 +54,16 @@ public class SaveLoad {
         Object obj = null;
 
         try {
-            in = new ObjectInputStream(new FileInputStream(Environment.getExternalStorageDirectory().getAbsolutePath()
-                    + "/travelFoot/" + path + fileName));
+            String filePath = Environment.getExternalStorageDirectory().getAbsolutePath()  + "/travelFoot/" + path;
+
+            in = new ObjectInputStream(new FileInputStream(filePath + "/" + fileName));
             obj = in.readObject();
 
             in.close();
 
         } catch (Exception e) {
             e.printStackTrace();
-            if(in != null) {
+            if (in != null) {
                 try {
                     in.close();
                 } catch (IOException e1) {
