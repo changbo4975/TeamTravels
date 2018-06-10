@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import com.tf.domain.Photo;
 import com.tf.domain.Pinpoint;
 import com.tf.domain.TravelRecord;
@@ -11,6 +13,7 @@ import com.tf.persistence.PhotoMapper;
 import com.tf.persistence.PinpointMapper;
 import com.tf.persistence.TravelRecordMapper;
 
+@Service
 public class TravelRecordServiceImp implements TravelRecordService {
 	@Resource
 	private TravelRecordMapper travelRecordMapper;

@@ -1,5 +1,6 @@
 package com.tf.presentation;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
@@ -58,12 +59,16 @@ public class TravelRecordController {
 		
 		MultipartHttpServletRequest req = (MultipartHttpServletRequest) request;
 		
-		MultipartFile mpfile = req.getFile("foo.jpg");
-		System.out.println(mpfile.getName());
+		MultipartFile mpfile = req.getFile("joo.jpg");
+		String name = mpfile.getName();
+		System.out.println(name);
 
 		SaveLoad s = new SaveLoad();
 		
-		s.save(mpfile, "s", "a", mpfile.getName());
+		s.save(mpfile, "s", "a", name);
+		
+		BufferedImage b = s.load( "s", "a", name);
+		System.out.println(b);
 		
 //		String message = req.getParameter("message");
 //		System.out.println("travelController check");
