@@ -35,11 +35,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            mapbox:mapbox_cameraTargetLat="36.820119"
+            mapbox:mapbox_cameraTargetLng="127.155794"
             mapbox:mapbox_cameraZoom="12"
-<<<<<<< HEAD
-            mapbox:mapbox_styleUrl="mapbox://styles/mapbox/streets-v10">
-
-        </com.mapbox.mapboxsdk.maps.MapView>
+            mapbox:mapbox_styleUrl="mapbox://styles/mapbox/streets-v10"></com.mapbox.mapboxsdk.maps.MapView>
 
         <TextView
             android:id="@+id/travel_status"
@@ -50,12 +49,6 @@
             android:textAlignment="textEnd"
             android:textSize="18sp"
             android:textStyle="bold" />
-=======
-            mapbox:mapbox_cameraTargetLat="36.820119"
-            mapbox:mapbox_cameraTargetLng="127.155794"
-            mapbox:mapbox_styleUrl="mapbox://styles/mapbox/streets-v10" >
-        </com.mapbox.mapboxsdk.maps.MapView>
->>>>>>> bb5a27dd389991ec5c2d07078147e9119eaa9b3f
 
 
     </LinearLayout>
@@ -100,11 +93,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/main_button_gps"
                 android:text="▶"
-<<<<<<< HEAD
                 android:textColor="@color/cpb_white" />
-=======
-                android:textColor="@color/cpb_white"/>
->>>>>>> bb5a27dd389991ec5c2d07078147e9119eaa9b3f
 
             <Button
                 android:id="@+id/button"
@@ -113,11 +102,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/main_button"
                 android:text="Pin생성"
-<<<<<<< HEAD
                 android:textColor="@color/cpb_white" />
-=======
-                android:textColor="@color/cpb_white"/>
-
         </LinearLayout>
 
         <LinearLayout
@@ -136,8 +121,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
-            button_location_tracking
->>>>>>> bb5a27dd389991ec5c2d07078147e9119eaa9b3f
 
         </LinearLayout>
 

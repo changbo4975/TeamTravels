@@ -29,7 +29,7 @@ public class Pinpoint_AutoGeneration {
         super();
     }
 
-    //TODO Metadata 추출
+    // Metadata 추출
     public ArrayList<MetaData> MetaDataExtract(final Context context) {
         ArrayList<MetaData> result = new ArrayList<>();
 
@@ -119,22 +119,23 @@ public class Pinpoint_AutoGeneration {
 
     //TODO 근사값 찾기
     public double Near(List<GPSMetaData> data, MetaData target) {
-        double nearLat = 0;
-        double nearLng = 0;
-        double minLat = Double.MAX_VALUE;
-        double minLng = Double.MAX_VALUE;
+        double dlat = target.getFileLat();
+        double dlng = target.getFileLng();
+        double min = Double.MAX_VALUE;
+        double distance=0;
+        for (GPSMetaData tata : data
+                ) {
 
-        for (int i = 0; i < data.size(); i++) {
-            if (Abs(data.get(i).getUserLat() - target.getFileLat()) < minLat &&
-                    Abs(data.get(i).getUserLng() - target.getFileLng()) < minLng) {
-                minLat = Abs(data.get(i).getUserLat() - target.getFileLat());
-                nearLat = data.get(i).getUserLng();
-                minLng = Abs(data.get(i).getUserLng() - target.getFileLng());
-                nearLng = data.get(i).getUserLng();
-            }
+            double ulat = tata.getUserLat();
+            double ulng = tata.getUserLng();
+            distance = ed(ulat, ulng, dlat, dlng, "meter");
+        if(distance<min)min=distance;
         }
-        double distance = DistanceComparison(nearLat, nearLng, target.getFileLat(), target.getFileLng());
 
+
+//        double distance = DistanceComparison(nearLat, nearLng, target.getFileLat(), target.getFileLng());
+
+        Log.i("distance", "Near: " + distance);
         return distance;
 
     }
@@ -143,7 +144,7 @@ public class Pinpoint_AutoGeneration {
         return (p < 0) ? -p : p;
     }
 
-    //TODO 거리비교
+    //거리비교
     double DistanceComparison(double lat, double lng, double nlat, double nlng) {
         GeodeticCalculator geoCalc = new GeodeticCalculator();
 
@@ -157,7 +158,35 @@ public class Pinpoint_AutoGeneration {
         return distance;
     }
 
-    //TODO 거리비교
+    private static double ed(double lat1, double lon1, double lat2, double lon2, String unit) {
+
+        double theta = lon1 - lon2;
+        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+
+        dist = Math.acos(dist);
+        dist = rad2deg(dist);
+        dist = dist * 60 * 1.1515;
+
+        if (unit == "kilometer") {
+            dist = dist * 1.609344;
+        } else if (unit == "meter") {
+            dist = dist * 1609.344;
+        }
+
+        return (dist);
+    }
+
+
+    // This function converts decimal degrees to radians
+    private static double deg2rad(double deg) {
+        return (deg * Math.PI / 180.0);
+    }
+
+    // This function converts radians to decimal degrees
+    private static double rad2deg(double rad) {
+        return (rad * 180 / Math.PI);
+    }
+    //거리비교
 
     List<MetaData> DistanceComparison(List<MetaData> metaDataList) {
         GeodeticCalculator geoCalc = new GeodeticCalculator();
@@ -186,11 +215,11 @@ public class Pinpoint_AutoGeneration {
     }
 
 
-    //TODO 핀포인트 생성
+    //핀포인트 생성
     public List<Pinpoint> CreatePinpoint(List<MetaData> metaDataArrayList) {
         ArrayList<Pinpoint> pinpointArrayList = new ArrayList<>();
         SaveLoad saveLoad = new SaveLoad();
-        ArrayList<GPSMetaData> gpsMetaDataArrayList = (ArrayList<GPSMetaData>)saveLoad.load( "/gpsdata/", "/gpsData"+ ".dat");
+        ArrayList<GPSMetaData> gpsMetaDataArrayList = (ArrayList<GPSMetaData>) saveLoad.load("/gpsdata/", "/gpsData" + ".dat");
         long now = System.currentTimeMillis();
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(now);
@@ -200,33 +229,34 @@ public class Pinpoint_AutoGeneration {
         for (MetaData metadata : metaDataArrayList
                 ) {
             //TODO 파일패쓰 설정
-            if (15 >= (Near(gpsMetaDataArrayList, metadata))) { //GPS 근사치 구해 거리비교 시 15m 이내에 있을경우.
+            if (20 >= (Near(gpsMetaDataArrayList, metadata))) { //GPS 근사치 구해 거리비교 시 15m 이내에 있을경우.
                 Pinpoint pinpoint = new Pinpoint();
                 pinpoint.setLongitude(metadata.getFileLng());
                 pinpoint.setLatitude(metadata.getFileLat());
-                pinpoint.setPhotoList(getPhotoList(metaDataArrayList,metadata));
+                pinpoint.setPhotoList(getPhotoList(metaDataArrayList, metadata));
                 pinpoint.setNo(i);
                 pinpointArrayList.add(pinpoint);
-                Log.i("제뱔", "CreatePinpoint: " + pinpoint.getPhotoList().toString()+" pinpointSize : " + pinpointArrayList.size());
-//            }
-            i++;
+                Log.i("제뱔", "CreatePinpoint: " + pinpoint.getPhotoList().toString() + " pinpointSize : " + pinpointArrayList.size());
             }
+            i++;
         }
+//        }
 
         return pinpointArrayList;
     }
-    List<Photo> getPhotoList(List<MetaData> metaDataList,MetaData metaData){
+
+    List<Photo> getPhotoList(List<MetaData> metaDataList, MetaData metaData) {
 
         double lat = metaData.getFileLat();
         double lng = metaData.getFileLng();
 
-        List<Photo> photoList= new ArrayList<>();
+        List<Photo> photoList = new ArrayList<>();
         Photo photo = new Photo();
         photo.setFilepath(metaData.getFilePath());
         photoList.add(photo);
-        for (MetaData met: metaDataList
+        for (MetaData met : metaDataList
                 ) {
-            if(lat == met.getFileLat() && lng == met.getFileLng()){
+            if (lat == met.getFileLat() && lng == met.getFileLng()) {
                 Photo same_photo = new Photo();
                 same_photo.setFilepath(met.getFilePath());
                 photoList.add(photo);
@@ -235,7 +265,7 @@ public class Pinpoint_AutoGeneration {
         }
 
         HashSet<Photo> listSet = new HashSet<Photo>(photoList);
-        ArrayList<Photo> processedList = new ArrayList<>( listSet);
+        ArrayList<Photo> processedList = new ArrayList<>(listSet);
         return processedList;
     }
 

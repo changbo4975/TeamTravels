@@ -137,6 +137,8 @@ public class MainActivity extends AppCompatActivity
         w.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         super.onCreate(savedInstanceState);
 
+        //TODO 이벤트 위치 수정.
+
         checkPermissionF();
         gpsMetaDataArrayList = new ArrayList<>();
         pinpointArrayList = new ArrayList<>();
@@ -147,10 +149,6 @@ public class MainActivity extends AppCompatActivity
         // 툴바
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-<<<<<<< HEAD
-
-=======
->>>>>>> bb5a27dd389991ec5c2d07078147e9119eaa9b3f
         ImageView imageView = findViewById(R.id.modechange);
         imageView.setOnClickListener(v -> SetRenderMode(imageView));
         mapView = findViewById(R.id.map_view);
@@ -168,6 +166,8 @@ public class MainActivity extends AppCompatActivity
             String dirPath = Environment.getExternalStorageDirectory().getAbsoluteFile() + "/sibal";
             File file = new File(dirPath);
             file.mkdirs();
+            loadListFromLocal(pinpointArrayList);
+            loadListFromLocal(gpsMetaDataArrayList);
         });
 
 
@@ -228,6 +228,7 @@ public class MainActivity extends AppCompatActivity
         mapboxMap.setOnMarkerClickListener(this);
 
 
+        saveListInLocal(pinpointArrayList, "pinpoint");
     }
 
     //시작 정지버튼
@@ -265,9 +266,9 @@ public class MainActivity extends AppCompatActivity
             display.getSize(size);
 
             Window window = customDialog.getWindow();
-            int x = (int)(size.x*0.8f);
-            int y = (int)(size.y*0.7f);
-            window.setLayout(x,y);
+            int x = (int) (size.x * 0.8f);
+            int y = (int) (size.y * 0.7f);
+            window.setLayout(x, y);
 
             customDialog.show();
             travelRecord.setStartDate(String.valueOf(startDate));
@@ -317,11 +318,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onMapReady(MapboxMap mapboxMap) {
 
-<<<<<<< HEAD
-
-=======
         this.mapboxMap = mapboxMap;
->>>>>>> bb5a27dd389991ec5c2d07078147e9119eaa9b3f
         locationEngine = new LocationEngineProvider(this).obtainBestLocationEngineAvailable();
         locationEngine.setPriority(LocationEnginePriority.HIGH_ACCURACY);
         locationEngine.setFastestInterval(1000);
@@ -446,7 +443,7 @@ public class MainActivity extends AppCompatActivity
                 .width(2));
 
         saveLoad.save(gpsMetaDataArrayList, "/gpsmetadata/", "/gpsmetadata.dat");
-        saveListInLocal(gpsMetaDataArrayList, "gpsmetadata");
+        saveListInLocal(gpsMetaDataArrayList, "gpsdata");
     }
 
     @Override
@@ -524,7 +521,7 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_mypage) {
             Intent intent = new Intent(MainActivity.this, MypageActivity.class);
-            intent.putExtra("gpslist", (Serializable) metaDataArrayList);
+            intent.putExtra("gpslist",metaDataArrayList);
             startActivity(intent);
         } else if (id == R.id.nav_travelrecords) {
             Intent intent = new Intent(MainActivity.this, TravelHistoryActivity.class);
@@ -549,48 +546,12 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onMapClick (@NonNull LatLng point){
+    public void onMapClick(@NonNull LatLng point) {
         locationLayerPlugin.setCameraMode(CameraMode.NONE);
     }
 
 
 
-    public void saveListInLocal(ArrayList<GPSMetaData> list, String key) {
-        SharedPreferences prefs = getSharedPreferences("NtiTreeTravelFoots", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(list);
-        editor.putString(key, json);
-        editor.apply();     // This line is IMPORTANT !!!
-
-    }
-
-    public ArrayList<GPSMetaData> getListFromLocal(String key) {
-        SharedPreferences prefs = getSharedPreferences("NtiTreeTravelFoots", Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = prefs.getString(key, null);
-        Type type = new TypeToken<ArrayList<GPSMetaData>>() {
-        }.getType();
-        return gson.fromJson(json, type);
-
-    }
-
-    public ArrayList<GPSMetaData> loadListFromLocal(ArrayList<GPSMetaData> gpsMetas) {
-        gpsMetas =  getListFromLocal("gpsmetadata");
-        ArrayList<LatLng> latLngArrayList = new ArrayList<>();
-        LatLng latLng = new LatLng();
-        for (GPSMetaData gd: gpsMetas
-                ) {
-            latLng.setLatitude(gd.getUserLat());
-            latLng.setLongitude(gd.getUserLng());
-            latLngArrayList.add(latLng);
-        }
-        mapboxMap.addPolyline(new PolylineOptions()
-                .addAll(latLngArrayList)
-                .color(Color.parseColor("#3bb2d0"))
-                .width(2));
-        return gpsMetas;
-    }
 
     private void checkPermissionF() {
 
@@ -649,6 +610,7 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+
     /**
      * 사용자가 권한을 허용했는지 거부했는지 체크
      *
@@ -693,14 +655,19 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
-<<<<<<< HEAD
 
-    @Override
-    public void onMapClick(@NonNull LatLng point) {
-        locationLayerPlugin.setCameraMode(CameraMode.NONE);
-    }
 
     public void saveListInLocal(ArrayList<GPSMetaData> list, String key) {
+        SharedPreferences prefs = getSharedPreferences("NtiTreeTravelFoots", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        editor.putString(key, json);
+        editor.apply();     // This line is IMPORTANT !!!
+        Toast.makeText(this, "세이브 성공 !GPSMETADATA_SIZE: " + list.size(), Toast.LENGTH_SHORT).show();
+
+    }
+    public void saveListInLocal(List<Pinpoint> list, String key) {
         SharedPreferences prefs = getSharedPreferences("NtiTreeTravelFoots", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         Gson gson = new Gson();
@@ -720,7 +687,9 @@ public class MainActivity extends AppCompatActivity
         return gson.fromJson(json, type);
 
     }
-
+    public List<Pinpoint> loadListFromLocal(List<Pinpoint> pinpointList) {
+        return pinpointList;
+    }
     public ArrayList<GPSMetaData> loadListFromLocal(ArrayList<GPSMetaData> gpsMetas) {
 
         gpsMetas = getListFromLocal("gpsmetadata");
@@ -744,6 +713,3 @@ public class MainActivity extends AppCompatActivity
         textView.setTypeface(fontNanum, Typeface.BOLD);
     }
 }
-=======
-}
->>>>>>> bb5a27dd389991ec5c2d07078147e9119eaa9b3f

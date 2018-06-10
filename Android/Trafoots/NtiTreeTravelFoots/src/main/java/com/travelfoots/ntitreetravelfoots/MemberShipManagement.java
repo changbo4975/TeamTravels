@@ -6,7 +6,6 @@ public class MemberShipManagement {
     private String email;
     private String nickname;
     private String password;
-    //TODO 자기소개
     private String intro;
     private int age;
     private int gender;
