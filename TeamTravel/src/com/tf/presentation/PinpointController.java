@@ -61,10 +61,9 @@ public class PinpointController {
 		if(httpSession == null) {
 			return new ModelAndView("/login");
 		} else {
-			String email = (String)httpSession.getAttribute("email");
-			Pinpoint pinpoint = new Pinpoint();
-			pinpoint.setEmail(email);
-			List<Pinpoint> listPinpoint= this.pinpointService.list(pinpoint);
+			int travelRecordNo = (int)httpSession.getAttribute("travelRecordNo");
+			
+			List<Pinpoint> listPinpoint= this.pinpointService.list(travelRecordNo);
 			
 			ModelAndView modelAndView = new ModelAndView("/pinpoint/list");
 			modelAndView.addObject("listPinpoint", listPinpoint);
@@ -90,9 +89,7 @@ public class PinpointController {
 	}
 	@RequestMapping(value = "/remove{NO}", method = RequestMethod.GET)
 	public ModelAndView remove(@PathVariable int pinpintNo) throws Exception {
-		Pinpoint pinpoint = new Pinpoint();
-		pinpoint.setNo(pinpintNo);
-		this.pinpointService.delete(pinpoint);
+		this.pinpointService.delete(pinpintNo);
 		
 		return new ModelAndView(new RedirectView("/°æ·Î"));
 	}

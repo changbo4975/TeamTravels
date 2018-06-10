@@ -10,6 +10,17 @@
 		<result column="URI" property="uri" />
 	</resultMap>
 
+	<select id="list" parameterType="int"
+		resultType="com.tf.domain.Photo">
+		SELECT
+			NO as no,
+			PINPOINT_NO as pinpointNo,
+			URI as uri
+			FROM PHOTO
+		WHERE
+			PINPOINT_NO = #{pinpointNo}
+	</select>
+
 	<select id="select" parameterType="com.tf.domain.Photo"
 		resultType="com.tf.domain.Photo">
 		SELECT
@@ -42,7 +53,7 @@
 		    NO = #{no}
 	</update>
 	
-	<update id="delete" parameterType="com.tf.domain.Photo">
+	<update id="delete" parameterType="int">
 		DELETE FROM PHOTO
 		WHERE NO = #{no}
 	</update>

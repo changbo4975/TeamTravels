@@ -5,21 +5,19 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tf.domain.Member;
 import com.tf.service.MemberService;
 
@@ -38,7 +36,7 @@ public class MemberController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public ModelAndView addPost(Member member) throws Exception {
 		if(member.getEmail() != null || member.getNickname() != null || member.getPassword() != null) {
-			member.setRepresentativePhoto("»çÁø");
+			member.setRepresentativePhoto("ì‚¬ì§„");
 			memberService.add(member);
 		}
 		
@@ -46,18 +44,16 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/addApp", method = RequestMethod.POST)
-	public void addPostApp(HttpServletRequest req) throws Exception {
+	public String addPostApp(String message) throws Exception {
 		
-		System.out.println(req.getParameter("email"));
-		Member member = new Member();
-		member.setEmail(req.getParameter("email"));
-		member.setNickname(req.getParameter("nickname"));
-		member.setAge(Integer.parseInt(req.getParameter("age")));
-		member.setGender(Integer.parseInt(req.getParameter("gender")));
-		member.setSelfintroduction(req.getParameter("introduction"));
-		member.setPassword(req.getParameter("password"));
+		ObjectMapper o = new ObjectMapper();
+		Map map = o.readValue(message, Map.class);
+		
+		Member member = new Member(map);
 		
 		memberService.add(member);
+		
+		return null;
 	}
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)

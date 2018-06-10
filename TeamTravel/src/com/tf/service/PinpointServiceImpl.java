@@ -14,18 +14,12 @@ public class PinpointServiceImpl implements PinpointService {
 	private PinpointMapper pinpointMapper;
 	
 	@Override
-	public List<Pinpoint> list(Pinpoint pinpoint) throws Exception {
-		Pinpoint listPinpoint = new Pinpoint();
-
-		listPinpoint.setEmail(pinpoint.getEmail());
-
-		List<Pinpoint> listNoticeBoard = this.pinpointMapper.list(listPinpoint);
-		return listNoticeBoard;
+	public List<Pinpoint> list(int travelRecordNo) throws Exception {
+		return this.pinpointMapper.list(travelRecordNo);
 	}
 
 	@Override
 	public Pinpoint view(Pinpoint pinpoint) throws Exception {
-		
 		return pinpointMapper.select(pinpoint);
 	}
 
@@ -38,9 +32,8 @@ public class PinpointServiceImpl implements PinpointService {
 	}
 
 	@Override
-	public boolean delete(Pinpoint pinpoint) throws Exception {
-		pinpointMapper.delete(pinpoint);
-		
+	public boolean delete(int no) throws Exception {
+		pinpointMapper.delete(no);
 		return false;
 	}
 }

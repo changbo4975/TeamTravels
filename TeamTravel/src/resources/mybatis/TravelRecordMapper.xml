@@ -34,7 +34,7 @@
 		ORDER BY NO DESC
 	</select>
 	
-	<select id="select" parameterType="com.tf.domain.TravelRecord"
+	<select id="select" parameterType="int"
 		resultMap="travelRecordResultMap">
 		SELECT 
 			NO, 
@@ -88,7 +88,7 @@
 		    NO = #{no}
 	</update>
 	
-	<update id="delete" parameterType="com.tf.domain.TravelRecord">
+	<update id="delete" parameterType="int">
 		DELETE FROM TRAVELRECORD
 		WHERE NO = #{no}
 	</update>

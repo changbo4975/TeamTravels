@@ -41,7 +41,7 @@ public class PhotoController {
 	public ModelAndView remove(@PathVariable int no) throws Exception {
 		Photo photo = new Photo();
 		photo.setNo(no);
-		this.photoService.delete(photo);
+		this.photoService.delete(no);
 		
 		return new ModelAndView(new RedirectView("/°æ·Î"));
 	}

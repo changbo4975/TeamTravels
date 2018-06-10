@@ -1,7 +1,9 @@
 package com.tf.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class TravelRecord implements Serializable {
 	private int no;
@@ -13,6 +15,30 @@ public class TravelRecord implements Serializable {
 	private int state;
 	private String title;
 	private List<Pinpoint> pinpointList;
+	
+	public TravelRecord() {}
+	
+	public TravelRecord(Map map) {
+		this.no = (int)map.get("no");
+		this.email = (String)map.get("email");
+		this.range = (int)map.get("range");
+		this.nation = (String)map.get("nation");
+		this.startDate = (String)map.get("startDate");
+		this.endDate = (String)map.get("endDate");
+		this.state = (int)map.get("state");
+		this.title = (String)map.get("title");
+		this.pinpointList = new ArrayList<Pinpoint>();
+		
+		for(int i = 0; i < ((List)map.get("pinpointList")).size(); i++) {
+			Map pMap = (Map)((List)map.get("pinpointList")).get(i);
+			Pinpoint p = new Pinpoint(pMap);
+			pinpointList.add(p);
+		}
+		
+		
+		
+
+	}
 	
 	public List<Pinpoint> getPinpointList() {
 		return pinpointList;

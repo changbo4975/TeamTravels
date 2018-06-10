@@ -4,15 +4,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-
 import com.tf.domain.Photo;
 import com.tf.domain.Pinpoint;
 import com.tf.domain.TravelRecord;
 import com.tf.persistence.PhotoMapper;
 import com.tf.persistence.PinpointMapper;
 import com.tf.persistence.TravelRecordMapper;
-import com.tf.util.SaveLoad;
 
 public class TravelRecordServiceImp implements TravelRecordService {
 	@Resource
@@ -25,42 +22,38 @@ public class TravelRecordServiceImp implements TravelRecordService {
 	@Override
 	public List<TravelRecord> list(TravelRecord travelRecord) throws Exception {
 		return travelRecordMapper.list(travelRecord);
-		
 	}
 
 	@Override
-	public TravelRecord view(TravelRecord travelRecord) throws Exception {
-		return travelRecordMapper.select(travelRecord);
+	public TravelRecord view(int no) throws Exception {
+		TravelRecord travelRecord = new TravelRecord();
+		
+		travelRecord = travelRecordMapper.select(no);
+		List<Pinpoint> pinpointList = null;
+		
+		pinpointList = pinpointMapper.list(travelRecord.getNo());
+		
+		for(Pinpoint p : pinpointList) {
+			p.setPhotoList(photoMapper.list(p.getNo()));
+		}
+		
+		travelRecord.setPinpointList(pinpointList);
+		
+		return travelRecord;
 	}
 
 	// 오류체크 안함
 	@Override
-	public boolean add(MultipartHttpServletRequest req) throws Exception {
-		TravelRecord travelRecord = new TravelRecord();
-		SaveLoad saveLoad = new SaveLoad();
+	public boolean add(TravelRecord travelRecord) throws Exception {
+		travelRecordMapper.insert(travelRecord);
 		
-		travelRecord.setNo(Integer.parseInt(req.getParameter("travelRecordNo")));
-		travelRecord.setEmail(req.getParameter("email"));
-		travelRecord.setStartDate(req.getParameter("startDate"));
-		travelRecord.setEndDate(req.getParameter("endDate"));
-		
-		String str = null;
-		for(int cnt = 1; (str = req.getParameter("pinpointNo" + cnt)) != null; cnt++) {
-			Pinpoint pinpoint = new Pinpoint();
-			pinpoint.setNo(Integer.parseInt(str));
-			pinpoint.setEmail(travelRecord.getEmail());
-			pinpoint.setLatitude(Double.parseDouble(req.getParameter("latitude" + cnt)));
-			pinpoint.setLongitude(Double.parseDouble(req.getParameter("longitude" + cnt)));
-			
+		for(Pinpoint pinpoint : travelRecord.getPinpointList()) {
 			pinpointMapper.insert(pinpoint);
-			
-			for(int fileCnt = 1; (str = req.getParameter(cnt + "_" + fileCnt)) != null; fileCnt++) {
-				Photo photo = new Photo();
-				photo.setUri(cnt + "_" + fileCnt);
-				saveLoad.save(req.getFile(cnt+"_"+fileCnt), "", cnt + "_" + fileCnt);
-				//photoMapper.insert(photo);
+			for(Photo photo : pinpoint.getPhotoList()) {
+				photoMapper.insert(photo);
 			}
 		}
+		
 		return false;
 	}
 
@@ -71,8 +64,8 @@ public class TravelRecordServiceImp implements TravelRecordService {
 	}
 
 	@Override
-	public boolean delete(TravelRecord travelRecord) throws Exception {
-		travelRecordMapper.delete(travelRecord);
+	public boolean delete(int no) throws Exception {
+		travelRecordMapper.delete(no);
 		return false;
 	}
 

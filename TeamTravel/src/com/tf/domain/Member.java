@@ -1,12 +1,13 @@
 package com.tf.domain;
 
 import java.io.Serializable;
+import java.util.Map;
 
 public class Member implements Serializable {
 	private String email;
 	private String nickname;
 	private int age;
-	private int gender;
+	private char gender;
 	private String representativePhoto;
 	private String selfintroduction;
 	private String password;
@@ -16,14 +17,25 @@ public class Member implements Serializable {
 		this.email = "";
 		this.nickname = "";
 		this.age = -1;
-		this.gender = 0;
+		this.gender = ' ';
 		this.representativePhoto = "";
 		this.selfintroduction = "";
 		this.password = "";
 		this.restrictionCount = -1;
 	}
 	
-	public Member(String email, String nickname, int age, int gender, String representativePhoto, String selfintroduction, String password, int restrictionCount) {
+	public Member(Map map) {
+		this.email = (String)map.get("email");
+		this.nickname = (String)map.get("email");
+		this.age = (int)map.get("age");
+		this.gender = (char)map.get("gender");
+		this.representativePhoto = (String)map.get("representativePhoto");
+		this.selfintroduction = (String)map.get("selfintroduction");
+		this.password = (String)map.get("password");
+		this.restrictionCount = (int)map.get("restrictionCount");
+	}
+	
+	public Member(String email, String nickname, int age, char gender, String representativePhoto, String selfintroduction, String password, int restrictionCount) {
 		this.email = email;
 		this.nickname = nickname;
 		this.age = age;
@@ -52,10 +64,10 @@ public class Member implements Serializable {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public int getGender() {
+	public char getGender() {
 		return gender;
 	}
-	public void setGender(int gender) {
+	public void setGender(char gender) {
 		this.gender = gender;
 	}
 	public String getRepresentativePhoto() {

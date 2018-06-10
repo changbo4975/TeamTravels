@@ -1,11 +1,21 @@
 package com.tf.domain;
 
 import java.io.Serializable;
+import java.util.Map;
 
 public class Photo implements Serializable {
 	int no;
 	int pinpointNo;
 	String uri;
+	String name;
+	
+	public Photo() {}
+	
+	public Photo(Map map) {
+		this.no = (int)map.get("no");
+		this.pinpointNo = (int)map.get("pinpointNo");
+		this.uri = (String)map.get("url");
+	}
 	
 	public int getNo() {
 		return no;

@@ -14,7 +14,7 @@
 		<result column="ICON_NO" property="iconNo" />
 	</resultMap>
 	
-	<select id="list" parameterType="com.tf.domain.Pinpoint"
+	<select id="list" parameterType="int"
 		resultType="com.tf.domain.Pinpoint">
 		SELECT *
 		FROM (
@@ -28,11 +28,8 @@
 			ICON_NO as iconNo
 			FROM PINPOINT)
 			PINPOINT
-		<where>
-			<if test="email != null and email != ''">
-				AND EMAIL = #{email}
-			</if>
-		</where>
+		WHERE
+			TRAVELRECORD_NO = #{travelRecordNo}
 	</select>
 
 	<select id="select" parameterType="com.tf.domain.Pinpoint"
@@ -71,7 +68,7 @@
 		    NO = #{no}
 	</update>
 	
-	<update id="delete" parameterType="com.tf.domain.Pinpoint">
+	<update id="delete" parameterType="int">
 		DELETE FROM PINPOINT
 		WHERE NO = #{no}
 	</update>
