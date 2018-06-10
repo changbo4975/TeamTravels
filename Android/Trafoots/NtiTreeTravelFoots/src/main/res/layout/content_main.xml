@@ -36,7 +36,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             mapbox:mapbox_cameraZoom="12"
-            mapbox:mapbox_styleUrl="mapbox://styles/mapbox/streets-v10" />
+            mapbox:mapbox_cameraTargetLat="36.820119"
+            mapbox:mapbox_cameraTargetLng="127.155794"
+            mapbox:mapbox_styleUrl="mapbox://styles/mapbox/streets-v10" >
+        </com.mapbox.mapboxsdk.maps.MapView>
 
 
     </LinearLayout>
@@ -62,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/redius_button"
+                android:background="@drawable/main_button_t"
                 android:text="check" />
 
             <!--<com.airbnb.lottie.LottieAnimationView-->
@@ -79,16 +82,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/redius_button"
-                android:text="Button" />
+                android:background="@drawable/main_button_gps"
+                android:text="▶"
+                android:textColor="@color/cpb_white"/>
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/redius_button"
-                android:text="Pin생성" />
+                android:background="@drawable/main_button"
+                android:text="Pin생성"
+                android:textColor="@color/cpb_white"/>
+
         </LinearLayout>
 
         <LinearLayout

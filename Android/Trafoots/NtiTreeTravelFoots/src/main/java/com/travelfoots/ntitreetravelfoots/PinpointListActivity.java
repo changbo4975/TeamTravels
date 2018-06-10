@@ -55,7 +55,7 @@ public class PinpointListActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             TextView view = new TextView(getApplicationContext());
-            view.setText(pinpointArrayList.indexOf(pinpoint));
+            view.setText(pinpointArrayList.get(position).getNo());
             view.setTextSize(50.0f);
             view.setTextColor(Color.BLUE);
             return convertView;
